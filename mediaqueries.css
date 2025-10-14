@@ -1,5 +1,4 @@
 /* Media Queries */
-
 @media screen and (max-width: 1400px) {
     #profile {
         min-height: 83vh;
@@ -9,7 +8,6 @@
         flex-wrap: wrap;
     }
 }
-
 @media screen and (max-width: 1200px) {
     #desktop-nav {
         display: none;
@@ -41,7 +39,6 @@
         margin-top: 0;
     }
 }
-
 @media screen and (max-width: 600px) {
     #contact, footer {
         min-height: 40vh;
@@ -95,24 +92,5 @@
     /* Reduce animation elements on mobile */
     .code-symbol, .floating-icon {
         display: none;
-    }
-
-    /* Language selector adjustments for mobile */
-    .language-btn {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-    }
-
-    .language-dropdown {
-        min-width: 150px;
-    }
-
-    .language-option {
-        padding: 0.8rem 1rem;
-        font-size: 0.9rem;
-    }
-
-    .flag-icon {
-        font-size: 1.2rem;
     }
 }

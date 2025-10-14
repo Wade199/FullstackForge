@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -36,36 +36,13 @@
         <div class="logo">FullstackForge</div>
         <div>
             <ul class="nav-links">
-                <li><a href="#about" data-translate="nav-about">About</a></li>
-                <li><a href="#experience" data-translate="nav-experience">Experiences</a></li>
-                <li><a href="#projects" data-translate="nav-projects">Projets</a></li>
-                <li><a href="#contact" data-translate="nav-contact">Contact</a></li>
-                <li>
-                    <div class="language-selector">
-                        <button class="language-btn" onclick="toggleLanguageDropdown()">
-                            <span class="flag-icon">🌐</span>
-                            <span data-translate="language">Langue</span>
-                        </button>
-                        <div class="language-dropdown" id="languageDropdown">
-                            <div class="language-option" onclick="changeLanguage('fr')">
-                                <span class="flag-icon">🇫🇷</span>
-                                <span>Français</span>
-                            </div>
-                            <div class="language-option" onclick="changeLanguage('en')">
-                                <span class="flag-icon">🇬🇧</span>
-                                <span>English</span>
-                            </div>
-                            <div class="language-option" onclick="changeLanguage('es')">
-                                <span class="flag-icon">🇪🇸</span>
-                                <span>Español</span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experiences</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
-
     <nav id="hamburger-nav">
         <div class="logo">Ibrahima Wade</div>
         <div class="hamburger-menu">
@@ -75,50 +52,27 @@
                 <span></span>
             </div>
             <div class="menu-links">
-                <li><a href="#about" onclick="toggleMenu()" data-translate="nav-about">About</a></li>
-                <li><a href="#experience" onclick="toggleMenu()" data-translate="nav-experience">Experience</a></li>
-                <li><a href="#projects" onclick="toggleMenu()" data-translate="nav-projects">Projets</a></li>
-                <li><a href="#contact" onclick="toggleMenu()" data-translate="nav-contact">Contact</a></li>
-                <li>
-                    <div class="language-selector">
-                        <button class="language-btn" onclick="toggleLanguageDropdown()">
-                            <span class="flag-icon">🌐</span>
-                            <span data-translate="language">Langue</span>
-                        </button>
-                        <div class="language-dropdown" id="languageDropdownMobile">
-                            <div class="language-option" onclick="changeLanguage('fr')">
-                                <span class="flag-icon">🇫🇷</span>
-                                <span>Français</span>
-                            </div>
-                            <div class="language-option" onclick="changeLanguage('en')">
-                                <span class="flag-icon">🇬🇧</span>
-                                <span>English</span>
-                            </div>
-                            <div class="language-option" onclick="changeLanguage('es')">
-                                <span class="flag-icon">🇪🇸</span>
-                                <span>Español</span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+                <li><a href="#projects" onclick="toggleMenu()">Projets</a></li>
+                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
             </div>
         </div>
     </nav>
-
     <section id="profile">
         <div class="section__pic-container">
             <img src="./assets/image111.png" alt="Ibrahima Wade profile picture" />
         </div>
         <div class="section__text">
-            <p class="section__text__p1" data-translate="greeting">Bonjour, je suis</p>
+            <p class="section__text__p1">Bonjour, je suis</p>
             <h1 class="title">Ibrahima Wade</h1>
-            <p class="section__text__p2" data-translate="job-title">Développeur Full Stack</p>
+            <p class="section__text__p2">Développeur Full Stack</p>
             <div class="btn-container">
                 <button class="btn btn-color-2" onclick="window.open('./assets/IBRAHIMA WADE-24-1.pdf')">
-                    <span data-translate="download-cv">Download CV</span>
+                    Download CV
                 </button>
                 <button class="btn btn-color-1" onclick="location.href='./#contact'">
-                    <span data-translate="contact-btn">Contact</span>
+                    Contact
                 </button>
             </div>
             <div id="socials-container">
@@ -127,10 +81,9 @@
             </div>
         </div>
     </section>
-
     <section id="about">
-        <p class="section__text__p1" data-translate="learn-more">En savoir plus</p>
-        <h1 class="title" data-translate="about-title">À propos de moi</h1>
+        <p class="section__text__p1">En savoir plus</p>
+        <h1 class="title">À propos de moi</h1>
         <div class="section-container">
             <div class="section__pic-container">
                 <img src="./assets/img2infomatique.png.png" alt="Profile picture" class="about-pic" />
@@ -139,132 +92,131 @@
                 <div class="about-containers">
                     <div class="details-container">
                         <img src="./assets/experience.png" alt="Experience icon" class="icon" />
-                        <h3 data-translate="experience">Expériences</h3>
-                        <p><span data-translate="years-exp-full">3 ans</span><br /><span data-translate="job-title">Développeur Full Stack</span></p>
+                        <h3>Expériences</h3>
+                        <p>2 ans <br />Développeur Full Stack</p>
                     </div>
                     <div class="details-container">
                         <img src="./assets/education.png" alt="Education icon" class="icon" />
-                        <h3 data-translate="education">Formation</h3>
-                        <p data-translate="education-details">BTS SIO option SLAM (Services Informatiques aux Organisations)<br />Actuellement en 3ème année Bachelor DevOps Fullstack (l'Epsi d'ARRAS)</p>
+                        <h3>Formation</h3>
+                        <p>BTS SIO option SLAM (Services Informatiques aux Organisations)<br />Actuellement en 3ème année Bachelor DevOps Fullstack (l'Epsi d'ARRAS)</p>
                     </div>
                 </div>
                 <div class="text-container">
-                    <p data-translate="about-text">Développeur Full Stack passionné, je crée des applications web et mobiles tout en m'intéressant aux bonnes pratiques DevOps. Mon parcours m'a permis de travailler sur différents projets et de développer mes compétences techniques et organisationnelles. Ce portfolio présente mes réalisations et la manière dont j'aborde chaque projet. Bonne visite !</p>
+                    <p>Développeur Full Stack passionné, je crée des applications web et mobiles tout en m'intéressant aux bonnes pratiques DevOps. Mon parcours m'a permis de travailler sur différents projets et de développer mes compétences techniques et organisationnelles. Ce portfolio présente mes réalisations et la manière dont j'aborde chaque projet. Bonne visite !</p>
                 </div>
             </div>
         </div>
         <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#experience'" />
     </section>
-
     <section id="experience">
-        <p class="section__text__p1" data-translate="discover-projects">Découvrez mes projets</p>
-        <h1 class="title" data-translate="experience-title">Expériences</h1>
+        <p class="section__text__p1">Découvrez mes projets</p>
+        <h1 class="title">Expériences</h1>
         <div class="experience-details-container">
             <div class="about-containers">
                 <div class="details-container">
-                    <h2 class="experience-sub-title" data-translate="frontend-mobile">👉 Développement Frontend et <br />👉 Mobile</h2>
+                    <h2 class="experience-sub-title">👉 Développement Frontend et <br />👉 Mobile</h2>
                     <div class="article-container">
                         <article>
                             <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
                             <div>
                                 <h3>HTML</h3>
-                                <p data-translate="exp-level">Expérience</p>
+                                <p>Expérience</p>
                             </div>
                         </article>
                         <article>
                             <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
                             <div>
                                 <h3>CSS</h3>
-                                <p data-translate="exp-level">Expérience</p>
+                                <p>Expérience</p>
                             </div>
                         </article>
                         <article>
                             <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
                             <div>
                                 <h3>Bootstrap</h3>
-                                <p data-translate="exp-level">Expérience</p>
+                                <p>Expérience</p>
                             </div>
                         </article>
                         <article>
                             <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
                             <div>
                                 <h3>Angular</h3>
-                                <p data-translate="intermediate">Intermédiaire</p>
+                                <p>Intermediate</p>
                             </div>
                         </article>
                         <article>
                             <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
                             <div>
                                 <h3>JavaScript</h3>
-                                <p data-translate="intermediate">Intermédiaire</p>
+                                <p>Intermédiaire</p>
                             </div>
                         </article>
                         <article>
                             <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
                             <div>
                                 <h3>TypeScript</h3>
-                                <p data-translate="basic">Basique</p>
+                                <p>Basique</p>
                             </div>
                         </article>
                         <article>
                             <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
                             <div>
                                 <h3>Flutter, Dart</h3>
-                                <p data-translate="intermediate">Intermédiaire</p>
+                                <p>Intermédiaire</p>
                             </div>
                         </article>
                     </div>
                 </div>
                 <div class="details-container">
-                    <h2 class="experience-sub-title" data-translate="backend">👉 Développement Backend</h2>
+                    <h2 class="experience-sub-title">👉 Développement Backend</h2>
                     <div class="article-container">
                         <article>
                             <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
                             <div>
                                 <h3>PostgreSQL</h3>
-                                <p data-translate="basic">Basique</p>
+                                <p>Basique</p>
                             </div>
                         </article>
                         <article>
                             <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
                             <div>
                                 <h3>PHP</h3>
-                                <p data-translate="intermediate">Intermédiaire</p>
+                                <p>Intermédiaire</p>
                             </div>
                         </article>
                         <article>
                             <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
                             <div>
                                 <h3>Node.js</h3>
-                                <p data-translate="basic">Basique</p>
+                                <p>Basique</p>
                             </div>
                         </article>
                         <article>
                             <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
                             <div>
                                 <h3>Python</h3>
-                                <p data-translate="intermediate">Intermédiaire</p>
+                                <p>Intermédiaire</p>
                             </div>
                         </article>
                         <article>
                             <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
                             <div>
                                 <h3>Java</h3>
-                                <p data-translate="intermediate">Intermédiaire</p>
+                                <p>Intermédiaire</p>
                             </div>
                         </article>
                         <article>
                             <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
                             <div>
                                 <h3>MySQL</h3>
-                                <p data-translate="intermediate">Intermédiaire</p>
+                                <p>Intermédiaire</p>
                             </div>
                         </article>
                         <article>
                             <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
                             <div>
                                 <h3>Git</h3>
-                                <p data-translate="intermediate">Intermédiaire</p>
+                                <p>Intermédiaire</p>
                             </div>
                         </article>
                     </div>
@@ -273,17 +225,16 @@
         </div>
         <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
     </section>
-
     <section id="projects">
-        <p class="section__text__p1" data-translate="explore-recent">Explorer mes récents</p>
-        <h1 class="title" data-translate="projects-title">Projets</h1>
+        <p class="section__text__p1">Explorer mes récents</p>
+        <h1 class="title">Projets</h1>
         <div class="experience-details-container">
             <div class="about-containers">
                 <div class="details-container color-container">
                     <div class="article-container">
                         <img src="./assets/image11.png" alt="Project 1" class="project-img" />
                     </div>
-                    <h2 class="experience-sub-title project-title" data-translate="project-one">Projet Un</h2>
+                    <h2 class="experience-sub-title project-title">Projet Un</h2>
                     <div class="btn-container">
                         <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/Wade199/beermakers'">
                             Github
@@ -297,7 +248,7 @@
                     <div class="article-container">
                         <img src="./assets/image222.png" alt="Project 2" class="project-img" />
                     </div>
-                    <h2 class="experience-sub-title project-title" data-translate="project-two"><br /><br /><br /><br />Projet Deux</h2>
+                    <h2 class="experience-sub-title project-title"><br /><br /><br /><br />Projet Deux</h2>
                     <div class="btn-container">
                         <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/Wade199/FullstackForge'">
                             Github
@@ -311,7 +262,7 @@
                     <div class="article-container">
                         <img src="./assets/Capture d'écran 2025-09-29 201415.png" alt="Project 3" class="project-img" />
                     </div>
-                    <h2 class="experience-sub-title project-title" data-translate="project-three"><br /><br /><br />Projet trois</h2>
+                    <h2 class="experience-sub-title project-title"><br /><br /><br />Projet trois</h2>
                     <div class="btn-container">
                         <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/Wade199/jeux_de_dame/'">
                             Github
@@ -325,10 +276,9 @@
         </div>
         <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
     </section>
-
     <section id="contact">
-        <p class="section__text__p1" data-translate="contact-me">Contactez-moi ✅</p>
-        <h1 class="title" data-translate="contact-title">Contact</h1>
+        <p class="section__text__p1">Contactez-moi ✅</p>
+        <h1 class="title">Contact</h1>
         <div class="contact-info-upper-container">
             <div class="contact-info-container">
                 <img src="./assets/email.png" alt="mail icon" class="icon contact-icon email-icon" />
@@ -340,21 +290,19 @@
             </div>
         </div>
     </section>
-
     <footer>
         <nav>
             <div class="nav-links-container">
                 <ul class="nav-links">
-                    <li><a href="#about" data-translate="nav-about">About</a></li>
-                    <li><a href="#experience" data-translate="nav-experience">Experience</a></li>
-                    <li><a href="#projects" data-translate="nav-projects">Projets</a></li>
-                    <li><a href="#contact" data-translate="nav-contact">Contact</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projets</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
         </nav>
         <p>Copyright &#169; 2025 ibrahima wade.</p>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
