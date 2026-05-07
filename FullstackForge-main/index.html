@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ibrahima Wade — Full Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: {
+        preflight: false  /* Désactive le reset Tailwind pour ne pas écraser style.css */
+      },
+      theme: {
+        extend: {
+          colors: {
+            'neon-blue':   '#00d9ff',
+            'neon-violet': '#7b2cbf',
+            'neon-green':  '#00ff88',
+            'dark-bg':     '#050816',
+          },
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mediaqueries.css" />
+</head>
+<body>
+
+  <!-- ===== PARTICLE BACKGROUND ===== -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">IW</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero"       data-translate="nav-home">Accueil</a></li>
+        <li><a href="#about"      data-translate="nav-about">À propos</a></li>
+        <li><a href="#experience" data-translate="nav-experience">Expériences</a></li>
+        <li><a href="#skills"     data-translate="nav-skills">Compétences</a></li>
+        <li><a href="#projects"   data-translate="nav-projects">Projets</a></li>
+        <li><a href="#contact"    data-translate="nav-contact">Contact</a></li>
+        <li class="lang-item">
+          <div class="lang-selector">
+            <button class="lang-btn" id="lang-btn" aria-label="Changer de langue">
+              <span class="lang-globe">🌐</span>
+              <span class="lang-current" id="lang-current">FR</span>
+              <span class="lang-arrow">▾</span>
+            </button>
+            <div class="lang-dropdown" id="lang-dropdown">
+              <button class="lang-option" onclick="changeLanguage('fr')">🇫🇷 Français</button>
+              <button class="lang-option" onclick="changeLanguage('en')">🇬🇧 English</button>
+              <button class="lang-option" onclick="changeLanguage('es')">🇪🇸 Español</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-ring"></div>
+        <img src="./assets/image111.png" alt="Ibrahima Wade" class="hero-photo" />
+      </div>
+      <div class="hero-text">
+        <p class="hero-greeting" data-translate="greeting">Bonjour, je suis</p>
+        <h1 class="hero-name">Ibrahima Wade</h1>
+        <p class="hero-title">
+          <span class="typing-text" id="typing-text"></span><span class="cursor">|</span>
+        </p>
+        <p class="hero-seeking inline-flex items-center gap-2 text-sm font-medium px-5 py-2 rounded-full border border-cyan-400/30 bg-cyan-400/5 text-slate-400 mb-8" data-translate="hero-seeking">
+          🎯 Recherche une alternance — 2 semaines entreprise / 1 semaine école
+        </p>
+        <div class="hero-btns">
+          <a href="./assets/IBRAHIMA WADE-24-1.pdf" download class="btn btn-primary">
+            <span>⬇</span> <span data-translate="download-cv">Télécharger CV</span>
+          </a>
+          <a href="#contact" class="btn btn-outline" data-translate="contact-btn">Contact</a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://www.linkedin.com/in/ibrahima-wade" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+            <img src="./assets/linkedin.png" alt="LinkedIn" />
+          </a>
+          <a href="https://github.com/Wade199" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+            <img src="./assets/github.png" alt="GitHub" />
+          </a>
+        </div>
+
+        <!-- Stats rapides -->
+        <div class="flex gap-6 mt-6 pt-6 border-t border-white/10">
+          <div class="text-center">
+            <p class="text-2xl font-black text-cyan-400">2+</p>
+            <p class="text-xs text-slate-500 uppercase tracking-widest">Expériences</p>
+          </div>
+          <div class="w-px bg-white/10"></div>
+          <div class="text-center">
+            <p class="text-2xl font-black text-violet-400">3+</p>
+            <p class="text-xs text-slate-500 uppercase tracking-widest">Projets</p>
+          </div>
+          <div class="w-px bg-white/10"></div>
+          <div class="text-center">
+            <p class="text-2xl font-black text-emerald-400">3</p>
+            <p class="text-xs text-slate-500 uppercase tracking-widest">Langues</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section reveal">
+    <div class="section-header">
+      <p class="section-sub" data-translate="about-sub">En savoir plus</p>
+      <h2 class="section-title" data-translate="about-title">À propos de moi</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="./assets/img2infomatique.png.png" alt="Ibrahima Wade" class="about-img" />
+        <div class="about-img-glow"></div>
+      </div>
+      <div class="about-content">
+        <div class="about-cards">
+          <div class="info-card glass-card">
+            <div class="info-card-icon">📞</div>
+            <div>
+              <p class="info-card-label" data-translate="phone-label">Téléphone</p>
+              <p class="info-card-value">06 24 03 18 07</p>
+            </div>
+          </div>
+          <div class="info-card glass-card">
+            <div class="info-card-icon">✉️</div>
+            <div>
+              <p class="info-card-label" data-translate="email-label">Email</p>
+              <a href="mailto:ibrahima97wade99@gmail.com" class="info-card-value">ibrahima97wade99@gmail.com</a>
+            </div>
+          </div>
+          <div class="info-card glass-card">
+            <div class="info-card-icon">📍</div>
+            <div>
+              <p class="info-card-label" data-translate="location-label">Localisation</p>
+              <p class="info-card-value">Lille · Arras · Île-de-France</p>
+            </div>
+          </div>
+        </div>
+        <p class="about-bio" data-translate="about-bio">
+          Fort de trois expériences significatives en développement web, j'ai pu développer des compétences en PHP, HTML et CSS. Je souhaite aujourd'hui progresser dans un environnement stimulant et professionnel, dans le cadre d'une alternance au rythme de deux semaines en entreprise et une semaine à l'école.
+        </p>
+
+        <!-- Education Timeline -->
+        <div class="timeline-section">
+          <h3 class="timeline-heading" data-translate="education-title">🎓 Formation</h3>
+          <div class="timeline">
+            <div class="timeline-item reveal-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content glass-card">
+                <span class="timeline-date">2019 – 2020</span>
+                <h4 data-translate="edu1-title">Baccalauréat Scientifique (SERIE S2)</h4>
+                <p data-translate="edu1-school">Groupe Scolaire Seydou Nourou Tall Pikine, Sénégal</p>
+              </div>
+            </div>
+            <div class="timeline-item reveal-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content glass-card">
+                <span class="timeline-date">2021 – 2024</span>
+                <h4 data-translate="edu2-title">BTS SIO option SLAM</h4>
+                <p data-translate="edu2-school">Lycée Polyvalent Guy Mollet, Arras</p>
+              </div>
+            </div>
+            <div class="timeline-item reveal-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content glass-card">
+                <span class="timeline-date">2025 – 2026</span>
+                <h4 data-translate="edu3-title">Bachelor 3 DevOps-Fullstack</h4>
+                <p data-translate="edu3-school">École EPSI d'Arras</p>
+              </div>
+            </div>
+            <div class="timeline-item reveal-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content glass-card">
+                <span class="timeline-date">2026 – 2027</span>
+                <h4 data-translate="edu4-title">Bachelor 3 Concepteur Développeur d'Applications</h4>
+                <p data-translate="edu4-school">YNOV CAMPUS Paris</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience" class="section reveal">
+    <div class="section-header">
+      <p class="section-sub" data-translate="exp-sub">Mon parcours</p>
+      <h2 class="section-title" data-translate="exp-title">Expériences Professionnelles</h2>
+    </div>
+    <div class="exp-timeline">
+
+      <div class="exp-item reveal-item">
+        <div class="exp-marker">
+          <div class="exp-dot"></div>
+          <div class="exp-line"></div>
+        </div>
+        <div class="exp-card glass-card">
+          <div class="exp-header">
+            <div>
+              <h3 class="exp-company">Wutiko</h3>
+              <p class="exp-role" data-translate="exp1-role">Développeur web</p>
+            </div>
+          </div>
+          <ul class="exp-tasks">
+            <li data-translate="exp1-t1">Installation de l'application en local</li>
+            <li data-translate="exp1-t2">Configuration de l'environnement WordPress</li>
+            <li data-translate="exp1-t3">Ajout de fonctionnalités via WordPress</li>
+            <li data-translate="exp1-t4">Développement de thèmes en HTML et CSS</li>
+            <li data-translate="exp1-t5">Intégration de fonctionnalités avec PHP</li>
+            <li data-translate="exp1-t6">Tests des nouvelles fonctionnalités</li>
+            <li data-translate="exp1-t7">Documentation des modifications et processus</li>
+          </ul>
+          <div class="exp-tags flex flex-wrap gap-2">
+            <span class="tag inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-violet-500/10 border border-violet-500/25 text-violet-300">WordPress</span>
+            <span class="tag inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-violet-500/10 border border-violet-500/25 text-violet-300">PHP</span>
+            <span class="tag inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-violet-500/10 border border-violet-500/25 text-violet-300">HTML</span>
+            <span class="tag inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-violet-500/10 border border-violet-500/25 text-violet-300">CSS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal-item">
+        <div class="exp-marker">
+          <div class="exp-dot"></div>
+          <div class="exp-line"></div>
+        </div>
+        <div class="exp-card glass-card">
+          <div class="exp-header">
+            <div>
+              <h3 class="exp-company">Agiltoo</h3>
+              <p class="exp-role" data-translate="exp2-role">Développeur web</p>
+            </div>
+          </div>
+          <ul class="exp-tasks">
+            <li data-translate="exp2-t1">Ajout de nouvelles fonctionnalités avec HTML, CSS et PHP</li>
+            <li data-translate="exp2-t2">Installation et configuration d'une application en local</li>
+            <li data-translate="exp2-t3">Intégration et ajustement des éléments de design sur le site</li>
+            <li data-translate="exp2-t4">Tests et débogage des fonctionnalités ajoutées</li>
+          </ul>
+          <div class="exp-tags flex flex-wrap gap-2">
+            <span class="tag inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-violet-500/10 border border-violet-500/25 text-violet-300">PHP</span>
+            <span class="tag inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-violet-500/10 border border-violet-500/25 text-violet-300">HTML</span>
+            <span class="tag inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-violet-500/10 border border-violet-500/25 text-violet-300">CSS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal-item">
+        <div class="exp-marker">
+          <div class="exp-dot"></div>
+        </div>
+        <div class="exp-card glass-card">
+          <div class="exp-header">
+            <div>
+              <h3 class="exp-company">Agiltoo</h3>
+              <p class="exp-role" data-translate="exp3-role">Développeur web</p>
+            </div>
+          </div>
+          <ul class="exp-tasks">
+            <li data-translate="exp3-t1">Développement d'une application de restauration en PHP</li>
+            <li data-translate="exp3-t2">Création de l'interface utilisateur avec HTML et Bootstrap</li>
+            <li data-translate="exp3-t3">Intégration du système de gestion des commandes</li>
+            <li data-translate="exp3-t4">Optimisation des processus pour accélérer les commandes des clients</li>
+          </ul>
+          <div class="exp-tags flex flex-wrap gap-2">
+            <span class="tag inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-violet-500/10 border border-violet-500/25 text-violet-300">PHP</span>
+            <span class="tag inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-violet-500/10 border border-violet-500/25 text-violet-300">Bootstrap</span>
+            <span class="tag inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-violet-500/10 border border-violet-500/25 text-violet-300">HTML</span>
+            <span class="tag inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-violet-500/10 border border-violet-500/25 text-violet-300">CSS</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="section reveal">
+    <div class="section-header">
+      <p class="section-sub" data-translate="skills-sub">Mon arsenal</p>
+      <h2 class="section-title" data-translate="skills-title">Compétences Techniques</h2>
+    </div>
+
+    <div class="skills-highlights glass-card reveal-item">
+      <h3 data-translate="skills-main-title">⚡ Compétences Principales</h3>
+      <ul class="skills-highlights-list">
+        <li data-translate="skill-h1">Création d'APIs RESTful avec PHP Symfony et API Platform</li>
+        <li data-translate="skill-h2">Débogage et optimisation des applications web et mobile</li>
+        <li data-translate="skill-h3">Développement d'applications mobiles avec Flutter (Provider, Bloc)</li>
+        <li data-translate="skill-h4">Intégration d'APIs et tests fonctionnels</li>
+      </ul>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-category glass-card reveal-item">
+        <h3 class="skill-cat-title">🖥️ Frontend</h3>
+        <div class="skill-bars">
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>JavaScript</span><span class="skill-pct">75%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>HTML / CSS</span><span class="skill-pct">90%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>Bootstrap</span><span class="skill-pct">80%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>Angular</span><span class="skill-pct">55%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="55"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>React</span><span class="skill-pct">50%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="50"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-category glass-card reveal-item">
+        <h3 class="skill-cat-title">⚙️ Backend</h3>
+        <div class="skill-bars">
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>PHP / Symfony</span><span class="skill-pct">75%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>Node.js</span><span class="skill-pct">55%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="55"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>Python</span><span class="skill-pct">60%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="60"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>Java / Spring Boot</span><span class="skill-pct">55%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="55"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-category glass-card reveal-item">
+        <h3 class="skill-cat-title">📱 Mobile</h3>
+        <div class="skill-badges">
+          <span class="badge">Flutter</span>
+          <span class="badge">Dart</span>
+          <span class="badge">Java Android</span>
+          <span class="badge">Provider</span>
+          <span class="badge">Bloc</span>
+        </div>
+      </div>
+
+      <div class="skill-category glass-card reveal-item">
+        <h3 class="skill-cat-title">🗄️ Bases de données</h3>
+        <div class="skill-badges">
+          <span class="badge">MySQL</span>
+          <span class="badge">PostgreSQL</span>
+        </div>
+      </div>
+
+      <div class="skill-category glass-card reveal-item">
+        <h3 class="skill-cat-title">🛠️ DevOps &amp; Outils</h3>
+        <div class="skill-badges">
+          <span class="badge">Docker</span>
+          <span class="badge">Git</span>
+          <span class="badge">GitLab CI/CD</span>
+          <span class="badge">Linux</span>
+          <span class="badge">Trello</span>
+        </div>
+      </div>
+
+      <div class="skill-category glass-card reveal-item">
+        <h3 class="skill-cat-title">📦 CMS</h3>
+        <div class="skill-badges">
+          <span class="badge">WordPress</span>
+          <span class="badge">Drupal</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Languages & Hobbies -->
+    <div class="extras-grid">
+      <div class="extra-card glass-card reveal-item">
+        <h3 data-translate="languages-title">🌍 Langues</h3>
+        <div class="lang-list">
+          <div class="lang-row">
+            <span data-translate="lang-fr">Français</span>
+            <span class="lang-level native" data-translate="lang-native">Natif</span>
+          </div>
+          <div class="lang-row">
+            <span data-translate="lang-es">Espagnol</span>
+            <span class="lang-level c1">C1</span>
+          </div>
+          <div class="lang-row">
+            <span data-translate="lang-en">Anglais</span>
+            <span class="lang-level b1">B1</span>
+          </div>
+        </div>
+      </div>
+      <div class="extra-card glass-card reveal-item">
+        <h3 data-translate="hobbies-title">🎯 Loisirs</h3>
+        <div class="hobbies-list">
+          <span class="hobby-item">🏋️ Street Workout</span>
+          <span class="hobby-item">🚶 Marche</span>
+          <span class="hobby-item">📚 Manuels scientifiques</span>
+          <span class="hobby-item">🎬 Films d'arts martiaux</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="section reveal">
+    <div class="section-header">
+      <p class="section-sub" data-translate="projects-sub">Mes réalisations</p>
+      <h2 class="section-title" data-translate="projects-title">Projets</h2>
+    </div>
+    <!-- Projects are injected here by script.js — add new ones in the PROJECTS array at the top of script.js -->
+    <div class="projects-grid" id="projects-grid"></div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section reveal">
+    <div class="section-header">
+      <p class="section-sub" data-translate="contact-sub">Travaillons ensemble</p>
+      <h2 class="section-title" data-translate="contact-title">Contact</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-card glass-card reveal-item">
+          <div class="contact-card-icon">✉️</div>
+          <div>
+            <p class="contact-card-label" data-translate="email-label">Email</p>
+            <a href="mailto:ibrahima97wade99@gmail.com" class="contact-card-value">ibrahima97wade99@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-card glass-card reveal-item">
+          <div class="contact-card-icon">📞</div>
+          <div>
+            <p class="contact-card-label" data-translate="phone-label">Téléphone</p>
+            <a href="tel:+33624031807" class="contact-card-value">06 24 03 18 07</a>
+          </div>
+        </div>
+        <div class="contact-card glass-card reveal-item">
+          <div class="contact-card-icon">💼</div>
+          <div>
+            <p class="contact-card-label">LinkedIn</p>
+            <a href="https://linkedin.com/in/ibrahima-wade" target="_blank" rel="noopener" class="contact-card-value">linkedin.com/in/ibrahima-wade</a>
+          </div>
+        </div>
+        <div class="contact-card glass-card reveal-item">
+          <div class="contact-card-icon">🐙</div>
+          <div>
+            <p class="contact-card-label">GitHub</p>
+            <a href="https://github.com/Wade199" target="_blank" rel="noopener" class="contact-card-value">github.com/Wade199</a>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form glass-card reveal-item" id="contact-form" novalidate>
+        <div class="form-group">
+          <label for="form-name" data-translate="form-name">Nom</label>
+          <input type="text" id="form-name" name="name" placeholder="Votre nom" required autocomplete="name" />
+        </div>
+        <div class="form-group">
+          <label for="form-email" data-translate="form-email">Email</label>
+          <input type="email" id="form-email" name="email" placeholder="votre@email.com" required autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="form-message" data-translate="form-message">Message</label>
+          <textarea id="form-message" name="message" rows="5" placeholder="Votre message..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit" data-translate="form-send">
+          Envoyer le message
+        </button>
+        <p class="form-status" id="form-status"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <a href="#hero" class="footer-logo">IW</a>
+      <ul class="footer-links">
+        <li><a href="#about"      data-translate="nav-about">À propos</a></li>
+        <li><a href="#experience" data-translate="nav-experience">Expériences</a></li>
+        <li><a href="#skills"     data-translate="nav-skills">Compétences</a></li>
+        <li><a href="#projects"   data-translate="nav-projects">Projets</a></li>
+        <li><a href="#contact"    data-translate="nav-contact">Contact</a></li>
+      </ul>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/ibrahima-wade" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <img src="./assets/linkedin.png" alt="LinkedIn" />
+        </a>
+        <a href="https://github.com/Wade199" target="_blank" rel="noopener" aria-label="GitHub">
+          <img src="./assets/github.png" alt="GitHub" />
+        </a>
+      </div>
+      <p class="footer-copy">© 2025 Ibrahima Wade — FullstackForge</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
