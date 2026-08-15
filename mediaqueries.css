@@ -1,0 +1,134 @@
+/* ============================================================
+   IBRAHIMA WADE — PORTFOLIO  |  mediaqueries.css
+   ============================================================ */
+
+/* ===== TABLET (< 1200px) ===== */
+@media screen and (max-width: 1200px) {
+  .hamburger { display: flex; }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 70px; left: 0; right: 0;
+    background: rgba(5,8,22,0.98);
+    backdrop-filter: blur(20px);
+    padding: 2rem;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--glass-border);
+    z-index: 999;
+    align-items: flex-start;
+  }
+  .nav-links.mobile-open { display: flex; }
+  .nav-links a { font-size: 1rem; }
+  .lang-item { width: 100%; }
+  .lang-dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    margin-top: 0.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    border: none;
+    background: transparent;
+    backdrop-filter: none;
+  }
+  .lang-dropdown.open {
+    max-height: 200px;
+    border: 1px solid var(--glass-border);
+    background: rgba(10,15,46,0.97);
+    backdrop-filter: blur(20px);
+  }
+
+  .hero-content { gap: 3rem; }
+  .hero-photo { width: 260px; height: 260px; }
+
+  .about-grid { grid-template-columns: 1fr; }
+  .about-img-wrap { max-width: 400px; margin: 0 auto; }
+  .about-cards { grid-template-columns: repeat(3, 1fr); }
+
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .extras-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== SMALL TABLET (< 900px) ===== */
+@media screen and (max-width: 900px) {
+  .section { padding: 5rem 6vw; }
+
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 90px;
+    gap: 2.5rem;
+  }
+  .hero-photo { width: 220px; height: 220px; }
+  .hero-btns { justify-content: center; }
+  .hero-socials { justify-content: center; }
+  .hero-seeking { font-size: 0.82rem; }
+
+  .about-cards { grid-template-columns: 1fr; }
+
+  .skills-highlights-list { grid-template-columns: 1fr; }
+
+  .exp-item { grid-template-columns: 30px 1fr; gap: 0 1rem; }
+
+  .projects-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+}
+
+/* ===== MOBILE (< 600px) ===== */
+@media screen and (max-width: 600px) {
+  html { font-size: 15px; }
+  .section { padding: 4rem 5vw; }
+
+  .section-title { font-size: 1.8rem; }
+
+  .hero-photo { width: 180px; height: 180px; }
+  .hero-name { font-size: 2.2rem; }
+  .hero-title { font-size: 1rem; }
+  .hero-btns { flex-direction: column; align-items: center; }
+  .btn { width: 100%; max-width: 260px; justify-content: center; }
+
+  .about-cards { grid-template-columns: 1fr; }
+  .info-card { flex-direction: row; }
+
+  .skills-grid { grid-template-columns: 1fr; }
+  .extras-grid { grid-template-columns: 1fr; }
+
+  .exp-item { grid-template-columns: 24px 1fr; gap: 0 0.8rem; }
+  .exp-card { padding: 1.2rem; }
+  .exp-header { flex-direction: column; }
+  .exp-date { align-self: flex-start; }
+
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-img-wrap { height: 180px; }
+
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-form { padding: 1.5rem; }
+
+  .footer-links { gap: 1rem; }
+
+  /* Hide particles on very small screens for performance */
+  #particles-canvas { display: none; }
+}
+
+/* ===== VERY SMALL (< 400px) ===== */
+@media screen and (max-width: 400px) {
+  .hero-photo { width: 150px; height: 150px; }
+  .hero-name { font-size: 1.8rem; }
+  .nav-logo { font-size: 1.3rem; }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .hero-photo-ring { animation: none; }
+  .hero-photo { animation: none; }
+  .cursor { animation: none; opacity: 1; }
+}
