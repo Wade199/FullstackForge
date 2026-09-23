@@ -28,7 +28,6 @@ Prochaine étape : Phase 4 (déploiement Netlify), voir ci-dessous.
 | # | Tâche | Priorité | Dépendances | Estimation |
 |---|-------|----------|-------------|------------|
 | 21 | og:image custom par page | Low | Phase 2 | 30 min |
-| 22 | Créer `pages/now.html` + ajouter le lien "Now" dans `includes/navbar.html`/`footer.html` | Low | — | 20 min |
 | 23 | manifest.json PWA + service worker basique | Low | — | 30 min |
 | 27 | Traduire le contenu des projets en EN/ES (titre, description, case study STAR dans `data/projects.json`) par un locuteur natif, puis restructurer `data/projects.json` en `{ fr, en, es }` par champ | Low | — | — |
 
@@ -70,6 +69,7 @@ Prochaine étape : Phase 4 (déploiement Netlify), voir ci-dessous.
 | — | GitHub Pages désactivé | 2026-09-23 | `wade199.netlify.app` seule URL de prod désormais (voir PROJECT_CONTEXT.md) |
 | 19 | JSON-LD schema.org/Person | 2026-09-23 | Ajouté sur `pages/index.html` uniquement (identité du site). CSP stricte (`script-src 'self'`, pas de `'unsafe-inline'`) : autorisé via un hash `sha256-` calculé sur le contenu réellement déployé (pas localement, pour éviter un décalage LF/CRLF Windows), ajouté à `_headers` après le déploiement. Au passage : `og:url` corrigé partout (pointait encore vers l'ancienne URL GitHub Pages) et balises og:/twitter: manquantes ajoutées sur `docs.html`/`project.html` |
 | 20 | sitemap.xml + robots.txt | 2026-09-23 | `sitemap.xml` généré par `build.js` à partir de `data/projects.json` (reste synchronisé automatiquement si un projet est ajouté/retiré) — 6 URLs (index, projects, docs, 3 pages projet). `robots.txt` statique à la racine, référence le sitemap |
+| 22 | Créer `pages/now.html` + lien "Now" dans navbar/footer | 2026-09-23 | Contenu réel (apprentissages, projets en cours hors série YouTube, certifications visées) fourni par Ibrahima à partir de `context.md`/`history.md`, validé avant rédaction. Traduit en EN/ES comme le reste des sections statiques du site (contrairement aux données `data/projects.json`, voir tâche #27) ; `now.html` ajouté manuellement au générateur de sitemap (pas dans `data/projects.json`) |
 
 ---
 

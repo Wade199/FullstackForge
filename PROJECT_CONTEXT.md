@@ -44,6 +44,7 @@
 - [x] Case studies STAR par projet (BeerMakers, FullstackForge, Jeux de Dame) + page projet individuelle (`project.html?slug=...`) + `docs.html` — P3
 - [x] Netlify Forms (formulaire contact) + `_headers` sécurité + `netlify.toml` — P4, déployé et vérifié en ligne
 - [x] JSON-LD schema.org/Person + sitemap.xml (généré depuis data/projects.json) + robots.txt — P5
+- [x] Page "Now" (apprentissages, projets en cours, certifications) + lien nav — P5, contenu traduit FR/EN/ES (comme About/Experience/Skills, pas comme data/projects.json)
 - [ ] SEO (JSON-LD, sitemap, robots.txt, og:image) + PWA + page "Now" — P5
 
 ### Planifiées (optionnel)
@@ -92,44 +93,41 @@ Aucun backend, aucune base de données, aucun secret exposé côté client (sauf
 
 ## 📁 Structure du repository
 
-**État actuel (Phase 4 — code prêt, connexion Netlify restante)** :
+**État actuel (Phase 5 en cours)** :
 ```
 portfolio-fullstackforge/
-├── netlify.toml                # command = "npm run build", publish = "." (implémenté)
-├── _headers                    # CSP, X-Frame-Options, Referrer-Policy, Permissions-Policy (implémenté)
-├── includes/                   # Navbar/footer partagés, injectés par build.js (implémenté)
+├── netlify.toml                # command = "npm run build", publish = "." + redirects 404 (fichiers internes)
+├── _headers                    # CSP (avec hash sha256 pour le JSON-LD), X-Frame-Options, Referrer-Policy, Permissions-Policy
+├── robots.txt                  # Référence sitemap.xml
+├── includes/                   # Navbar/footer partagés (Accueil/Projets/Doc/Now/Contact), injectés par build.js
 │   ├── navbar.html
 │   └── footer.html
-├── pages/                      # Sources HTML avant injection (implémenté)
-│   ├── index.html               # Hero/About/Experience/Skills/Contact (pas de section Projets)
+├── pages/                      # Sources HTML avant injection
+│   ├── index.html               # Hero/About/Experience/Skills/Contact + JSON-LD schema.org/Person
 │   ├── projects.html            # Grille des projets (cartes cliquables → project.html)
 │   ├── project.html             # Template unique de détail projet, lit ?slug= dans l'URL
-│   └── docs.html                # Index des études de cas, liste les 3 projets
+│   ├── docs.html                # Index des études de cas, liste les 3 projets
+│   └── now.html                 # Apprentissages / projets en cours / certifications visées
 ├── data/
-│   └── projects.json           # Projets structurés (slug, tech, liens, case study STAR) — chargé via fetch
-├── i18n/                       # fr.json, en.json, es.json (implémenté)
+│   └── projects.json           # Projets structurés (slug, tech, liens, case study STAR) — chargé via fetch, FR uniquement
+├── i18n/                       # fr.json, en.json, es.json (110 clés chacun)
 ├── js/                         # main.js + modules ES : i18n, nav, particles, reveal, projects, project-detail, docs, contact
 ├── assets/                     # Images, CV, icônes
-├── build.js                    # Script maison : injecte navbar/footer dans pages/*.html → racine (implémenté)
-├── tailwind.config.js          # Config Tailwind (couleurs néon, preflight désactivé, scan pages/+includes/)
-├── tailwind.input.css          # Source Tailwind (@tailwind base/components/utilities)
-├── tailwind.css                # CSS Tailwind buildé (généré par `npm run build:css`, committé)
-├── package.json                # scripts build:css / build:html / build (les deux), devDependency tailwindcss
-├── index.html / projects.html / project.html / docs.html
-│                                # Générés par `node build.js` à partir de pages/*.html — committés (voir §Décisions)
-├── style.css
-├── mediaqueries.css
+├── build.js                    # Injecte navbar/footer dans pages/*.html → racine + génère sitemap.xml
+├── tailwind.config.js / tailwind.input.css / tailwind.css
+├── package.json                # scripts build:css / build:html / build
+├── index.html / projects.html / project.html / docs.html / now.html / sitemap.xml
+│                                # Générés par `node build.js` à partir de pages/*.html + data/projects.json — committés (voir §Décisions)
+├── style.css / mediaqueries.css
 ├── PROJECT_CONTEXT.md           ← ce fichier
 ├── TASKS.md
 └── README.md
 ```
 
 **Cible restante (pas encore implémenté)** :
-```
-├── docs/                      # Case studies au format .md par projet — abandonné, voir §Décisions
-└── pages/now.html               # Page "Now" + lien nav "Now" — Phase 5
-```
-Cloudflare Web Analytics (Phase 4, tâche #17) nécessite un compte Cloudflare à créer par Ibrahima — pas encore fait.
+- `docs/` (case studies au format .md par projet) — abandonné, voir §Décisions
+- og:image custom par page (#21), manifest.json PWA (#23), traduction EN/ES de `data/projects.json` (#27)
+- Cloudflare Web Analytics (#17) — nécessite un compte Cloudflare à créer par Ibrahima
 
 ---
 

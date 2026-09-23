@@ -1092,6 +1092,20 @@ a.contact-card-value:hover { text-decoration: underline; }
   font-style: italic;
 }
 
+/* ===== NOW PAGE ===== */
+.now-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.now-updated {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+
 /* ===== UTILITAIRES (évitent le style="" inline, pour un CSP strict) ===== */
 .section-offset-top { padding-top: 140px; }
 

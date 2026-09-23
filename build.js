@@ -57,6 +57,7 @@ function generateSitemap() {
     { loc: '/', priority: '1.0' },
     { loc: '/projects.html', priority: '0.8' },
     { loc: '/docs.html', priority: '0.6' },
+    { loc: '/now.html', priority: '0.4' },
     ...projects
       .filter(p => p.slug)
       .map(p => ({ loc: `/project.html?slug=${encodeURIComponent(p.slug)}`, priority: '0.5' })),
