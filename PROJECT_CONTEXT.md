@@ -188,7 +188,7 @@ Cloudflare Web Analytics (Phase 4, tâche #17) nécessite un compte Cloudflare �
 - **Méthode** : Netlify build (`npm run build` — voir `netlify.toml`) + deploy auto
 - **URL prod actuelle (V1)** : https://wade199.github.io/FullstackForge/ (GitHub Pages)
 - **URL prod cible (V2)** : `wade199.netlify.app` (à confirmer, migration GitHub Pages → Netlify en Phase 4)
-- **Compte Netlify** : existe déjà (`ibrahima97wade99@gmail.com`, connecté via Google, créé le 2025-08-24, 0 site pour l'instant) — reste à connecter le repo GitHub via l'UI Netlify (Add new site → Import from GitHub)
+- **Site Netlify** : `wade199.netlify.app` (https://wade199.netlify.app), équipe "Inou", connecté au repo `Wade199/FullstackForge` (branche `main`) le 2026-09-23 par Ibrahima. Déploiement `ready`, build/publish lus depuis `netlify.toml` sans configuration manuelle. Netlify Forms était désactivé par défaut au niveau du site (bascule distincte du HTML) — activé via le connecteur MCP, un nouveau déploiement est nécessaire pour que le formulaire soit détecté (voir TASKS.md #14)
 
 ---
 
@@ -217,12 +217,15 @@ Cloudflare Web Analytics (Phase 4, tâche #17) nécessite un compte Cloudflare �
 6. [x] Phase 2 : `build.js` + `includes/navbar.html`/`footer.html` + `pages/index.html`/`projects.html` — nav réduite à Accueil/Projets/Contact (choix explicite d'Ibrahima) — testé (build sans erreur, marqueurs résolus, aucun href orphelin, clés i18n couvertes, serveur HTTP local) **et vérifié par Ibrahima dans un vrai navigateur le 2026-09-23** (nav multi-pages, langues, typing, particules, contact — tout OK)
 7. [x] Phase 3 : `data/projects.json` + case studies STAR (BeerMakers, FullstackForge, Jeux de Dame, validées par Ibrahima) + `pages/project.html` (template) + `pages/docs.html` + lien nav "Doc" — testé (build, JSON valide, cohérence i18n sur 4 pages, serveur HTTP local)
 8. [x] Phase 4 (code) : Netlify Forms câblé (`data-netlify` + honeypot + vrai POST AJAX), `_headers` + `netlify.toml`, 5 `style=""` inline retirés — testé (build sans erreur, aucun style inline restant, 501 attendu en local sans backend Netlify)
-9. [ ] Phase 4 (reste, action Ibrahima) : connecter le repo GitHub à Netlify dans le navigateur, vérifier que le formulaire de contact fonctionne réellement une fois en ligne, brancher Cloudflare Web Analytics (compte à créer)
+9. [x] Repo GitHub connecté à Netlify par Ibrahima (`wade199.netlify.app`, équipe "Inou") — déploiement `ready`, build/publish lus depuis `netlify.toml` sans rien à remplir manuellement
+10. [ ] Netlify Forms activé au niveau du site (bascule séparée du HTML, voir note ci-dessous) — attend un nouveau déploiement pour rescanner le formulaire, puis vérifier un vrai envoi en ligne
+11. [ ] Brancher Cloudflare Web Analytics (compte Cloudflare à créer par Ibrahima)
 
 ---
 
 ## 🗒️ Notes & contexte additionnel
 
 - Devis complet discuté et confirmé le 2026-09-22 : 6 phases (P0 à P5) + P6 optionnelle (Playground IA), ~10-17h réparties sur 4-5 sessions.
+- **Piège Netlify Forms** : avoir `data-netlify="true"` + un champ `form-name` caché dans le HTML déployé ne suffit pas — Netlify a une bascule "Forms" au niveau du site (désactivée par défaut sur ce compte), séparée de la détection HTML. Et cette bascule ne rescane pas rétroactivement un déploiement déjà fait : il faut un nouveau déploiement après l'avoir activée pour que le formulaire apparaisse dans Site settings → Forms.
 - Le repo GitHub `Wade199/FullstackForge` existait déjà (public, dernier push 2026-08-15) — le projet local a été **cloné depuis ce repo**, pas recréé de zéro. La copie initiale dans Downloads était une version locale légèrement différente (probablement antérieure) — non utilisée, le repo GitHub fait foi.
 - Contenu du portfolio (identité, parcours, projets) **ne change pas** — seule l'architecture technique et l'organisation sont refondues (confirmé explicitement avec Ibrahima). Exception assumée : la description et le tech stack de BeerMakers ont été corrigés en Phase 3 (c'était factuellement faux, pas un choix de contenu — voir §Décisions du 2026-09-23).
