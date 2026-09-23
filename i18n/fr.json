@@ -78,6 +78,7 @@
   "form-error-network": "❌ Échec de l'envoi. Réessayez plus tard ou écrivez-moi directement par email.",
   "typing": ["Développeur Full Stack", "Bachelor DevOps Fullstack", "Passionné de code 💻"],
   "back-to-projects": "← Retour aux projets",
+  "technical-label": "Détails techniques",
   "case-study-label": "Étude de cas",
   "star-situation": "Situation",
   "star-task": "Tâche",

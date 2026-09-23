@@ -8,6 +8,13 @@
     "github": "https://github.com/Wade199/beermakers",
     "demo": "",
     "hasDocs": false,
+    "technical": [
+      "Architecture Flutter classique : StatefulWidget + navigation par routes nommées (Navigator.pushNamed)",
+      "Modèle de données Recette encapsulant la formule de calcul (quantité de malt = volume × degré d'alcool ÷ 20)",
+      "Guide de fabrication paginé (écran Etapes) avec illustrations par étape",
+      "Liste de recettes avec flutter_slidable pour les actions de balayage",
+      "Projet mono-commit, sans tests automatisés (projet d'entraînement, pas de CI)"
+    ],
     "caseStudy": {
       "situation": "Projet d'entraînement pour progresser sur Flutter et le développement mobile, sur le thème du brassage artisanal.",
       "task": "Concevoir une application qui calcule les quantités de malt à partir du volume, du degré d'alcool et de la couleur visés, guide l'utilisateur à travers les étapes de fabrication, et gère une liste de recettes.",
@@ -24,11 +31,20 @@
     "github": "https://github.com/Wade199/FullstackForge",
     "demo": "https://wade199.netlify.app/",
     "hasDocs": true,
+    "technical": [
+      "Site 100% statique : HTML/CSS/JS vanilla, aucun framework, aucun backend",
+      "CSS buildé via Tailwind CLI (pas de CDN), variables CSS custom pour le thème néon",
+      "JS en modules ES natifs (i18n, nav, particles, reveal, projects, project-detail, docs, veille, contact), aucun bundler",
+      "Traductions et données projets chargées au runtime via fetch (i18n/*.json, data/projects.json)",
+      "Script de build maison (build.js) : injecte navbar/footer partagés dans les pages sources, génère le sitemap.xml",
+      "Déployé sur Netlify : CSP stricte (hash sha256 pour le JSON-LD, sans 'unsafe-inline'), Netlify Forms avec honeypot anti-spam",
+      "Page de veille technologique alimentée automatiquement chaque matin par une routine cloud (recherche web, commit et push)"
+    ],
     "caseStudy": {
       "situation": "Besoin d'un portfolio professionnel pour la recherche d'alternance ; la V1 existante fonctionnait mais avait de la dette technique (CDN Tailwind non optimisé, un seul fichier JS de 758 lignes, traductions codées en dur).",
       "task": "Refondre l'architecture technique sans changer le contenu ni ajouter de framework, en gardant un site 100% statique (zéro backend, zéro surface d'attaque) et un coût de 0€/mois.",
       "action": "Pilotage du projet en pair-programming avec Claude Code comme copilote, avec des décisions d'architecture prises et validées à chaque étape : build Tailwind CLI local, découpage du JS en modules ES, traductions sorties en JSON, script de build maison pour partager la navbar/footer entre pages, structuration multi-pages, données projets structurées en JSON.",
-      "result": "Site refondu et documenté (PROJECT_CONTEXT.md/TASKS.md tenus à jour), déployé sur GitHub Pages, chaque étape testée avant d'être poussée en production."
+      "result": "Site refondu et documenté (PROJECT_CONTEXT.md/TASKS.md tenus à jour), déployé sur Netlify avec formulaire de contact fonctionnel et headers de sécurité, chaque étape testée avant d'être poussée en production."
     }
   },
   {
@@ -40,6 +56,13 @@
     "github": "https://github.com/Wade199/jeux_de_dame/",
     "demo": "https://wade199.github.io/jeux_de_dame/",
     "hasDocs": false,
+    "technical": [
+      "JavaScript vanilla, aucune dépendance externe",
+      "Moteur de règles : déplacements, prises simples et en chaîne (multi-sauts), promotion en dame, règle de prise obligatoire",
+      "IA basique côté adversaire : sélectionne la meilleure prise disponible parmi les coups valides",
+      "PWA : Service Worker + manifest.json pour un fonctionnement hors ligne et l'installation sur mobile",
+      "3 itérations de développement : version initiale, amélioration interface/gameplay, PWA + optimisation mobile"
+    ],
     "caseStudy": {
       "situation": "Projet d'entraînement pour pratiquer l'écriture d'algorithmes en JavaScript vanilla, sans framework.",
       "task": "Implémenter un jeu de dames fidèle aux règles (prise obligatoire, prises en chaîne), jouable sur mobile et hors ligne.",

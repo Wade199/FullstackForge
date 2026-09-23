@@ -74,7 +74,28 @@ export function initProjectDetail() {
     }
   }
 
+  renderTechnical(project.technical);
   renderCaseStudy(project.caseStudy || {});
+}
+
+function renderTechnical(technical) {
+  const section = document.getElementById('pd-technical');
+  const list = document.getElementById('pd-technical-list');
+  if (!section || !list) return;
+
+  const items = Array.isArray(technical) ? technical.filter(Boolean) : [];
+  if (items.length === 0) {
+    section.hidden = true;
+    return;
+  }
+
+  list.replaceChildren();
+  items.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    list.appendChild(li);
+  });
+  section.hidden = false;
 }
 
 function renderCaseStudy(caseStudy) {
