@@ -5,7 +5,7 @@
 
 ---
 
-## 🔥 En cours (Sprint actuel — Phase 1 terminée)
+## 🔥 En cours (Sprint actuel — Phase 2 terminée)
 
 | # | Tâche | Priorité | Statut | Estimation |
 |---|-------|----------|--------|------------|
@@ -13,20 +13,11 @@
 | 2 | Clarifier choix Eleventy vs HTML/CSS/JS pur | 🔴 Critical | ✅ Done | 5 min |
 | — | Vérifier 2FA + Dependabot sur le repo GitHub public | High | ✅ Done | 5 min |
 
-Prochaine étape : Phase 2 (multi-pages), voir #3b/#7/#8 ci-dessous.
+Prochaine étape : Phase 3 (data + case studies), voir ci-dessous.
 
 ---
 
 ## 📋 À faire (Backlog priorisé par phase)
-
-### Phase 2 — Multi-pages (2-3h)
-| # | Tâche | Priorité | Dépendances | Estimation |
-|---|-------|----------|-------------|------------|
-| 3b | Écrire `build.js` maison (injecte includes/navbar.html + footer.html dans chaque page) | High | #8 (contenu à injecter) | 1h |
-| 7 | Structurer navigation multi-pages (Accueil/Projets/Doc/Now) | High | #3-6 | 2h |
-| 8 | Créer includes/navbar.html + footer.html, brancher sur build.js | High | #3b | 1h |
-
-> Note : `#3b` était initialement planifiée en Phase 1, mais reportée ici — un script qui partage navbar/footer entre pages n'a de sens qu'une fois qu'il existe plusieurs pages (#7/#8). L'écrire avant aurait été du code sans consommateur.
 
 ### Phase 3 — Data + case studies (2-3h + 1h/projet)
 | # | Tâche | Priorité | Dépendances | Estimation |
@@ -36,6 +27,7 @@ Prochaine étape : Phase 2 (multi-pages), voir #3b/#7/#8 ci-dessous.
 | 11 | Case study STAR — FullstackForge | Med | #9 | 1h |
 | 12 | Case study STAR — Jeux de Dame | Med | #9 | 1h |
 | 13 | Page projet individuelle (template) | High | #9 | 1h |
+| 13b | Créer `pages/docs.html` (index des case studies) + ajouter le lien "Doc" dans `includes/navbar.html`/`footer.html` | High | #10-12 | 30 min |
 
 ### Phase 4 — Déploiement (1-1.5h)
 | # | Tâche | Priorité | Dépendances | Estimation |
@@ -52,7 +44,7 @@ Prochaine étape : Phase 2 (multi-pages), voir #3b/#7/#8 ci-dessous.
 | 19 | JSON-LD schema.org/Person | Med | — | 30 min |
 | 20 | sitemap.xml + robots.txt | Med | Phase 2 | 20 min |
 | 21 | og:image custom par page | Low | Phase 2 | 30 min |
-| 22 | Page "Now" | Low | — | 20 min |
+| 22 | Créer `pages/now.html` + ajouter le lien "Now" dans `includes/navbar.html`/`footer.html` | Low | — | 20 min |
 | 23 | manifest.json PWA + service worker basique | Low | — | 30 min |
 
 ### Phase 6 — Playground IA (optionnelle, 3-4h)
@@ -76,6 +68,9 @@ Prochaine étape : Phase 2 (multi-pages), voir #3b/#7/#8 ci-dessous.
 | 5 | Sortir les traductions FR/EN/ES en fichiers JSON | 2026-09-23 | `i18n/{fr,en,es}.json` (75 clés chacun, vérifié aucune clé manquante), chargés via `fetch` dans `js/i18n.js` |
 | 6 | Nettoyer style.css (doublons, variables CSS custom properties) | 2026-09-23 | Retrait de l'`@import` Google Fonts en double (déjà chargé via `<link>` HTML) + règle `.nav-links.mobile-open` dupliquée avec mediaqueries.css |
 | — | Renommer `img2infomatique.png.png` → `.png` (double extension) | 2026-09-23 | `git mv` + référence mise à jour dans index.html |
+| 3b | Écrire `build.js` maison (injecte includes/navbar.html + footer.html) | 2026-09-23 | Marqueurs `<!--#include:navbar/footer-->` dans `pages/*.html`, résolus par `node build.js` → écrit à la racine (`npm run build:html`, ou `npm run build` avec le CSS) |
+| 7 | Structurer navigation multi-pages | 2026-09-23 | **Partiel, par choix explicite d'Ibrahima** : seulement Accueil/Projets/Contact (pas Doc/Now, voir Phase 3/5). Nav "Projets" pointe vers `projects.html` ; About/Expériences/Compétences/Contact restent des ancres sur `index.html#...` |
+| 8 | Créer includes/navbar.html + footer.html, brancher sur build.js | 2026-09-23 | `includes/navbar.html`, `includes/footer.html`, `pages/index.html` (sans la section Projets), `pages/projects.html` (nouvelle page) |
 
 ---
 

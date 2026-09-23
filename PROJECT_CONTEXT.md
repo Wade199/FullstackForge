@@ -26,8 +26,8 @@
 
 ## ✅ Fonctionnalités
 
-### Implémentées (héritées de la V1)
-- [x] Page unique (one-page) avec sections Accueil/À propos/Expériences/Compétences/Projets/Contact
+### Implémentées (héritées de la V1, adaptées en V2)
+- [x] `index.html` (Accueil/À propos/Expériences/Compétences/Contact en one-page) + `projects.html` séparée depuis la Phase 2
 - [x] Design glassmorphism thème sombre néon
 - [x] Multilingue FR/EN/ES (traductions codées en dur dans script.js)
 - [x] Section projets injectée dynamiquement depuis un tableau JS
@@ -38,8 +38,8 @@
 ### En cours (refonte V2)
 - [x] Retrait du CDN Tailwind → build local via Tailwind CLI — P1
 - [x] Découpage script.js en modules ES + traductions en JSON — P1
-- [ ] Petit script de build maison pour partager navbar/footer entre pages (HTML/CSS/JS pur, pas d'Eleventy) — reporté en P2 (voir §Décisions)
-- [ ] Multi-pages (index/projects/docs/now) — P2
+- [x] Petit script de build maison pour partager navbar/footer entre pages (`build.js`) — P2
+- [x] Multi-pages **partiel** : index + projects (Accueil/Projets/Contact dans la nav) — Doc/Now reportés en P3/P5, voir §Décisions
 - [ ] data/projects.json structuré — P3
 - [ ] Case studies STAR par projet — P3
 - [ ] Déploiement Netlify + Forms + headers sécurité — P4
@@ -91,17 +91,25 @@ Aucun backend, aucune base de données, aucun secret exposé côté client (sauf
 
 ## 📁 Structure du repository
 
-**État actuel (Phase 1 terminée)** :
+**État actuel (Phase 2 terminée)** :
 ```
 portfolio-fullstackforge/
+├── includes/                   # Navbar/footer partagés, injectés par build.js (implémenté)
+│   ├── navbar.html
+│   └── footer.html
+├── pages/                      # Sources HTML avant injection (implémenté)
+│   ├── index.html               # Hero/About/Experience/Skills/Contact (pas de section Projets)
+│   └── projects.html            # Nouvelle page dédiée aux projets
 ├── i18n/                       # fr.json, en.json, es.json (implémenté)
 ├── js/                         # main.js + modules ES : i18n, nav, particles, reveal, projects, contact (implémenté)
 ├── assets/                     # Images, CV, icônes
-├── tailwind.config.js          # Config Tailwind (couleurs néon, preflight désactivé)
+├── build.js                    # Script maison : injecte navbar/footer dans pages/*.html → racine (implémenté)
+├── tailwind.config.js          # Config Tailwind (couleurs néon, preflight désactivé, scan pages/+includes/)
 ├── tailwind.input.css          # Source Tailwind (@tailwind base/components/utilities)
 ├── tailwind.css                # CSS Tailwind buildé (généré par `npm run build:css`, committé)
-├── package.json                # devDependency tailwindcss + scripts build:css/watch:css
-├── index.html
+├── package.json                # scripts build:css / build:html / build (les deux), devDependency tailwindcss
+├── index.html                  # Généré par `node build.js` à partir de pages/index.html — committé (voir §Décisions)
+├── projects.html                # Généré par `node build.js` à partir de pages/projects.html — committé
 ├── style.css
 ├── mediaqueries.css
 ├── PROJECT_CONTEXT.md           ← ce fichier
@@ -109,18 +117,13 @@ portfolio-fullstackforge/
 └── README.md
 ```
 
-**Cible visée (Phase 2+, pas encore implémenté)** :
+**Cible restante (Phase 3+, pas encore implémenté)** :
 ```
-├── includes/                  # Navbar/footer partagés (injectés par build.js) — Phase 2
-│   ├── navbar.html
-│   └── footer.html
-├── pages/                     # Sources HTML avant injection (index, projects, docs, now) — Phase 2
 ├── data/
 │   └── projects.json          # Données structurées des projets — Phase 3
 ├── docs/                      # Case studies STAR (.md) par projet — Phase 3
-├── build.js                   # Script maison : injecte navbar/footer dans les pages HTML — Phase 2
-├── projects.html               # Phase 2
-├── docs.html                   # Phase 2
+├── pages/docs.html             # Index des case studies + lien nav "Doc" — Phase 3
+├── pages/now.html               # Page "Now" + lien nav "Now" — Phase 5
 ├── _headers                   # Headers sécurité Netlify (CSP, X-Frame-Options...) — Phase 4
 └── netlify.toml                # Config build Netlify — Phase 4
 ```
@@ -138,6 +141,8 @@ portfolio-fullstackforge/
 | 2026-09-23 | `build.js` (partage navbar/footer) reporté de Phase 1 à Phase 2 | Le site n'a qu'une seule page (`index.html`) tant que la Phase 2 n'est pas faite — un script d'injection navbar/footer n'a de consommateur qu'une fois qu'il existe plusieurs pages HTML. L'écrire en Phase 1 aurait été du code sans usage réel | — |
 | 2026-09-23 | Traductions chargées au runtime via `fetch('./i18n/{lang}.json')` (pas de bundler) | Cohérent avec "HTML/CSS/JS pur" ; implique que le site doit être servi via un serveur HTTP local (Live Server, `python -m http.server`, `npx serve`) — `fetch` est bloqué sur `file://`. Documenté dans README.md | — |
 | 2026-09-23 | CSS Tailwind buildé (`tailwind.css`) committé dans le repo, pas gitignoré | Le déploiement actuel (GitHub Pages, V1) sert les fichiers bruts sans étape de build — committer le CSS généré est nécessaire tant que la migration Netlify (Phase 4, avec build command) n'est pas faite | — |
+| 2026-09-23 | Phase 2 réduite à Accueil + Projets (pas Doc/Now) — choix explicite d'Ibrahima face à une contradiction entre PROJECT_CONTEXT.md ("index/projects/docs/now" en P2) et TASKS.md (Now en P5, Doc avec contenu réel en P3) | Suivre TASKS.md à la lettre plutôt que le résumé plus large de PROJECT_CONTEXT.md ; évite de créer des pages vides ("bientôt disponible") avant d'avoir du contenu réel | — |
+| 2026-09-23 | `index.html`/`projects.html` à la racine sont des **fichiers générés** par `node build.js` à partir de `pages/*.html` — ne jamais les éditer directement, éditer `pages/` ou `includes/` puis relancer `npm run build` | Même logique que `tailwind.css` : GitHub Pages sert les fichiers racine bruts sans étape de build tant que Netlify (Phase 4) n'est pas branché | — |
 
 ---
 
@@ -199,7 +204,8 @@ portfolio-fullstackforge/
 3. [ ] Ouvrir le projet dans VS Code (demande explicite d'Ibrahima) — probablement déjà fait (`.vscode/settings.json` présent), à confirmer
 4. [x] Vérifier 2FA + Dependabot sur le repo GitHub public `Wade199/FullstackForge` — Dependabot activé via API, 2FA non vérifiable par API (à contrôler manuellement)
 5. [x] Phase 1 : Tailwind CLI + découpage script.js en modules ES + i18n en JSON + nettoyage CSS + renommage image — testé (Node --check sur les modules, cohérence des clés JSON, serveur HTTP local)
-6. [ ] Démarrer Phase 2 : multi-pages (Accueil/Projets/Doc/Now) + `build.js` (partage navbar/footer)
+6. [x] Phase 2 : `build.js` + `includes/navbar.html`/`footer.html` + `pages/index.html`/`projects.html` — nav réduite à Accueil/Projets/Contact (choix explicite d'Ibrahima) — testé (build sans erreur, marqueurs résolus, aucun href orphelin, clés i18n couvertes, serveur HTTP local). **Rendu réel en navigateur non vérifié** (extension Claude in Chrome toujours non connectée)
+7. [ ] Démarrer Phase 3 : `data/projects.json` structuré + case studies STAR + page projet individuelle + `pages/docs.html`
 
 ---
 

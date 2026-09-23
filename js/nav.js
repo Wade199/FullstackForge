@@ -13,6 +13,16 @@ export function initNavbar() {
 
   let lastScrollY = 0;
 
+  // Sur une page sans ancres de section (ex: projects.html), marquer le lien
+  // de nav correspondant à la page courante comme actif (pas de scroll-spy possible ici).
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const hasSections = document.querySelectorAll('section[id]').length > 0;
+  if (!hasSections) {
+    const pageLink = [...navLinks.querySelectorAll('a[href]')]
+      .find(a => a.getAttribute('href') === currentPage);
+    if (pageLink) pageLink.classList.add('active');
+  }
+
   // Scroll behaviour
   window.addEventListener('scroll', () => {
     const currentY = window.scrollY;
@@ -24,12 +34,14 @@ export function initNavbar() {
     navbar.classList.toggle('scrolled', currentY > 50);
     lastScrollY = currentY;
 
-    // Active nav link
+    // Active nav link (scroll-spy) — les hrefs sont de la forme "index.html#about",
+    // on compare sur la partie après le "#" pour retrouver le lien de chaque section.
     const sections = document.querySelectorAll('section[id]');
     sections.forEach(sec => {
       const top = sec.offsetTop - 100;
       const bottom = top + sec.offsetHeight;
-      const link = navLinks.querySelector(`a[href="#${sec.id}"]`);
+      const link = [...navLinks.querySelectorAll('a[href]')]
+        .find(a => a.getAttribute('href').split('#')[1] === sec.id);
       if (link) link.classList.toggle('active', currentY >= top && currentY < bottom);
     });
   });

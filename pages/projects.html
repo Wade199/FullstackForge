@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projets — Ibrahima Wade</title>
+  <meta name="description" content="Projets réalisés par Ibrahima Wade, développeur Full Stack en alternance : PHP, Symfony, Flutter, JavaScript." />
+  <!-- Open Graph / Social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Projets — Ibrahima Wade" />
+  <meta property="og:description" content="Projets réalisés par Ibrahima Wade, développeur Full Stack en alternance : PHP, Symfony, Flutter, JavaScript." />
+  <meta property="og:url" content="https://wade199.github.io/FullstackForge/projects.html" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Projets — Ibrahima Wade" />
+  <meta name="twitter:description" content="Projets réalisés par Ibrahima Wade, développeur Full Stack en alternance : PHP, Symfony, Flutter, JavaScript." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <!-- Tailwind CSS (buildé via `npm run build:css`, voir tailwind.config.js) -->
+  <link rel="stylesheet" href="tailwind.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mediaqueries.css" />
+</head>
+<body>
+
+  <!-- ===== PARTICLE BACKGROUND ===== -->
+  <canvas id="particles-canvas"></canvas>
+
+<!--#include:navbar-->
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="section reveal" style="padding-top: 140px;">
+    <div class="section-header">
+      <p class="section-sub" data-translate="projects-sub">Mes réalisations</p>
+      <h2 class="section-title" data-translate="projects-title">Projets</h2>
+    </div>
+    <!-- Projects are injected here by js/main.js — add new ones in the PROJECTS array in js/projects.js -->
+    <div class="projects-grid" id="projects-grid"></div>
+  </section>
+
+<!--#include:footer-->
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

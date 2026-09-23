@@ -6,6 +6,8 @@
   "scripts": {
     "build:css": "tailwindcss -i ./tailwind.input.css -o ./tailwind.css --minify",
     "watch:css": "tailwindcss -i ./tailwind.input.css -o ./tailwind.css --watch",
+    "build:html": "node build.js",
+    "build": "npm run build:css && npm run build:html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

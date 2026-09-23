@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projets — Ibrahima Wade</title>
+  <meta name="description" content="Projets réalisés par Ibrahima Wade, développeur Full Stack en alternance : PHP, Symfony, Flutter, JavaScript." />
+  <!-- Open Graph / Social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Projets — Ibrahima Wade" />
+  <meta property="og:description" content="Projets réalisés par Ibrahima Wade, développeur Full Stack en alternance : PHP, Symfony, Flutter, JavaScript." />
+  <meta property="og:url" content="https://wade199.github.io/FullstackForge/projects.html" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Projets — Ibrahima Wade" />
+  <meta name="twitter:description" content="Projets réalisés par Ibrahima Wade, développeur Full Stack en alternance : PHP, Symfony, Flutter, JavaScript." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <!-- Tailwind CSS (buildé via `npm run build:css`, voir tailwind.config.js) -->
+  <link rel="stylesheet" href="tailwind.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mediaqueries.css" />
+</head>
+<body>
+
+  <!-- ===== PARTICLE BACKGROUND ===== -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html#hero" class="nav-logo">IW</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#hero"       data-translate="nav-home">Accueil</a></li>
+        <li><a href="index.html#about"      data-translate="nav-about">À propos</a></li>
+        <li><a href="index.html#experience" data-translate="nav-experience">Expériences</a></li>
+        <li><a href="index.html#skills"     data-translate="nav-skills">Compétences</a></li>
+        <li><a href="projects.html"         data-translate="nav-projects">Projets</a></li>
+        <li><a href="index.html#contact"    data-translate="nav-contact">Contact</a></li>
+        <li class="lang-item">
+          <div class="lang-selector">
+            <button class="lang-btn" id="lang-btn" aria-label="Changer de langue">
+              <span class="lang-globe">🌐</span>
+              <span class="lang-current" id="lang-current">FR</span>
+              <span class="lang-arrow">▾</span>
+            </button>
+            <div class="lang-dropdown" id="lang-dropdown">
+              <button class="lang-option" type="button" data-lang="fr">🇫🇷 Français</button>
+              <button class="lang-option" type="button" data-lang="en">🇬🇧 English</button>
+              <button class="lang-option" type="button" data-lang="es">🇪🇸 Español</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="section reveal" style="padding-top: 140px;">
+    <div class="section-header">
+      <p class="section-sub" data-translate="projects-sub">Mes réalisations</p>
+      <h2 class="section-title" data-translate="projects-title">Projets</h2>
+    </div>
+    <!-- Projects are injected here by js/main.js — add new ones in the PROJECTS array in js/projects.js -->
+    <div class="projects-grid" id="projects-grid"></div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <a href="index.html#hero" class="footer-logo">IW</a>
+      <ul class="footer-links">
+        <li><a href="index.html#about"      data-translate="nav-about">À propos</a></li>
+        <li><a href="index.html#experience" data-translate="nav-experience">Expériences</a></li>
+        <li><a href="index.html#skills"     data-translate="nav-skills">Compétences</a></li>
+        <li><a href="projects.html"         data-translate="nav-projects">Projets</a></li>
+        <li><a href="index.html#contact"    data-translate="nav-contact">Contact</a></li>
+      </ul>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/ibrahima-wade" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <img src="./assets/linkedin.png" alt="LinkedIn" />
+        </a>
+        <a href="https://github.com/Wade199" target="_blank" rel="noopener" aria-label="GitHub">
+          <img src="./assets/github.png" alt="GitHub" />
+        </a>
+      </div>
+      <p class="footer-copy">© 2025 Ibrahima Wade — FullstackForge</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

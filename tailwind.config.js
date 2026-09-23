@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./js/**/*.js"],
+  content: ["./*.html", "./pages/**/*.html", "./includes/**/*.html", "./js/**/*.js"],
   corePlugins: {
     preflight: false // Désactive le reset Tailwind pour ne pas écraser style.css
   },
