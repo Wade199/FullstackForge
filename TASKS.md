@@ -5,31 +5,28 @@
 
 ---
 
-## 🔥 En cours (Sprint actuel — Phase 0 terminée)
+## 🔥 En cours (Sprint actuel — Phase 1 terminée)
 
 | # | Tâche | Priorité | Statut | Estimation |
 |---|-------|----------|--------|------------|
 | 1 | Setup workspace (clone repo, PROJECT_CONTEXT.md, TASKS.md, .gitignore) | High | ✅ Done | 45 min |
 | 2 | Clarifier choix Eleventy vs HTML/CSS/JS pur | 🔴 Critical | ✅ Done | 5 min |
+| — | Vérifier 2FA + Dependabot sur le repo GitHub public | High | ✅ Done | 5 min |
+
+Prochaine étape : Phase 2 (multi-pages), voir #3b/#7/#8 ci-dessous.
 
 ---
 
 ## 📋 À faire (Backlog priorisé par phase)
 
-### Phase 1 — Nettoyage / architecture (3.5-4.5h)
-| # | Tâche | Priorité | Dépendances | Estimation |
-|---|-------|----------|-------------|------------|
-| 3 | Retirer Tailwind CDN → build local via Tailwind CLI | High | — | 1h |
-| 3b | Écrire `build.js` maison (injecte includes/navbar.html + footer.html dans chaque page) | High | — | 1h |
-| 4 | Découper script.js en modules (i18n, projects, nav, particles, contact) | High | — | 1.5h |
-| 5 | Sortir les traductions FR/EN/ES en fichiers JSON | Med | #4 | 1h |
-| 6 | Nettoyer style.css (doublons, variables CSS custom properties) | Med | — | 1h |
-
 ### Phase 2 — Multi-pages (2-3h)
 | # | Tâche | Priorité | Dépendances | Estimation |
 |---|-------|----------|-------------|------------|
+| 3b | Écrire `build.js` maison (injecte includes/navbar.html + footer.html dans chaque page) | High | #8 (contenu à injecter) | 1h |
 | 7 | Structurer navigation multi-pages (Accueil/Projets/Doc/Now) | High | #3-6 | 2h |
 | 8 | Créer includes/navbar.html + footer.html, brancher sur build.js | High | #3b | 1h |
+
+> Note : `#3b` était initialement planifiée en Phase 1, mais reportée ici — un script qui partage navbar/footer entre pages n'a de sens qu'une fois qu'il existe plusieurs pages (#7/#8). L'écrire avant aurait été du code sans consommateur.
 
 ### Phase 3 — Data + case studies (2-3h + 1h/projet)
 | # | Tâche | Priorité | Dépendances | Estimation |
@@ -73,6 +70,12 @@
 |---|-------|------|-------|
 | 0 | Audit du code V1 existant (index.html, script.js, style.css) | 2026-09-22 | Voir PROJECT_CONTEXT.md §Problèmes connus |
 | 0b | Projet cloné depuis Wade199/FullstackForge (GitHub) dans le workspace | 2026-09-22 | Repo public existant préservé, pas de nouvelle création |
+| — | Dependabot alerts + automated security fixes activés sur le repo public | 2026-09-23 | Via `gh api` (2FA non vérifiable par API, à contrôler manuellement dans Settings GitHub) |
+| 3 | Retirer Tailwind CDN → build local via Tailwind CLI | 2026-09-23 | `tailwind.config.js` + `tailwind.input.css` → `tailwind.css` (committé, généré par `npm run build:css`) |
+| 4 | Découper script.js en modules (i18n, projects, nav, particles, contact) | 2026-09-23 | `script.js` supprimé, remplacé par `js/main.js` + 6 modules ES ; chargé en `<script type="module">` |
+| 5 | Sortir les traductions FR/EN/ES en fichiers JSON | 2026-09-23 | `i18n/{fr,en,es}.json` (75 clés chacun, vérifié aucune clé manquante), chargés via `fetch` dans `js/i18n.js` |
+| 6 | Nettoyer style.css (doublons, variables CSS custom properties) | 2026-09-23 | Retrait de l'`@import` Google Fonts en double (déjà chargé via `<link>` HTML) + règle `.nav-links.mobile-open` dupliquée avec mediaqueries.css |
+| — | Renommer `img2infomatique.png.png` → `.png` (double extension) | 2026-09-23 | `git mv` + référence mise à jour dans index.html |
 
 ---
 

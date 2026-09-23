@@ -14,23 +14,40 @@ Portfolio personnel moderne avec design **glassmorphism** et thème sombre néon
 ## 📂 Structure
 
 ```
-FullstackForge-main/
-├── index.html          # Structure HTML
-├── style.css           # Styles principaux
-├── mediaqueries.css    # Responsive design
-├── script.js           # Interactivité et animations
-├── assets/             # Images, CV, icônes
-└── README.md           # Ce fichier
+portfolio-fullstackforge/
+├── index.html            # Structure HTML
+├── style.css             # Styles principaux
+├── mediaqueries.css      # Responsive design
+├── tailwind.config.js    # Config Tailwind (couleurs néon, preflight désactivé)
+├── tailwind.input.css    # Source Tailwind (@tailwind base/components/utilities)
+├── tailwind.css          # CSS Tailwind buildé — généré par `npm run build:css`, committé
+├── js/                   # Modules ES (main, i18n, nav, particles, reveal, projects, contact)
+├── i18n/                 # Traductions fr.json / en.json / es.json
+├── assets/               # Images, CV, icônes
+└── README.md             # Ce fichier
 ```
+
+## 💻 Développement local
+
+```bash
+npm install          # installe Tailwind CLI
+npm run build:css    # (re)génère tailwind.css après une modif de classes Tailwind
+npm run watch:css    # mode watch pendant le dev
+```
+
+⚠️ **Le site doit être servi via un serveur HTTP local**, pas ouvert directement en `file://` :
+les traductions (`i18n/*.json`) et les modules JS (`js/*.js`, `type="module"`) sont chargés par `fetch`/`import`,
+que Chrome bloque par défaut sur le protocole `file://`. Utilise par exemple l'extension VS Code **Live Server**,
+ou `python -m http.server` / `npx serve` à la racine du projet.
 
 ## 🚀 Comment ajouter un nouveau projet
 
-C'est très simple ! Ouvre le fichier `script.js` et trouve le tableau `PROJECTS` au début du fichier (lignes 10-40).
+C'est très simple ! Ouvre le fichier `js/projects.js` et trouve le tableau `PROJECTS` en haut du fichier.
 
 ### Exemple :
 
 ```javascript
-const PROJECTS = [
+export const PROJECTS = [
   {
     title: "BeerMakers",
     description: "Application web de gestion brassicole...",
@@ -90,8 +107,8 @@ Le site s'adapte automatiquement à toutes les tailles d'écran :
 ## 🔧 Technologies utilisées
 
 - HTML5
-- CSS3 (Glassmorphism, animations, gradients)
-- JavaScript vanilla (pas de framework)
+- CSS3 (Glassmorphism, animations, gradients) + Tailwind CSS (buildé via CLI, pas de CDN)
+- JavaScript vanilla en modules ES (pas de framework)
 - Canvas API (particules animées)
 - IntersectionObserver (animations au scroll)
 

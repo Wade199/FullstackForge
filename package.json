@@ -1,0 +1,26 @@
+{
+  "name": "portfolio-fullstackforge",
+  "version": "1.0.0",
+  "description": "Portfolio personnel moderne avec design **glassmorphism** et thème sombre néon.",
+  "main": "js/main.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./tailwind.input.css -o ./tailwind.css --minify",
+    "watch:css": "tailwindcss -i ./tailwind.input.css -o ./tailwind.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wade199/FullstackForge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Wade199/FullstackForge/issues"
+  },
+  "homepage": "https://github.com/Wade199/FullstackForge#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}

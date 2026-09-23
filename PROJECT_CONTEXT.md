@@ -36,8 +36,9 @@
 - [x] CV téléchargeable en PDF
 
 ### En cours (refonte V2)
-- [ ] Petit script de build maison pour partager navbar/footer entre pages (HTML/CSS/JS pur, pas d'Eleventy) — P1
-- [ ] Découpage script.js en modules + traductions en JSON — P1
+- [x] Retrait du CDN Tailwind → build local via Tailwind CLI — P1
+- [x] Découpage script.js en modules ES + traductions en JSON — P1
+- [ ] Petit script de build maison pour partager navbar/footer entre pages (HTML/CSS/JS pur, pas d'Eleventy) — reporté en P2 (voir §Décisions)
 - [ ] Multi-pages (index/projects/docs/now) — P2
 - [ ] data/projects.json structuré — P3
 - [ ] Case studies STAR par projet — P3
@@ -90,28 +91,38 @@ Aucun backend, aucune base de données, aucun secret exposé côté client (sauf
 
 ## 📁 Structure du repository
 
+**État actuel (Phase 1 terminée)** :
 ```
 portfolio-fullstackforge/
-├── includes/                  # Navbar/footer partagés (injectés par build.js)
-│   ├── navbar.html
-│   └── footer.html
-├── pages/                     # Sources HTML avant injection (index, projects, docs, now)
-├── i18n/                      # fr.json, en.json, es.json
-├── data/
-│   └── projects.json          # Données structurées des projets
-├── docs/                      # Case studies STAR (.md) par projet
-├── assets/                    # Images, CV, icônes (existant)
-├── js/                        # script.js découpé en modules (nav, i18n, projects, particles, contact)
-├── build.js                   # Script maison : injecte navbar/footer dans les pages HTML
-├── index.html                 # Sortie générée (à la racine pour Netlify/GitHub Pages)
-├── projects.html
-├── docs.html
-├── _headers                   # Headers sécurité Netlify (CSP, X-Frame-Options...)
-├── netlify.toml                # Config build Netlify
-├── PROJECT_CONTEXT.md          ← ce fichier
-├── DECISIONS.md
+├── i18n/                       # fr.json, en.json, es.json (implémenté)
+├── js/                         # main.js + modules ES : i18n, nav, particles, reveal, projects, contact (implémenté)
+├── assets/                     # Images, CV, icônes
+├── tailwind.config.js          # Config Tailwind (couleurs néon, preflight désactivé)
+├── tailwind.input.css          # Source Tailwind (@tailwind base/components/utilities)
+├── tailwind.css                # CSS Tailwind buildé (généré par `npm run build:css`, committé)
+├── package.json                # devDependency tailwindcss + scripts build:css/watch:css
+├── index.html
+├── style.css
+├── mediaqueries.css
+├── PROJECT_CONTEXT.md           ← ce fichier
 ├── TASKS.md
 └── README.md
+```
+
+**Cible visée (Phase 2+, pas encore implémenté)** :
+```
+├── includes/                  # Navbar/footer partagés (injectés par build.js) — Phase 2
+│   ├── navbar.html
+│   └── footer.html
+├── pages/                     # Sources HTML avant injection (index, projects, docs, now) — Phase 2
+├── data/
+│   └── projects.json          # Données structurées des projets — Phase 3
+├── docs/                      # Case studies STAR (.md) par projet — Phase 3
+├── build.js                   # Script maison : injecte navbar/footer dans les pages HTML — Phase 2
+├── projects.html               # Phase 2
+├── docs.html                   # Phase 2
+├── _headers                   # Headers sécurité Netlify (CSP, X-Frame-Options...) — Phase 4
+└── netlify.toml                # Config build Netlify — Phase 4
 ```
 
 ---
@@ -124,6 +135,9 @@ portfolio-fullstackforge/
 | 2026-09-22 | Stack 100% gratuit (Netlify + Netlify Forms + Cloudflare Analytics) | Contrainte explicite d'Ibrahima : "je ne veux pas payer" | — |
 | 2026-09-22 | Projet déplacé de `Downloads/FullstackForge-main/` vers `Claude-Code-Workspace/projets/actifs/` et cloné depuis le repo GitHub existant `Wade199/FullstackForge` (public) au lieu de repartir d'une copie locale sans historique | Cohérence avec la convention établie (InvoiceAI), préservation de l'historique Git existant | — |
 | 2026-09-23 | **HTML/CSS/JS pur confirmé, PAS d'Eleventy** — partage navbar/footer via un petit script de build Node maison (`build.js`) | Ibrahima avait rejeté Eleventy une première fois, ma reco "stack gratuite" l'avait réintroduit par erreur, il a explicitement retranché pour l'option manuelle quand la contradiction a été soumise | — |
+| 2026-09-23 | `build.js` (partage navbar/footer) reporté de Phase 1 à Phase 2 | Le site n'a qu'une seule page (`index.html`) tant que la Phase 2 n'est pas faite — un script d'injection navbar/footer n'a de consommateur qu'une fois qu'il existe plusieurs pages HTML. L'écrire en Phase 1 aurait été du code sans usage réel | — |
+| 2026-09-23 | Traductions chargées au runtime via `fetch('./i18n/{lang}.json')` (pas de bundler) | Cohérent avec "HTML/CSS/JS pur" ; implique que le site doit être servi via un serveur HTTP local (Live Server, `python -m http.server`, `npx serve`) — `fetch` est bloqué sur `file://`. Documenté dans README.md | — |
+| 2026-09-23 | CSS Tailwind buildé (`tailwind.css`) committé dans le repo, pas gitignoré | Le déploiement actuel (GitHub Pages, V1) sert les fichiers bruts sans étape de build — committer le CSS généré est nécessaire tant que la migration Netlify (Phase 4, avec build command) n'est pas faite | — |
 
 ---
 
@@ -166,15 +180,15 @@ portfolio-fullstackforge/
 
 ## 🐛 Problèmes connus (audit V1 du 2026-09-22)
 
-| Problème | Impact | Priorité | Solution envisagée |
-|----------|--------|----------|--------------------|
-| Tailwind chargé via CDN | Perf (poids), pas de purge CSS, warning console en prod | High | Build Tailwind via CLI en Phase 1 |
-| `script.js` monolithique (758 lignes) | Maintenabilité | Med | Découpage en modules en Phase 1 |
-| Traductions codées en dur dans le JS | Maintenabilité | Med | Sortie en JSON en Phase 1 |
-| Formulaire contact non fonctionnel (pas de backend) | UX — le formulaire ne fait rien aujourd'hui | High | Netlify Forms en Phase 4 |
-| Image `img2infomatique.png.png` (double extension) | Cosmétique | Low | Renommer en Phase 1 ou 5 |
-| Pas de `og:image`, sitemap.xml, robots.txt | SEO | Med | Phase 5 |
-| Pas de lazy loading sur les images | Perf | Low | Phase 5 |
+| Problème | Impact | Priorité | Statut |
+|----------|--------|----------|--------|
+| Tailwind chargé via CDN | Perf (poids), pas de purge CSS, warning console en prod | High | ✅ Résolu (Phase 1) — build via Tailwind CLI |
+| `script.js` monolithique (758 lignes) | Maintenabilité | Med | ✅ Résolu (Phase 1) — découpé en modules ES |
+| Traductions codées en dur dans le JS | Maintenabilité | Med | ✅ Résolu (Phase 1) — sorties en JSON |
+| Image `img2infomatique.png.png` (double extension) | Cosmétique | Low | ✅ Résolu (Phase 1) — renommée en `.png` |
+| Formulaire contact non fonctionnel (pas de backend) | UX — le formulaire ne fait rien aujourd'hui | High | Prévu Phase 4 (Netlify Forms) |
+| Pas de `og:image`, sitemap.xml, robots.txt | SEO | Med | Prévu Phase 5 |
+| Pas de lazy loading sur les images | Perf | Low | Prévu Phase 5 (le lazy loading existe déjà sur les images de projets injectées par JS ; à étendre aux images statiques du HTML) |
 
 ---
 
@@ -182,9 +196,10 @@ portfolio-fullstackforge/
 
 1. [x] Clarifier Eleventy vs HTML/CSS/JS pur → tranché le 2026-09-23 : **HTML/CSS/JS pur**
 2. [x] Phase 0 : `.gitignore`, PROJECT_CONTEXT.md, TASKS.md
-3. [ ] Ouvrir le projet dans VS Code (demande explicite d'Ibrahima)
-4. [ ] Vérifier 2FA + Dependabot sur le repo GitHub public `Wade199/FullstackForge`
-5. [ ] Démarrer Phase 1 : script de build maison + découpage script.js + i18n en JSON
+3. [ ] Ouvrir le projet dans VS Code (demande explicite d'Ibrahima) — probablement déjà fait (`.vscode/settings.json` présent), à confirmer
+4. [x] Vérifier 2FA + Dependabot sur le repo GitHub public `Wade199/FullstackForge` — Dependabot activé via API, 2FA non vérifiable par API (à contrôler manuellement)
+5. [x] Phase 1 : Tailwind CLI + découpage script.js en modules ES + i18n en JSON + nettoyage CSS + renommage image — testé (Node --check sur les modules, cohérence des clés JSON, serveur HTTP local)
+6. [ ] Démarrer Phase 2 : multi-pages (Accueil/Projets/Doc/Now) + `build.js` (partage navbar/footer)
 
 ---
 

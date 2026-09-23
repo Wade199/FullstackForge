@@ -3,7 +3,7 @@
    Dark Neon Glassmorphism Theme
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+/* Police Poppins chargée depuis index.html (preconnect + <link>) — pas d'@import ici pour éviter le double chargement */
 
 /* ===== CSS VARIABLES ===== */
 :root {
@@ -262,19 +262,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Mobile nav */
-.nav-links.mobile-open {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 70px; left: 0; right: 0;
-  background: rgba(5,8,22,0.98);
-  backdrop-filter: blur(20px);
-  padding: 2rem;
-  gap: 1.5rem;
-  border-bottom: 1px solid var(--glass-border);
-  z-index: 999;
-}
+/* Mobile nav — layout complet défini dans mediaqueries.css (@media max-width:1200px),
+   ici on ne garde que le comportement générique piloté par JS */
+.nav-links.mobile-open { display: flex; }
 
 /* ===== HERO ===== */
 #hero {
