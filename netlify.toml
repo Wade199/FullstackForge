@@ -4,3 +4,61 @@
 
 [build.environment]
   NODE_VERSION = "20"
+
+# `publish = "."` sert tout le repo : ces fichiers internes ne sont pas des secrets,
+# mais ne sont pas destinés à être parcourus publiquement (pages/includes bruts avant
+# injection par build.js, notes de suivi de projet, config de build). force = true
+# outrepasse le fichier statique existant, qui serait servi en priorité sinon.
+[[redirects]]
+  from = "/pages/*"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/includes/*"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/PROJECT_CONTEXT.md"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/TASKS.md"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/package.json"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/package-lock.json"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/build.js"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tailwind.config.js"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tailwind.input.css"
+  to = "/404"
+  status = 404
+  force = true
