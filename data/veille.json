@@ -1,1 +1,43 @@
-[]
+[
+  {
+    "date": "2026-09-23",
+    "items": [
+      {
+        "topic": "Java/Spring",
+        "title": "Spring Boot 4.2.0-M1 disponible",
+        "summary": "Cette première milestone de Spring Boot 4.2 ajoute le support d'AMQP 1.0, un cache d'image OCI publiable sur un registre pour Cloud Native Buildpacks, et déprécie RestTemplate au profit de RestClient.",
+        "url": "https://spring.io/blog/2026/08/20/spring-boot-4-2-0-M1-available-now/"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "OpenAI lance GPT-6 Sol et Luna",
+        "summary": "OpenAI a publié deux nouveaux modèles avec une tarification API réduite de 50% et des améliorations en code, computer-use et factualité par rapport à GPT-5.6.",
+        "url": "https://techcrunch.com/2026/09/22/openai-launches-gpt-6-sol-and-luna/"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "Safari 27 embarque un serveur MCP natif",
+        "summary": "Apple devient le premier grand navigateur à intégrer un serveur MCP natif, permettant à un agent IA compatible d'ouvrir un onglet, d'inspecter le DOM et de capturer des captures d'écran.",
+        "url": "https://webkit.org/blog/18136/introducing-the-safari-mcp-server-for-web-developers/"
+      },
+      {
+        "topic": "DevOps/Cloud",
+        "title": "Kubernetes v1.37 \"Garhwal\" publié",
+        "summary": "Cette version apporte 67 améliorations, dont le passage en GA de Dynamic Resource Allocation, la stabilisation du format KYAML et le passage en beta du gang scheduling pour les charges de travail distribuées.",
+        "url": "https://kubernetes.io/blog/2026/08/26/kubernetes-v1-37-release/"
+      },
+      {
+        "topic": "Python/Django",
+        "title": "Django 6.1.1 publié",
+        "summary": "Cette version corrective résout un crash lié à DecimalField sans max_digits/decimal_places sur SQLite, une régression sur les assets HTML-safe des form media, et des migrations inutiles générées par AlterField.",
+        "url": "https://www.djangoproject.com/weblog/2026/sep/02/bugfix-releases/"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "Symfony 8.1.6, 7.4.18 et 6.4.45 publiés",
+        "summary": "Ces versions apportent des corrections de bugs et des renforcements de sécurité sur les trois branches maintenues de Symfony.",
+        "url": "https://github.com/symfony/symfony/releases/tag/v8.1.6"
+      }
+    ]
+  }
+]
