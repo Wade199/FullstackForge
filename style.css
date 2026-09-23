@@ -808,6 +808,10 @@ a.info-card-value:hover { text-decoration: underline; }
 }
 .project-card:hover { border-color: var(--blue); box-shadow: var(--glow-blue); transform: translateY(-8px); }
 
+/* docs.html : la carte n'est plus un lien unique, seuls les boutons le sont */
+.docs-card { cursor: default; }
+.docs-card .project-info { padding-bottom: 1.5rem; }
+
 .project-img-wrap {
   position: relative;
   width: 100%;

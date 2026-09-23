@@ -1,19 +1,21 @@
 /* ============================================================
-   PAGE DOC (pages/docs.html) — liste les projets avec un lien
-   vers leur étude de cas (pages/project.html?slug=...).
+   PAGE DOC (pages/docs.html) — liste les projets avec un lien vers
+   leur étude de cas (project.html?slug=...) et un lien vers leur
+   documentation technique réelle (README GitHub), quand elle existe.
    ============================================================ */
-import { getAllProjects, safeAssetPath } from './projects.js';
+import { getAllProjects, safeAssetPath, safeExternalUrl } from './projects.js';
+import { getCurrentLang, getTranslations } from './i18n.js';
 
 export function initDocsList() {
   const list = document.getElementById('docs-list');
   if (!list) return; // pas sur pages/docs.html
 
+  const t = getTranslations(getCurrentLang());
   list.replaceChildren();
 
   getAllProjects().forEach(project => {
-    const card = document.createElement('a');
+    const card = document.createElement('div');
     card.className = 'project-card glass-card reveal-item docs-card';
-    card.href = project.slug ? `project.html?slug=${encodeURIComponent(project.slug)}` : 'projects.html';
 
     const imgWrap = document.createElement('div');
     imgWrap.className = 'project-img-wrap';
@@ -39,7 +41,30 @@ export function initDocsList() {
     description.className = 'project-desc';
     description.textContent = project.description || '';
 
-    info.append(title, description);
+    const links = document.createElement('div');
+    links.className = 'project-links';
+
+    if (project.slug) {
+      const caseStudyLink = document.createElement('a');
+      caseStudyLink.href = `project.html?slug=${encodeURIComponent(project.slug)}`;
+      caseStudyLink.className = 'project-link github';
+      caseStudyLink.textContent = `📖 ${t['docs-case-study-link'] || 'Étude de cas'}`;
+      links.appendChild(caseStudyLink);
+    }
+
+    if (project.github) {
+      const docsLink = document.createElement('a');
+      docsLink.href = safeExternalUrl(project.github);
+      docsLink.target = '_blank';
+      docsLink.rel = 'noopener noreferrer';
+      docsLink.className = 'project-link demo';
+      docsLink.textContent = project.hasDocs
+        ? `📄 ${t['docs-full-docs'] || 'Documentation technique'}`
+        : `💻 ${t['docs-source-code'] || 'Code source'}`;
+      links.appendChild(docsLink);
+    }
+
+    info.append(title, description, links);
     card.append(imgWrap, info);
     list.appendChild(card);
   });

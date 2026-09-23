@@ -109,7 +109,7 @@ portfolio-fullstackforge/
 │   ├── docs.html                # Index des études de cas, liste les 3 projets
 │   └── veille.html              # Veille technologique quotidienne, affiche data/veille.json
 ├── data/
-│   ├── projects.json           # Projets structurés (slug, tech, liens, case study STAR) — chargé via fetch, FR uniquement
+│   ├── projects.json           # Projets structurés (slug, tech, liens, hasDocs, case study STAR) — chargé via fetch, FR uniquement
 │   └── veille.json              # Entrées de veille { date, items: [{topic, title, summary, url}] } — vide pour l'instant, alimenté par une routine cloud (à brancher, tâche #28)
 ├── i18n/                       # fr.json, en.json, es.json (93 clés chacun)
 ├── js/                         # main.js + modules ES : i18n, nav, particles, reveal, projects, project-detail, docs, veille, contact

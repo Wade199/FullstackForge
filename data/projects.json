@@ -7,6 +7,7 @@
     "tech": ["Flutter", "Dart"],
     "github": "https://github.com/Wade199/beermakers",
     "demo": "",
+    "hasDocs": false,
     "caseStudy": {
       "situation": "Projet d'entraînement pour progresser sur Flutter et le développement mobile, sur le thème du brassage artisanal.",
       "task": "Concevoir une application qui calcule les quantités de malt à partir du volume, du degré d'alcool et de la couleur visés, guide l'utilisateur à travers les étapes de fabrication, et gère une liste de recettes.",
@@ -21,7 +22,8 @@
     "image": "./assets/image222.png",
     "tech": ["HTML", "CSS", "JavaScript"],
     "github": "https://github.com/Wade199/FullstackForge",
-    "demo": "https://wade199.github.io/FullstackForge/",
+    "demo": "https://wade199.netlify.app/",
+    "hasDocs": true,
     "caseStudy": {
       "situation": "Besoin d'un portfolio professionnel pour la recherche d'alternance ; la V1 existante fonctionnait mais avait de la dette technique (CDN Tailwind non optimisé, un seul fichier JS de 758 lignes, traductions codées en dur).",
       "task": "Refondre l'architecture technique sans changer le contenu ni ajouter de framework, en gardant un site 100% statique (zéro backend, zéro surface d'attaque) et un coût de 0€/mois.",
@@ -37,6 +39,7 @@
     "tech": ["JavaScript", "HTML", "CSS"],
     "github": "https://github.com/Wade199/jeux_de_dame/",
     "demo": "https://wade199.github.io/jeux_de_dame/",
+    "hasDocs": false,
     "caseStudy": {
       "situation": "Projet d'entraînement pour pratiquer l'écriture d'algorithmes en JavaScript vanilla, sans framework.",
       "task": "Implémenter un jeu de dames fidèle aux règles (prise obligatoire, prises en chaîne), jouable sur mobile et hors ligne.",
