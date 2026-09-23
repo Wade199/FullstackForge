@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /pages/
+Disallow: /includes/
+
+Sitemap: https://wade199.netlify.app/sitemap.xml

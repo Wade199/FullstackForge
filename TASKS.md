@@ -27,8 +27,6 @@ Prochaine étape : Phase 4 (déploiement Netlify), voir ci-dessous.
 ### Phase 5 — SEO / PWA / Now (2h)
 | # | Tâche | Priorité | Dépendances | Estimation |
 |---|-------|----------|-------------|------------|
-| 19 | JSON-LD schema.org/Person | Med | — | 30 min |
-| 20 | sitemap.xml + robots.txt | Med | Phase 2 | 20 min |
 | 21 | og:image custom par page | Low | Phase 2 | 30 min |
 | 22 | Créer `pages/now.html` + ajouter le lien "Now" dans `includes/navbar.html`/`footer.html` | Low | — | 20 min |
 | 23 | manifest.json PWA + service worker basique | Low | — | 30 min |
@@ -69,6 +67,9 @@ Prochaine étape : Phase 4 (déploiement Netlify), voir ci-dessous.
 | 14 | Connecter le repo GitHub à Netlify | 2026-09-23 | Fait par Ibrahima dans le navigateur (Add new site → Import from GitHub → `Wade199/FullstackForge`). Site créé : `wade199.netlify.app`, équipe "Inou", build/publish détectés depuis `netlify.toml` sans rien à remplir. Déploiement `ready` (commit `51c3e6e`, 37 fichiers, header rule appliquée). Détection Netlify Forms : bascule "Forms" du site trouvée désactivée par défaut (`extraFeatures.forms: "not enabled"` malgré `data-netlify="true"` déjà présent dans le HTML) — activée via le connecteur MCP, nécessite un nouveau déploiement pour rescanner le formulaire (la bascule seule ne rescane pas un déploiement déjà fait) |
 | — | Vérifier bout en bout le formulaire de contact | 2026-09-23 | Testé par Ibrahima (vrai navigateur) ET par un POST curl — les deux soumissions confirmées dans Netlify Forms (`manage-form-submissions`), soumission de test supprimée après vérification |
 | — | Audit headers de sécurité + URLs sur le site en ligne | 2026-09-23 | CSP/X-Frame-Options/Referrer-Policy/Permissions-Policy/X-Content-Type-Options confirmés sur les 4 pages, HSTS ajouté automatiquement par Netlify, redirection HTTP→HTTPS active. **Bug trouvé** : `publish = "."` rendait `pages/*.html`/`includes/*.html` accessibles bruts et cassés (marqueurs `#include` non résolus), plus `PROJECT_CONTEXT.md`/`TASKS.md`/`package.json`/`build.js`/`tailwind.config.js`/`tailwind.input.css` exposés sans raison. Corrigé par des règles `[[redirects]]` (404, `force = true`) dans `netlify.toml` |
+| — | GitHub Pages désactivé | 2026-09-23 | `wade199.netlify.app` seule URL de prod désormais (voir PROJECT_CONTEXT.md) |
+| 19 | JSON-LD schema.org/Person | 2026-09-23 | Ajouté sur `pages/index.html` uniquement (identité du site). CSP stricte (`script-src 'self'`, pas de `'unsafe-inline'`) : autorisé via un hash `sha256-` calculé sur le contenu réellement déployé (pas localement, pour éviter un décalage LF/CRLF Windows), ajouté à `_headers` après le déploiement. Au passage : `og:url` corrigé partout (pointait encore vers l'ancienne URL GitHub Pages) et balises og:/twitter: manquantes ajoutées sur `docs.html`/`project.html` |
+| 20 | sitemap.xml + robots.txt | 2026-09-23 | `sitemap.xml` généré par `build.js` à partir de `data/projects.json` (reste synchronisé automatiquement si un projet est ajouté/retiré) — 6 URLs (index, projects, docs, 3 pages projet). `robots.txt` statique à la racine, référence le sitemap |
 
 ---
 

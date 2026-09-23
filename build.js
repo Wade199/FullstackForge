@@ -12,6 +12,7 @@ const path = require('path');
 const ROOT = __dirname;
 const PAGES_DIR = path.join(ROOT, 'pages');
 const INCLUDES_DIR = path.join(ROOT, 'includes');
+const SITE_URL = 'https://wade199.netlify.app';
 
 const MARKERS = {
   navbar: '<!--#include:navbar-->',
@@ -47,6 +48,30 @@ function buildPage(fileName, includes) {
   console.log(`✓ ${fileName}`);
 }
 
+function generateSitemap() {
+  const dataPath = path.join(ROOT, 'data', 'projects.json');
+  const projects = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+  const today = new Date().toISOString().slice(0, 10);
+
+  const urls = [
+    { loc: '/', priority: '1.0' },
+    { loc: '/projects.html', priority: '0.8' },
+    { loc: '/docs.html', priority: '0.6' },
+    ...projects
+      .filter(p => p.slug)
+      .map(p => ({ loc: `/project.html?slug=${encodeURIComponent(p.slug)}`, priority: '0.5' })),
+  ];
+
+  const body = urls
+    .map(u => `  <url>\n    <loc>${SITE_URL}${u.loc}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${u.priority}</priority>\n  </url>`)
+    .join('\n');
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
+
+  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), xml, 'utf8');
+  console.log(`✓ sitemap.xml (${urls.length} URLs)`);
+}
+
 function main() {
   if (!fs.existsSync(PAGES_DIR)) {
     throw new Error(`Dossier introuvable : ${PAGES_DIR}`);
@@ -64,6 +89,7 @@ function main() {
   }
 
   pageFiles.forEach(fileName => buildPage(fileName, includes));
+  generateSitemap();
   console.log(`\nBuild terminé : ${pageFiles.length} page(s) générée(s) à la racine.`);
 }
 

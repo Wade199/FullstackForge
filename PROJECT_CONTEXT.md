@@ -42,7 +42,8 @@
 - [x] Multi-pages **partiel** : index + projects (Accueil/Projets/Contact dans la nav) — Doc/Now reportés en P3/P5, voir §Décisions
 - [x] data/projects.json structuré (chargé via fetch, comme l'i18n) — P3
 - [x] Case studies STAR par projet (BeerMakers, FullstackForge, Jeux de Dame) + page projet individuelle (`project.html?slug=...`) + `docs.html` — P3
-- [x] Netlify Forms (formulaire contact) + `_headers` sécurité + `netlify.toml` — P4 (code prêt, connexion GitHub↔Netlify restant à faire par Ibrahima dans le navigateur)
+- [x] Netlify Forms (formulaire contact) + `_headers` sécurité + `netlify.toml` — P4, déployé et vérifié en ligne
+- [x] JSON-LD schema.org/Person + sitemap.xml (généré depuis data/projects.json) + robots.txt — P5
 - [ ] SEO (JSON-LD, sitemap, robots.txt, og:image) + PWA + page "Now" — P5
 
 ### Planifiées (optionnel)
@@ -151,6 +152,8 @@ Cloudflare Web Analytics (Phase 4, tâche #17) nécessite un compte Cloudflare �
 | 2026-09-23 | Le site Netlify n'est **pas créé via l'API/connecteur MCP** (`create-new-project`), la connexion GitHub↔Netlify se fait par Ibrahima dans le navigateur (Netlify UI → Import from GitHub) | Le compte Netlify existe déjà (vérifié via le connecteur : `site_count: 0`, `connect-git-provider` en attente dans l'onboarding), mais l'outil MCP de création de site n'accepte pas de repo Git en paramètre — créer un site "à vide" via l'API risquerait de laisser un site orphelin non lié au repo, séparé de celui qu'Ibrahima créerait ensuite correctement via l'UI. L'autorisation OAuth GitHub↔Netlify est de toute façon une action qui doit venir de lui | — |
 | 2026-09-23 | Formulaire de contact câblé pour Netlify Forms : `data-netlify="true"` + champ caché `form-name` + honeypot `bot-field` (recommandé par le contexte Netlify officiel), `js/contact.js` fait un vrai `fetch POST` vers `/` au lieu de simuler l'envoi avec un `setTimeout` | Le formulaire était visuellement fonctionnel mais n'envoyait rien nulle part depuis la V1 (problème connu listé dans l'audit). Ne marche réellement qu'une fois déployé sur Netlify (le formulaire est détecté au build) — testé en local : échec propre avec message d'erreur, pas de crash, cohérent avec l'absence de backend en local | — |
 | 2026-09-23 | Les 5 `style=""` inline restants (position navbar `140px`, wrapper honeypot) retirés et remplacés par des classes CSS (`.section-offset-top`, `.docs-intro`, `.visually-hidden`) | Permet un `Content-Security-Policy` sans `'unsafe-inline'` sur `style-src` dans `_headers` — CSP plus stricte | — |
+| 2026-09-23 | JSON-LD (schema.org/Person) autorisé dans la CSP via un hash `sha256-` calculé sur le contenu **réellement déployé** (fetché après le push), pas sur le fichier source local | `script-src` n'a pas de `'unsafe-inline'` (choix déjà fait), et un `<script type="application/ld+json">` est quand même soumis à `script-src` par les navigateurs. Calculer le hash en local aurait été fragile : ce repo a `core.autocrlf` actif sur Windows (avertissements LF→CRLF vus à chaque commit), donc les octets réellement commités/servis peuvent différer de ceux du fichier local | — |
+| 2026-09-23 | `sitemap.xml` généré par `build.js` à partir de `data/projects.json` (pas un fichier statique à maintenir à la main) | Reste automatiquement synchronisé si un projet est ajouté/retiré/renommé (`slug`) — évite le risque d'un sitemap qui devient obsolète en silence | — |
 
 ---
 
