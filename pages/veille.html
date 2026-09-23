@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veille technologique — Ibrahima Wade</title>
+  <meta name="description" content="Veille technologique quotidienne d'Ibrahima Wade : IA/LLM/RAG/Agents, DevOps/Kubernetes, Python/Django, PHP/Symfony, Java/Spring." />
+  <!-- Open Graph / Social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Veille technologique — Ibrahima Wade" />
+  <meta property="og:description" content="Veille technologique quotidienne d'Ibrahima Wade : IA/LLM/RAG/Agents, DevOps/Kubernetes, Python/Django, PHP/Symfony, Java/Spring." />
+  <meta property="og:url" content="https://wade199.netlify.app/veille.html" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Veille technologique — Ibrahima Wade" />
+  <meta name="twitter:description" content="Veille technologique quotidienne d'Ibrahima Wade : IA/LLM/RAG/Agents, DevOps/Kubernetes, Python/Django, PHP/Symfony, Java/Spring." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <!-- Tailwind CSS (buildé via `npm run build:css`, voir tailwind.config.js) -->
+  <link rel="stylesheet" href="tailwind.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mediaqueries.css" />
+</head>
+<body>
+
+  <!-- ===== PARTICLE BACKGROUND ===== -->
+  <canvas id="particles-canvas"></canvas>
+
+<!--#include:navbar-->
+
+  <!-- ===== VEILLE TECHNOLOGIQUE ===== -->
+  <section id="veille" class="section reveal section-offset-top">
+    <div class="section-header">
+      <p class="section-sub" data-translate="veille-sub">Chaque jour</p>
+      <h2 class="section-title" data-translate="veille-title">Veille technologique</h2>
+    </div>
+    <p class="about-bio docs-intro" data-translate="veille-intro">
+      Résumé automatisé de ma veille technique quotidienne : IA/LLM/RAG/Agents, DevOps/Kubernetes, Python/Django, PHP/Symfony, Java/Spring.
+    </p>
+
+    <p id="veille-empty" class="case-study-placeholder" data-translate="veille-empty" hidden>
+      Aucune veille publiée pour l'instant.
+    </p>
+    <!-- Rempli par js/veille.js à partir de data/veille.json -->
+    <div id="veille-list"></div>
+  </section>
+
+<!--#include:footer-->
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

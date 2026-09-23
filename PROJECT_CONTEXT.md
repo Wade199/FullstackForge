@@ -27,7 +27,7 @@
 ## ✅ Fonctionnalités
 
 ### Implémentées (héritées de la V1, adaptées en V2)
-- [x] 4 pages : `index.html` (one-page Accueil/À propos/Expériences/Compétences/Contact), `projects.html`, `project.html` (détail par projet), `docs.html` (index des études de cas)
+- [x] 5 pages : `index.html` (one-page Accueil/À propos/Expériences/Compétences/Contact), `projects.html`, `project.html` (détail par projet), `docs.html` (index des études de cas), `veille.html` (veille techno)
 - [x] Design glassmorphism thème sombre néon
 - [x] Multilingue FR/EN/ES (traductions codées en dur dans script.js)
 - [x] Section projets injectée dynamiquement depuis un tableau JS
@@ -39,13 +39,13 @@
 - [x] Retrait du CDN Tailwind → build local via Tailwind CLI — P1
 - [x] Découpage script.js en modules ES + traductions en JSON — P1
 - [x] Petit script de build maison pour partager navbar/footer entre pages (`build.js`) — P2
-- [x] Multi-pages **partiel** : index + projects (Accueil/Projets/Contact dans la nav) — Doc/Now reportés en P3/P5, voir §Décisions
+- [x] Multi-pages : index + projects + docs + veille (Accueil/Projets/Doc/Veille/Contact dans la nav) — voir §Décisions
 - [x] data/projects.json structuré (chargé via fetch, comme l'i18n) — P3
 - [x] Case studies STAR par projet (BeerMakers, FullstackForge, Jeux de Dame) + page projet individuelle (`project.html?slug=...`) + `docs.html` — P3
 - [x] Netlify Forms (formulaire contact) + `_headers` sécurité + `netlify.toml` — P4, déployé et vérifié en ligne
 - [x] JSON-LD schema.org/Person + sitemap.xml (généré depuis data/projects.json) + robots.txt — P5
-- [x] Page "Now" (apprentissages, projets en cours, certifications) + lien nav — P5, contenu traduit FR/EN/ES (comme About/Experience/Skills, pas comme data/projects.json)
-- [ ] SEO (JSON-LD, sitemap, robots.txt, og:image) + PWA + page "Now" — P5
+- [x] Page "Now" créée puis **remplacée par une page "Veille technologique"** (`veille.html`) le jour même, sur demande d'Ibrahima — il ne voulait plus exposer publiquement ses idées de projet (dont le SaaS PME). Affiche `data/veille.json` via `js/veille.js`, pensée pour être alimentée automatiquement par la routine cloud "Veille technique quotidienne" (branchement restant, tâche #28)
+- [ ] og:image par page (#21) + manifest.json PWA (#23) — P5
 
 ### Planifiées (optionnel)
 - [ ] Playground IA démo (Gemini free tier, rate limité) — P6
@@ -60,7 +60,7 @@
 ```
 [build.js maison] ← includes/navbar.html + includes/footer.html + data/projects.json
         ↓ (injection à la construction, avant commit ou en pré-build Netlify)
-   HTML statique (index.html, projects.html, projects/*.html, docs.html, now.html)
+   HTML statique (index.html, projects.html, projects/*.html, docs.html, veille.html)
         ↓
    [Netlify] → hébergement + CDN + Forms + headers sécurité
         ↑
@@ -99,7 +99,7 @@ portfolio-fullstackforge/
 ├── netlify.toml                # command = "npm run build", publish = "." + redirects 404 (fichiers internes)
 ├── _headers                    # CSP (avec hash sha256 pour le JSON-LD), X-Frame-Options, Referrer-Policy, Permissions-Policy
 ├── robots.txt                  # Référence sitemap.xml
-├── includes/                   # Navbar/footer partagés (Accueil/Projets/Doc/Now/Contact), injectés par build.js
+├── includes/                   # Navbar/footer partagés (Accueil/Projets/Doc/Veille/Contact), injectés par build.js
 │   ├── navbar.html
 │   └── footer.html
 ├── pages/                      # Sources HTML avant injection
@@ -107,16 +107,17 @@ portfolio-fullstackforge/
 │   ├── projects.html            # Grille des projets (cartes cliquables → project.html)
 │   ├── project.html             # Template unique de détail projet, lit ?slug= dans l'URL
 │   ├── docs.html                # Index des études de cas, liste les 3 projets
-│   └── now.html                 # Apprentissages / projets en cours / certifications visées
+│   └── veille.html              # Veille technologique quotidienne, affiche data/veille.json
 ├── data/
-│   └── projects.json           # Projets structurés (slug, tech, liens, case study STAR) — chargé via fetch, FR uniquement
-├── i18n/                       # fr.json, en.json, es.json (110 clés chacun)
-├── js/                         # main.js + modules ES : i18n, nav, particles, reveal, projects, project-detail, docs, contact
+│   ├── projects.json           # Projets structurés (slug, tech, liens, case study STAR) — chargé via fetch, FR uniquement
+│   └── veille.json              # Entrées de veille { date, items: [{topic, title, summary, url}] } — vide pour l'instant, alimenté par une routine cloud (à brancher, tâche #28)
+├── i18n/                       # fr.json, en.json, es.json (93 clés chacun)
+├── js/                         # main.js + modules ES : i18n, nav, particles, reveal, projects, project-detail, docs, veille, contact
 ├── assets/                     # Images, CV, icônes
 ├── build.js                    # Injecte navbar/footer dans pages/*.html → racine + génère sitemap.xml
 ├── tailwind.config.js / tailwind.input.css / tailwind.css
 ├── package.json                # scripts build:css / build:html / build
-├── index.html / projects.html / project.html / docs.html / now.html / sitemap.xml
+├── index.html / projects.html / project.html / docs.html / veille.html / sitemap.xml
 │                                # Générés par `node build.js` à partir de pages/*.html + data/projects.json — committés (voir §Décisions)
 ├── style.css / mediaqueries.css
 ├── PROJECT_CONTEXT.md           ← ce fichier
@@ -128,6 +129,7 @@ portfolio-fullstackforge/
 - `docs/` (case studies au format .md par projet) — abandonné, voir §Décisions
 - og:image custom par page (#21), manifest.json PWA (#23), traduction EN/ES de `data/projects.json` (#27)
 - Cloudflare Web Analytics (#17) — nécessite un compte Cloudflare à créer par Ibrahima
+- **Automatisation de la veille (#28)** : modifier la routine cloud "Veille technique quotidienne" pour qu'elle écrive dans `data/veille.json` et push automatiquement — pas encore fait, voir §Décisions
 
 ---
 
@@ -152,6 +154,8 @@ portfolio-fullstackforge/
 | 2026-09-23 | Les 5 `style=""` inline restants (position navbar `140px`, wrapper honeypot) retirés et remplacés par des classes CSS (`.section-offset-top`, `.docs-intro`, `.visually-hidden`) | Permet un `Content-Security-Policy` sans `'unsafe-inline'` sur `style-src` dans `_headers` — CSP plus stricte | — |
 | 2026-09-23 | JSON-LD (schema.org/Person) autorisé dans la CSP via un hash `sha256-` calculé sur le contenu **réellement déployé** (fetché après le push), pas sur le fichier source local | `script-src` n'a pas de `'unsafe-inline'` (choix déjà fait), et un `<script type="application/ld+json">` est quand même soumis à `script-src` par les navigateurs. Calculer le hash en local aurait été fragile : ce repo a `core.autocrlf` actif sur Windows (avertissements LF→CRLF vus à chaque commit), donc les octets réellement commités/servis peuvent différer de ceux du fichier local | — |
 | 2026-09-23 | `sitemap.xml` généré par `build.js` à partir de `data/projects.json` (pas un fichier statique à maintenir à la main) | Reste automatiquement synchronisé si un projet est ajouté/retiré/renommé (`slug`) — évite le risque d'un sitemap qui devient obsolète en silence | — |
+| 2026-09-23 | Page "Now" remplacée par une page "Veille technologique" (`veille.html`), le jour même de sa création | Ibrahima ne voulait plus exposer publiquement ses idées de projet (notamment le SaaS PME) — retour en arrière explicite sur la décision du même jour. `veille.html` affiche `data/veille.json` (structure `{date, items:[{topic,title,summary,url}]}`), vide pour l'instant | — |
+| 2026-09-23 | La veille sera **automatisée sans relecture humaine avant publication** : la routine cloud "Veille technique quotidienne" (`trig_01Q7ib5zeriLK321aLeF69S9`, cron 07:00 Paris, voir history.md du workspace) doit être modifiée pour écrire dans `data/veille.json` et pousser directement sur `origin/main` chaque matin | Choix explicite d'Ibrahima après que je lui ai présenté l'alternative (garder la main, valider avant chaque publication) — il a préféré l'automatisation complète malgré le risque qu'un résumé erroné ou mal formulé parte en public sans contrôle | — |
 
 ---
 

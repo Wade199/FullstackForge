@@ -1092,18 +1092,45 @@ a.contact-card-value:hover { text-decoration: underline; }
   font-style: italic;
 }
 
-/* ===== NOW PAGE ===== */
-.now-projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 3rem;
+/* ===== VEILLE TECHNOLOGIQUE ===== */
+.veille-day {
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
 }
-.now-updated {
-  text-align: center;
+.veille-date {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.2rem;
+}
+.veille-item { margin-bottom: 1.2rem; }
+.veille-item:last-child { margin-bottom: 0; }
+.veille-topic {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2rem;
+  background: rgba(123,44,191,0.15);
+  border: 1px solid rgba(123,44,191,0.3);
+  color: #c77dff;
+  margin-bottom: 0.4rem;
+}
+.veille-item-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+}
+.veille-item-title a { color: inherit; }
+.veille-item-title a:hover { color: var(--blue); text-decoration: underline; }
+.veille-item-summary {
   color: var(--muted);
-  font-size: 0.8rem;
-  margin-top: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
 /* ===== UTILITAIRES (évitent le style="" inline, pour un CSP strict) ===== */

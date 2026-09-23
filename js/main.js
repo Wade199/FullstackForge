@@ -9,6 +9,7 @@ import { initContactForm } from './contact.js';
 import { loadProjects } from './projects.js';
 import { initProjectDetail } from './project-detail.js';
 import { initDocsList } from './docs.js';
+import { initVeille } from './veille.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   initParticles();
@@ -23,9 +24,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Applique la langue sauvegardée (initialise aussi les projects et le typing)
   await initI18n();
 
-  // Remplit la page projet individuelle / la liste docs si on y est (no-op sinon)
+  // Remplit la page projet individuelle / la liste docs / la veille techno si on y est (no-op sinon)
   initProjectDetail();
   initDocsList();
+  await initVeille();
 
   // Initialise les animations de révélation au scroll
   initReveal();
