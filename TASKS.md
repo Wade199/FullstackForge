@@ -36,6 +36,7 @@ Prochaine étape : Phase 4 (déploiement Netlify), voir ci-dessous.
 | 21 | og:image custom par page | Low | Phase 2 | 30 min |
 | 22 | Créer `pages/now.html` + ajouter le lien "Now" dans `includes/navbar.html`/`footer.html` | Low | — | 20 min |
 | 23 | manifest.json PWA + service worker basique | Low | — | 30 min |
+| 27 | Traduire le contenu des projets en EN/ES (titre, description, case study STAR dans `data/projects.json`) par un locuteur natif, puis restructurer `data/projects.json` en `{ fr, en, es }` par champ | Low | — | — |
 
 ### Phase 6 — Playground IA (optionnelle, 3-4h)
 | # | Tâche | Priorité | Dépendances | Estimation |
@@ -82,7 +83,6 @@ Prochaine étape : Phase 4 (déploiement Netlify), voir ci-dessous.
 
 - [ ] Domaine perso `.dev` (~10€/an) si le budget change un jour
 - [ ] Blog technique en plus des case studies STAR
-- [ ] Traduction du contenu par un locuteur natif EN/ES
 
 ---
 

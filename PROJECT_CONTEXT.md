@@ -197,6 +197,7 @@ portfolio-fullstackforge/
 | Formulaire contact non fonctionnel (pas de backend) | UX — le formulaire ne fait rien aujourd'hui | High | Prévu Phase 4 (Netlify Forms) |
 | Pas de `og:image`, sitemap.xml, robots.txt | SEO | Med | Prévu Phase 5 |
 | Pas de lazy loading sur les images | Perf | Low | Prévu Phase 5 (le lazy loading existe déjà sur les images de projets injectées par JS ; à étendre aux images statiques du HTML) |
+| Contenu des projets (titre/description/case study STAR) non traduit : `data/projects.json` n'a qu'une version française, contrairement aux libellés d'interface (`i18n/*.json`) | UX — le contenu reste en français même en EN/ES sur `projects.html`/`docs.html`/`project.html` | Low | Connu, pas un bug. Prévu Phase 5 (tâche #27) : traduction par un locuteur natif puis restructuration de `data/projects.json` en `{ fr, en, es }` par champ |
 
 ---
 
