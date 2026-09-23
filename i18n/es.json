@@ -74,6 +74,7 @@
   "form-success": "✅ ¡Mensaje enviado con éxito!",
   "form-error": "❌ Por favor, rellena todos los campos.",
   "form-error-email": "❌ Por favor, introduce una dirección de email válida.",
+  "form-error-network": "❌ Error al enviar. Inténtalo más tarde o escríbeme directamente por email.",
   "typing": ["Desarrollador Full Stack", "Bachelor DevOps Fullstack", "Apasionado del código 💻"],
   "back-to-projects": "← Volver a los proyectos",
   "case-study-label": "Caso de estudio",

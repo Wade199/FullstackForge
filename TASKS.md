@@ -22,11 +22,8 @@ Prochaine étape : Phase 4 (déploiement Netlify), voir ci-dessous.
 ### Phase 4 — Déploiement (1-1.5h)
 | # | Tâche | Priorité | Dépendances | Estimation |
 |---|-------|----------|-------------|------------|
-| 14 | Créer compte/site Netlify, connecter repo GitHub | High | Phase 1-3 | 20 min |
-| 15 | Configurer Netlify Forms sur le formulaire contact | High | #14 | 20 min |
-| 16 | Fichier `_headers` (CSP, X-Frame-Options, Referrer-Policy) | High | #14 | 20 min |
-| 17 | Brancher Cloudflare Web Analytics | Med | #14 | 15 min |
-| 18 | Vérifier 2FA + Dependabot activés sur le repo GitHub public | High | — | 10 min |
+| 14 | Connecter le repo GitHub à Netlify (compte déjà existant, `site_count: 0`) — **à faire par Ibrahima dans le navigateur** (autorisation OAuth GitHub↔Netlify) | High | Phase 1-3 | 20 min |
+| 17 | Brancher Cloudflare Web Analytics — nécessite un compte Cloudflare (à créer par Ibrahima) | Med | #14 | 15 min |
 
 ### Phase 5 — SEO / PWA / Now (2h)
 | # | Tâche | Priorité | Dépendances | Estimation |
@@ -68,6 +65,8 @@ Prochaine étape : Phase 4 (déploiement Netlify), voir ci-dessous.
 | 12 | Case study STAR — Jeux de Dame | 2026-09-23 | Repo GitHub inspecté avant rédaction (3 commits, moteur de règles avec prises en chaîne + PWA) |
 | 13 | Page projet individuelle (template) | 2026-09-23 | `pages/project.html` : template unique, lit `?slug=` dans l'URL, `js/project-detail.js`. Bouton Demo masqué si absent (cas BeerMakers) |
 | 13b | Créer `pages/docs.html` + lien "Doc" dans navbar/footer | 2026-09-23 | `pages/docs.html` + `js/docs.js` : liste les 3 projets, lien vers leur étude de cas |
+| 15 | Configurer Netlify Forms sur le formulaire contact | 2026-09-23 | `data-netlify="true"` + `form-name` caché + honeypot `bot-field` (recommandé par Netlify) sur le formulaire dans `pages/index.html` ; `js/contact.js` fait un vrai POST AJAX vers `/` au lieu de simuler l'envoi. Ne marchera réellement qu'une fois déployé sur Netlify (testé en local : échec attendu, 501, le serveur statique Python ne gère pas POST) |
+| 16 | Fichier `_headers` (CSP, X-Frame-Options, Referrer-Policy) | 2026-09-23 | `_headers` + `netlify.toml` (`command = "npm run build"`, `publish = "."`) créés. Les 5 `style=""` inline restants (position navbar, honeypot) retirés au passage et remplacés par des classes CSS, pour un CSP sans `'unsafe-inline'` sur `style-src` |
 
 ---
 

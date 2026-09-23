@@ -1091,3 +1091,18 @@ a.contact-card-value:hover { text-decoration: underline; }
   color: var(--muted);
   font-style: italic;
 }
+
+/* ===== UTILITAIRES (évitent le style="" inline, pour un CSP strict) ===== */
+.section-offset-top { padding-top: 140px; }
+
+.docs-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: -2rem auto 3rem;
+}
+
+/* Cache visuellement sans cacher aux lecteurs d'écran ni aux bots (honeypot anti-spam) */
+.visually-hidden {
+  position: absolute;
+  left: -9999px;
+}

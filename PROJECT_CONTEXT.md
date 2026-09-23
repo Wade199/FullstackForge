@@ -42,7 +42,7 @@
 - [x] Multi-pages **partiel** : index + projects (Accueil/Projets/Contact dans la nav) — Doc/Now reportés en P3/P5, voir §Décisions
 - [x] data/projects.json structuré (chargé via fetch, comme l'i18n) — P3
 - [x] Case studies STAR par projet (BeerMakers, FullstackForge, Jeux de Dame) + page projet individuelle (`project.html?slug=...`) + `docs.html` — P3
-- [ ] Déploiement Netlify + Forms + headers sécurité — P4
+- [x] Netlify Forms (formulaire contact) + `_headers` sécurité + `netlify.toml` — P4 (code prêt, connexion GitHub↔Netlify restant à faire par Ibrahima dans le navigateur)
 - [ ] SEO (JSON-LD, sitemap, robots.txt, og:image) + PWA + page "Now" — P5
 
 ### Planifiées (optionnel)
@@ -91,9 +91,11 @@ Aucun backend, aucune base de données, aucun secret exposé côté client (sauf
 
 ## 📁 Structure du repository
 
-**État actuel (Phase 3 terminée)** :
+**État actuel (Phase 4 — code prêt, connexion Netlify restante)** :
 ```
 portfolio-fullstackforge/
+├── netlify.toml                # command = "npm run build", publish = "." (implémenté)
+├── _headers                    # CSP, X-Frame-Options, Referrer-Policy, Permissions-Policy (implémenté)
 ├── includes/                   # Navbar/footer partagés, injectés par build.js (implémenté)
 │   ├── navbar.html
 │   └── footer.html
@@ -121,13 +123,12 @@ portfolio-fullstackforge/
 └── README.md
 ```
 
-**Cible restante (Phase 4+, pas encore implémenté)** :
+**Cible restante (pas encore implémenté)** :
 ```
 ├── docs/                      # Case studies au format .md par projet — abandonné, voir §Décisions
-├── pages/now.html               # Page "Now" + lien nav "Now" — Phase 5
-├── _headers                   # Headers sécurité Netlify (CSP, X-Frame-Options...) — Phase 4
-└── netlify.toml                # Config build Netlify — Phase 4
+└── pages/now.html               # Page "Now" + lien nav "Now" — Phase 5
 ```
+Cloudflare Web Analytics (Phase 4, tâche #17) nécessite un compte Cloudflare à créer par Ibrahima — pas encore fait.
 
 ---
 
@@ -146,6 +147,10 @@ portfolio-fullstackforge/
 | 2026-09-23 | `index.html`/`projects.html` à la racine sont des **fichiers générés** par `node build.js` à partir de `pages/*.html` — ne jamais les éditer directement, éditer `pages/` ou `includes/` puis relancer `npm run build` | Même logique que `tailwind.css` : GitHub Pages sert les fichiers racine bruts sans étape de build tant que Netlify (Phase 4) n'est pas branché | — |
 | 2026-09-23 | Case studies STAR stockées comme champ `caseStudy` dans `data/projects.json` (un seul template `pages/project.html?slug=...`), plutôt que des fichiers `.md` séparés dans `docs/` comme envisagé initialement dans l'architecture | Plus simple pour 3 projets : une seule page HTML à maintenir au lieu de N fichiers Markdown + un rendu Markdown→HTML à écrire ; cohérent avec le pattern déjà en place (JSON chargé via `fetch`) | — |
 | 2026-09-23 | Avant de rédiger le contenu STAR, inspection réelle des repos GitHub (`gh api`) de BeerMakers et Jeux de Dame plutôt que d'inventer le contexte/actions/résultats | Ce sont des affirmations professionnelles sur un portfolio public — les inventer serait présenter de fausses informations comme vraies. Deux erreurs factuelles trouvées et corrigées au passage : BeerMakers est une appli **Flutter/Dart** (pas "PHP/HTML/CSS/Bootstrap" ni "application web" comme c'était écrit), et son lien "démo" (`beermakerss`) était mort (404, appli mobile non déployée) — supprimé, le bouton Demo est maintenant masqué quand `demo` est vide | — |
+| 2026-09-23 | Contenu des projets (titre/description/case study) laissé en français uniquement pour l'instant, traduction EN/ES rattachée à la Phase 5 (tâche #27) | Décision explicite d'Ibrahima après avoir remarqué que `docs.html` ne traduisait pas le contenu (limite connue, pas un bug — `data/projects.json` n'a qu'une version FR contrairement aux libellés d'interface dans `i18n/*.json`) | — |
+| 2026-09-23 | Le site Netlify n'est **pas créé via l'API/connecteur MCP** (`create-new-project`), la connexion GitHub↔Netlify se fait par Ibrahima dans le navigateur (Netlify UI → Import from GitHub) | Le compte Netlify existe déjà (vérifié via le connecteur : `site_count: 0`, `connect-git-provider` en attente dans l'onboarding), mais l'outil MCP de création de site n'accepte pas de repo Git en paramètre — créer un site "à vide" via l'API risquerait de laisser un site orphelin non lié au repo, séparé de celui qu'Ibrahima créerait ensuite correctement via l'UI. L'autorisation OAuth GitHub↔Netlify est de toute façon une action qui doit venir de lui | — |
+| 2026-09-23 | Formulaire de contact câblé pour Netlify Forms : `data-netlify="true"` + champ caché `form-name` + honeypot `bot-field` (recommandé par le contexte Netlify officiel), `js/contact.js` fait un vrai `fetch POST` vers `/` au lieu de simuler l'envoi avec un `setTimeout` | Le formulaire était visuellement fonctionnel mais n'envoyait rien nulle part depuis la V1 (problème connu listé dans l'audit). Ne marche réellement qu'une fois déployé sur Netlify (le formulaire est détecté au build) — testé en local : échec propre avec message d'erreur, pas de crash, cohérent avec l'absence de backend en local | — |
+| 2026-09-23 | Les 5 `style=""` inline restants (position navbar `140px`, wrapper honeypot) retirés et remplacés par des classes CSS (`.section-offset-top`, `.docs-intro`, `.visually-hidden`) | Permet un `Content-Security-Policy` sans `'unsafe-inline'` sur `style-src` dans `_headers` — CSP plus stricte | — |
 
 ---
 
@@ -171,7 +176,7 @@ portfolio-fullstackforge/
 
 - Aucun secret nécessaire en V1 (site 100% statique)
 - Si Playground IA (P6) : clé Gemini uniquement côté Netlify Function (jamais exposée au client), rate limiting strict (5 req/jour/IP)
-- Headers de sécurité via `_headers` Netlify : CSP, X-Frame-Options, Referrer-Policy, X-Content-Type-Options
+- Headers de sécurité via `_headers` Netlify : CSP (sans `'unsafe-inline'`), X-Frame-Options, Referrer-Policy, X-Content-Type-Options, Permissions-Policy — implémenté, actif seulement une fois le site connecté à Netlify
 - Compte GitHub : 2FA + Dependabot (à vérifier/activer si pas déjà fait)
 - Repo **public** (contrairement à InvoiceAI) — c'est un portfolio, la visibilité est voulue
 
@@ -180,9 +185,10 @@ portfolio-fullstackforge/
 ## 🚀 Déploiement
 
 - **Environnements** : local (ouvrir index.html ou petit serveur statique) → production (Netlify, déploiement auto sur push `main`)
-- **Méthode** : Netlify build (`node build.js`) + deploy auto
+- **Méthode** : Netlify build (`npm run build` — voir `netlify.toml`) + deploy auto
 - **URL prod actuelle (V1)** : https://wade199.github.io/FullstackForge/ (GitHub Pages)
 - **URL prod cible (V2)** : `wade199.netlify.app` (à confirmer, migration GitHub Pages → Netlify en Phase 4)
+- **Compte Netlify** : existe déjà (`ibrahima97wade99@gmail.com`, connecté via Google, créé le 2025-08-24, 0 site pour l'instant) — reste à connecter le repo GitHub via l'UI Netlify (Add new site → Import from GitHub)
 
 ---
 
@@ -194,7 +200,7 @@ portfolio-fullstackforge/
 | `script.js` monolithique (758 lignes) | Maintenabilité | Med | ✅ Résolu (Phase 1) — découpé en modules ES |
 | Traductions codées en dur dans le JS | Maintenabilité | Med | ✅ Résolu (Phase 1) — sorties en JSON |
 | Image `img2infomatique.png.png` (double extension) | Cosmétique | Low | ✅ Résolu (Phase 1) — renommée en `.png` |
-| Formulaire contact non fonctionnel (pas de backend) | UX — le formulaire ne fait rien aujourd'hui | High | Prévu Phase 4 (Netlify Forms) |
+| Formulaire contact non fonctionnel (pas de backend) | UX — le formulaire ne fait rien aujourd'hui | High | ✅ Résolu côté code (Phase 4) — Netlify Forms câblé, actif une fois le site connecté à Netlify |
 | Pas de `og:image`, sitemap.xml, robots.txt | SEO | Med | Prévu Phase 5 |
 | Pas de lazy loading sur les images | Perf | Low | Prévu Phase 5 (le lazy loading existe déjà sur les images de projets injectées par JS ; à étendre aux images statiques du HTML) |
 | Contenu des projets (titre/description/case study STAR) non traduit : `data/projects.json` n'a qu'une version française, contrairement aux libellés d'interface (`i18n/*.json`) | UX — le contenu reste en français même en EN/ES sur `projects.html`/`docs.html`/`project.html` | Low | Connu, pas un bug. Prévu Phase 5 (tâche #27) : traduction par un locuteur natif puis restructuration de `data/projects.json` en `{ fr, en, es }` par champ |
@@ -210,7 +216,8 @@ portfolio-fullstackforge/
 5. [x] Phase 1 : Tailwind CLI + découpage script.js en modules ES + i18n en JSON + nettoyage CSS + renommage image — testé (Node --check sur les modules, cohérence des clés JSON, serveur HTTP local)
 6. [x] Phase 2 : `build.js` + `includes/navbar.html`/`footer.html` + `pages/index.html`/`projects.html` — nav réduite à Accueil/Projets/Contact (choix explicite d'Ibrahima) — testé (build sans erreur, marqueurs résolus, aucun href orphelin, clés i18n couvertes, serveur HTTP local) **et vérifié par Ibrahima dans un vrai navigateur le 2026-09-23** (nav multi-pages, langues, typing, particules, contact — tout OK)
 7. [x] Phase 3 : `data/projects.json` + case studies STAR (BeerMakers, FullstackForge, Jeux de Dame, validées par Ibrahima) + `pages/project.html` (template) + `pages/docs.html` + lien nav "Doc" — testé (build, JSON valide, cohérence i18n sur 4 pages, serveur HTTP local)
-8. [ ] Démarrer Phase 4 : compte Netlify + Forms sur le formulaire contact + `_headers` sécurité + Cloudflare Analytics
+8. [x] Phase 4 (code) : Netlify Forms câblé (`data-netlify` + honeypot + vrai POST AJAX), `_headers` + `netlify.toml`, 5 `style=""` inline retirés — testé (build sans erreur, aucun style inline restant, 501 attendu en local sans backend Netlify)
+9. [ ] Phase 4 (reste, action Ibrahima) : connecter le repo GitHub à Netlify dans le navigateur, vérifier que le formulaire de contact fonctionne réellement une fois en ligne, brancher Cloudflare Web Analytics (compte à créer)
 
 ---
 

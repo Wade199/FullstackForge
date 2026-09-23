@@ -467,7 +467,11 @@
         </div>
       </div>
 
-      <form class="contact-form glass-card reveal-item" id="contact-form" novalidate>
+      <form class="contact-form glass-card reveal-item" id="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="visually-hidden">
+          <label>Ne pas remplir : <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+        </p>
         <div class="form-group">
           <label for="form-name" data-translate="form-name">Nom</label>
           <input type="text" id="form-name" name="name" placeholder="Votre nom" required autocomplete="name" />

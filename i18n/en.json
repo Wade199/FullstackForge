@@ -74,6 +74,7 @@
   "form-success": "✅ Message sent successfully!",
   "form-error": "❌ Please fill in all fields.",
   "form-error-email": "❌ Please enter a valid email address.",
+  "form-error-network": "❌ Failed to send. Please try again later or email me directly.",
   "typing": ["Full Stack Developer", "DevOps Fullstack Bachelor", "Code enthusiast 💻"],
   "back-to-projects": "← Back to projects",
   "case-study-label": "Case study",
