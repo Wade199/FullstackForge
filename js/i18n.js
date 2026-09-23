@@ -3,6 +3,8 @@
    typing effect, and DOM text updates.
    ============================================================ */
 import { renderProjects } from './projects.js';
+import { initProjectDetail } from './project-detail.js';
+import { initDocsList } from './docs.js';
 
 const SUPPORTED_LANGS = ['fr', 'en', 'es'];
 
@@ -96,8 +98,11 @@ export function changeLanguage(lang) {
   if (dd) dd.classList.remove('open');
   if (btn) btn.classList.remove('open');
 
-  // Re-render projects with new language
-  renderProjects(t);
+  // Re-render le contenu localisé des projets sur les pages concernées
+  // (no-op automatique sur les pages où les éléments ciblés n'existent pas)
+  renderProjects(t, lang);
+  initProjectDetail(lang);
+  initDocsList(lang, t);
 
   // Restart typing with new language
   startTyping(lang);

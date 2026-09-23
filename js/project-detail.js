@@ -3,17 +3,18 @@
    dans l'URL, affiche le projet correspondant depuis
    data/projects.json (déjà chargé par loadProjects() dans main.js).
 
-   Les libellés (Situation/Tâche/Action/Résultat, "à venir", boutons
-   GitHub/Demo) sont statiques dans le HTML via data-translate — ce
-   module ne fait que remplir/masquer du contenu, jamais du texte
-   d'interface, pour que le changement de langue continue de marcher
-   sans code spécifique ici.
+   Les libellés d'interface (Situation/Tâche/Action/Résultat, "à
+   venir", boutons GitHub/Demo) sont statiques dans le HTML via
+   data-translate. Le contenu (titre/description/technical/caseStudy)
+   est localisé via `lang`, passé par i18n.js à chaque changement de
+   langue (voir changeLanguage) — pas d'import de i18n.js ici pour
+   éviter une dépendance circulaire.
    ============================================================ */
-import { getProjectBySlug, safeExternalUrl, safeAssetPath } from './projects.js';
+import { getProjectBySlug, safeExternalUrl, safeAssetPath, pickLocale } from './projects.js';
 
 const STAR_KEYS = ['situation', 'task', 'action', 'result'];
 
-export function initProjectDetail() {
+export function initProjectDetail(lang) {
   const root = document.getElementById('project-detail');
   if (!root) return; // pas sur pages/project.html
 
@@ -31,24 +32,25 @@ export function initProjectDetail() {
     return;
   }
 
-  document.title = `${project.title} — Ibrahima Wade`;
+  const localizedTitle = pickLocale(project.title, lang);
+  document.title = `${localizedTitle} — Ibrahima Wade`;
 
   const imageEl = document.getElementById('pd-image');
   const imagePath = safeAssetPath(project.image);
   if (imageEl) {
     if (imagePath) {
       imageEl.src = imagePath;
-      imageEl.alt = project.title || '';
+      imageEl.alt = localizedTitle;
     } else {
       imageEl.hidden = true;
     }
   }
 
   const titleEl = document.getElementById('pd-title');
-  if (titleEl) titleEl.textContent = project.title || '';
+  if (titleEl) titleEl.textContent = localizedTitle;
 
   const descEl = document.getElementById('pd-description');
-  if (descEl) descEl.textContent = project.description || '';
+  if (descEl) descEl.textContent = pickLocale(project.description, lang);
 
   const techEl = document.getElementById('pd-tech');
   if (techEl) {
@@ -74,23 +76,24 @@ export function initProjectDetail() {
     }
   }
 
-  renderTechnical(project.technical);
-  renderCaseStudy(project.caseStudy || {});
+  renderTechnical(project.technical, lang);
+  renderCaseStudy(project.caseStudy || {}, lang);
 }
 
-function renderTechnical(technical) {
+function renderTechnical(technical, lang) {
   const section = document.getElementById('pd-technical');
   const list = document.getElementById('pd-technical-list');
   if (!section || !list) return;
 
-  const items = Array.isArray(technical) ? technical.filter(Boolean) : [];
-  if (items.length === 0) {
+  const items = pickLocale(technical, lang);
+  const validItems = Array.isArray(items) ? items.filter(Boolean) : [];
+  if (validItems.length === 0) {
     section.hidden = true;
     return;
   }
 
   list.replaceChildren();
-  items.forEach(item => {
+  validItems.forEach(item => {
     const li = document.createElement('li');
     li.textContent = item;
     list.appendChild(li);
@@ -98,16 +101,16 @@ function renderTechnical(technical) {
   section.hidden = false;
 }
 
-function renderCaseStudy(caseStudy) {
+function renderCaseStudy(caseStudy, lang) {
   const placeholder = document.getElementById('pd-case-study-placeholder');
-  const hasContent = STAR_KEYS.some(key => (caseStudy[key] || '').trim() !== '');
+  const hasContent = STAR_KEYS.some(key => pickLocale(caseStudy[key], lang).trim() !== '');
 
   if (placeholder) placeholder.hidden = hasContent;
 
   STAR_KEYS.forEach(key => {
     const block = document.querySelector(`[data-star="${key}"]`);
     if (!block) return;
-    const text = (caseStudy[key] || '').trim();
+    const text = pickLocale(caseStudy[key], lang).trim();
     if (text) {
       const textEl = block.querySelector('[data-star-text]');
       if (textEl) textEl.textContent = text;

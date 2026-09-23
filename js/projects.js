@@ -33,7 +33,16 @@ export function safeAssetPath(value) {
   return path.startsWith('./assets/') && !path.includes('..') ? path : '';
 }
 
-export function renderProjects(translations) {
+// Les champs de contenu (title, description, technical, caseStudy.*) sont
+// des objets { fr, en, es } ; on prend la langue demandée avec repli sur le
+// français si la traduction manque pour une raison ou une autre.
+export function pickLocale(field, lang) {
+  if (!field) return '';
+  if (typeof field === 'string') return field; // rétrocompatibilité éventuelle
+  return field[lang] || field.fr || '';
+}
+
+export function renderProjects(translations, lang) {
   const grid = document.getElementById('projects-grid');
   if (!grid) return;
   const t = translations || {};
@@ -48,11 +57,12 @@ export function renderProjects(translations) {
     const imgWrap = document.createElement('div');
     imgWrap.className = 'project-img-wrap';
 
+    const localizedTitle = pickLocale(project.title, lang);
     const imagePath = safeAssetPath(project.image);
     if (imagePath) {
       const img = document.createElement('img');
       img.src = imagePath;
-      img.alt = project.title || '';
+      img.alt = localizedTitle;
       img.className = 'project-img';
       img.loading = 'lazy';
       // Cacher l'image si erreur de chargement
@@ -67,11 +77,11 @@ export function renderProjects(translations) {
 
     const title = document.createElement('h3');
     title.className = 'project-title';
-    title.textContent = project.title || 'Projet';
+    title.textContent = localizedTitle || 'Projet';
 
     const description = document.createElement('p');
     description.className = 'project-desc';
-    description.textContent = project.description || '';
+    description.textContent = pickLocale(project.description, lang);
 
     const techList = document.createElement('div');
     techList.className = 'project-tech';

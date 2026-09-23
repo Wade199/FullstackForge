@@ -1,73 +1,185 @@
 [
   {
     "slug": "beermakers",
-    "title": "BeerMakers",
-    "description": "Application mobile Flutter de calcul de recettes de brassage artisanal, avec guide de fabrication étape par étape.",
+    "title": { "fr": "BeerMakers", "en": "BeerMakers", "es": "BeerMakers" },
+    "description": {
+      "fr": "Application mobile Flutter de calcul de recettes de brassage artisanal, avec guide de fabrication étape par étape.",
+      "en": "Flutter mobile app for calculating craft brewing recipes, with a step-by-step brewing guide.",
+      "es": "Aplicación móvil Flutter para calcular recetas de elaboración artesanal de cerveza, con una guía de fabricación paso a paso."
+    },
     "image": "./assets/image11.png",
     "tech": ["Flutter", "Dart"],
     "github": "https://github.com/Wade199/beermakers",
     "demo": "",
     "hasDocs": false,
-    "technical": [
-      "Architecture Flutter classique : StatefulWidget + navigation par routes nommées (Navigator.pushNamed)",
-      "Modèle de données Recette encapsulant la formule de calcul (quantité de malt = volume × degré d'alcool ÷ 20)",
-      "Guide de fabrication paginé (écran Etapes) avec illustrations par étape",
-      "Liste de recettes avec flutter_slidable pour les actions de balayage",
-      "Projet mono-commit, sans tests automatisés (projet d'entraînement, pas de CI)"
-    ],
+    "technical": {
+      "fr": [
+        "Architecture Flutter classique : StatefulWidget + navigation par routes nommées (Navigator.pushNamed)",
+        "Modèle de données Recette encapsulant la formule de calcul (quantité de malt = volume × degré d'alcool ÷ 20)",
+        "Guide de fabrication paginé (écran Etapes) avec illustrations par étape",
+        "Liste de recettes avec flutter_slidable pour les actions de balayage",
+        "Projet mono-commit, sans tests automatisés (projet d'entraînement, pas de CI)"
+      ],
+      "en": [
+        "Classic Flutter architecture: StatefulWidget + named-route navigation (Navigator.pushNamed)",
+        "Recette data model encapsulating the calculation formula (malt quantity = volume × ABV ÷ 20)",
+        "Paginated brewing guide (Steps screen) with per-step illustrations",
+        "Recipe list using flutter_slidable for swipe actions",
+        "Single-commit project, no automated tests (training project, no CI)"
+      ],
+      "es": [
+        "Arquitectura Flutter clásica: StatefulWidget + navegación por rutas con nombre (Navigator.pushNamed)",
+        "Modelo de datos Recette que encapsula la fórmula de cálculo (cantidad de malta = volumen × grado de alcohol ÷ 20)",
+        "Guía de fabricación paginada (pantalla Etapas) con ilustraciones por paso",
+        "Lista de recetas con flutter_slidable para las acciones de deslizamiento",
+        "Proyecto de un solo commit, sin pruebas automatizadas (proyecto de entrenamiento, sin CI)"
+      ]
+    },
     "caseStudy": {
-      "situation": "Projet d'entraînement pour progresser sur Flutter et le développement mobile, sur le thème du brassage artisanal.",
-      "task": "Concevoir une application qui calcule les quantités de malt à partir du volume, du degré d'alcool et de la couleur visés, guide l'utilisateur à travers les étapes de fabrication, et gère une liste de recettes.",
-      "action": "Développement en Flutter/Dart : écran de calcul avec la formule de brassage (quantité de malt à partir du volume, du degré d'alcool et de la couleur EBC), guide de fabrication illustré et paginé, navigation multi-écrans (menu, étapes, recettes, calcul), modèle de données Recette.",
-      "result": "Application fonctionnelle validant les calculs de brassage et une architecture Flutter multi-écrans. Projet d'étude, non déployé publiquement (pas d'app store ni de démo en ligne)."
+      "situation": {
+        "fr": "Projet d'entraînement pour progresser sur Flutter et le développement mobile, sur le thème du brassage artisanal.",
+        "en": "Training project to improve at Flutter and mobile development, on the theme of craft brewing.",
+        "es": "Proyecto de entrenamiento para progresar en Flutter y el desarrollo móvil, sobre el tema de la elaboración artesanal de cerveza."
+      },
+      "task": {
+        "fr": "Concevoir une application qui calcule les quantités de malt à partir du volume, du degré d'alcool et de la couleur visés, guide l'utilisateur à travers les étapes de fabrication, et gère une liste de recettes.",
+        "en": "Design an app that calculates malt quantities from the target volume, ABV and color, guides the user through the brewing steps, and manages a list of recipes.",
+        "es": "Diseñar una aplicación que calcule las cantidades de malta a partir del volumen, el grado de alcohol y el color deseados, guíe al usuario a través de las etapas de fabricación y gestione una lista de recetas."
+      },
+      "action": {
+        "fr": "Développement en Flutter/Dart : écran de calcul avec la formule de brassage (quantité de malt à partir du volume, du degré d'alcool et de la couleur EBC), guide de fabrication illustré et paginé, navigation multi-écrans (menu, étapes, recettes, calcul), modèle de données Recette.",
+        "en": "Development in Flutter/Dart: calculation screen with the brewing formula (malt quantity from volume, ABV and EBC color), illustrated and paginated brewing guide, multi-screen navigation (menu, steps, recipes, calculation), Recette data model.",
+        "es": "Desarrollo en Flutter/Dart: pantalla de cálculo con la fórmula de elaboración (cantidad de malta a partir del volumen, el grado de alcohol y el color EBC), guía de fabricación ilustrada y paginada, navegación multipantalla (menú, etapas, recetas, cálculo), modelo de datos Recette."
+      },
+      "result": {
+        "fr": "Application fonctionnelle validant les calculs de brassage et une architecture Flutter multi-écrans. Projet d'étude, non déployé publiquement (pas d'app store ni de démo en ligne).",
+        "en": "Working app validating the brewing calculations and a multi-screen Flutter architecture. A study project, not publicly deployed (no app store listing or live demo).",
+        "es": "Aplicación funcional que valida los cálculos de elaboración y una arquitectura Flutter multipantalla. Proyecto de estudio, no publicado (sin tienda de aplicaciones ni demo en línea)."
+      }
     }
   },
   {
     "slug": "fullstackforge",
-    "title": "FullstackForge",
-    "description": "Portfolio personnel moderne développé avec HTML, CSS et JavaScript. Design glassmorphism avec thème sombre et effets néon.",
+    "title": { "fr": "FullstackForge", "en": "FullstackForge", "es": "FullstackForge" },
+    "description": {
+      "fr": "Portfolio personnel moderne développé avec HTML, CSS et JavaScript. Design glassmorphism avec thème sombre et effets néon.",
+      "en": "Modern personal portfolio built with HTML, CSS and JavaScript. Glassmorphism design with a dark theme and neon effects.",
+      "es": "Portafolio personal moderno desarrollado con HTML, CSS y JavaScript. Diseño glassmorphism con tema oscuro y efectos neón."
+    },
     "image": "./assets/image222.png",
     "tech": ["HTML", "CSS", "JavaScript"],
     "github": "https://github.com/Wade199/FullstackForge",
     "demo": "https://wade199.netlify.app/",
     "hasDocs": true,
-    "technical": [
-      "Site 100% statique : HTML/CSS/JS vanilla, aucun framework, aucun backend",
-      "CSS buildé via Tailwind CLI (pas de CDN), variables CSS custom pour le thème néon",
-      "JS en modules ES natifs (i18n, nav, particles, reveal, projects, project-detail, docs, veille, contact), aucun bundler",
-      "Traductions et données projets chargées au runtime via fetch (i18n/*.json, data/projects.json)",
-      "Script de build maison (build.js) : injecte navbar/footer partagés dans les pages sources, génère le sitemap.xml",
-      "Déployé sur Netlify : CSP stricte (hash sha256 pour le JSON-LD, sans 'unsafe-inline'), Netlify Forms avec honeypot anti-spam",
-      "Page de veille technologique alimentée automatiquement chaque matin par une routine cloud (recherche web, commit et push)"
-    ],
+    "technical": {
+      "fr": [
+        "Site 100% statique : HTML/CSS/JS vanilla, aucun framework, aucun backend",
+        "CSS buildé via Tailwind CLI (pas de CDN), variables CSS custom pour le thème néon",
+        "JS en modules ES natifs (i18n, nav, particles, reveal, projects, project-detail, docs, veille, contact), aucun bundler",
+        "Traductions et données projets chargées au runtime via fetch (i18n/*.json, data/projects.json)",
+        "Script de build maison (build.js) : injecte navbar/footer partagés dans les pages sources, génère le sitemap.xml",
+        "Déployé sur Netlify : CSP stricte (hash sha256 pour le JSON-LD, sans 'unsafe-inline'), Netlify Forms avec honeypot anti-spam",
+        "Page de veille technologique alimentée automatiquement chaque matin par une routine cloud (recherche web, commit et push)"
+      ],
+      "en": [
+        "100% static site: vanilla HTML/CSS/JS, no framework, no backend",
+        "CSS built via Tailwind CLI (no CDN), custom CSS variables for the neon theme",
+        "JS as native ES modules (i18n, nav, particles, reveal, projects, project-detail, docs, tech watch, contact), no bundler",
+        "Translations and project data loaded at runtime via fetch (i18n/*.json, data/projects.json)",
+        "Custom build script (build.js): injects a shared navbar/footer into source pages, generates sitemap.xml",
+        "Deployed on Netlify: strict CSP (sha256 hash for the JSON-LD, no 'unsafe-inline'), Netlify Forms with an anti-spam honeypot",
+        "Tech watch page updated automatically every morning by a cloud routine (web search, commit and push)"
+      ],
+      "es": [
+        "Sitio 100% estático: HTML/CSS/JS puro, sin framework, sin backend",
+        "CSS generado con Tailwind CLI (sin CDN), variables CSS personalizadas para el tema neón",
+        "JS en módulos ES nativos (i18n, nav, particles, reveal, projects, project-detail, docs, vigilancia, contact), sin bundler",
+        "Traducciones y datos de proyectos cargados en tiempo real vía fetch (i18n/*.json, data/projects.json)",
+        "Script de build propio (build.js): inyecta la navbar/footer compartidos en las páginas fuente, genera el sitemap.xml",
+        "Desplegado en Netlify: CSP estricta (hash sha256 para el JSON-LD, sin 'unsafe-inline'), Netlify Forms con honeypot antispam",
+        "Página de vigilancia tecnológica actualizada automáticamente cada mañana por una rutina en la nube (búsqueda web, commit y push)"
+      ]
+    },
     "caseStudy": {
-      "situation": "Besoin d'un portfolio professionnel pour la recherche d'alternance ; la V1 existante fonctionnait mais avait de la dette technique (CDN Tailwind non optimisé, un seul fichier JS de 758 lignes, traductions codées en dur).",
-      "task": "Refondre l'architecture technique sans changer le contenu ni ajouter de framework, en gardant un site 100% statique (zéro backend, zéro surface d'attaque) et un coût de 0€/mois.",
-      "action": "Pilotage du projet en pair-programming avec Claude Code comme copilote, avec des décisions d'architecture prises et validées à chaque étape : build Tailwind CLI local, découpage du JS en modules ES, traductions sorties en JSON, script de build maison pour partager la navbar/footer entre pages, structuration multi-pages, données projets structurées en JSON.",
-      "result": "Site refondu et documenté (PROJECT_CONTEXT.md/TASKS.md tenus à jour), déployé sur Netlify avec formulaire de contact fonctionnel et headers de sécurité, chaque étape testée avant d'être poussée en production."
+      "situation": {
+        "fr": "Besoin d'un portfolio professionnel pour la recherche d'alternance ; la V1 existante fonctionnait mais avait de la dette technique (CDN Tailwind non optimisé, un seul fichier JS de 758 lignes, traductions codées en dur).",
+        "en": "Needed a professional portfolio for the apprenticeship search; the existing V1 worked but had technical debt (unoptimized Tailwind CDN, a single 758-line JS file, hardcoded translations).",
+        "es": "Necesidad de un portafolio profesional para la búsqueda de alternancia; la V1 existente funcionaba pero tenía deuda técnica (CDN de Tailwind no optimizado, un único archivo JS de 758 líneas, traducciones codificadas)."
+      },
+      "task": {
+        "fr": "Refondre l'architecture technique sans changer le contenu ni ajouter de framework, en gardant un site 100% statique (zéro backend, zéro surface d'attaque) et un coût de 0€/mois.",
+        "en": "Rebuild the technical architecture without changing the content or adding a framework, keeping a 100% static site (zero backend, zero attack surface) at a cost of €0/month.",
+        "es": "Rediseñar la arquitectura técnica sin cambiar el contenido ni añadir un framework, manteniendo un sitio 100% estático (cero backend, cero superficie de ataque) y un coste de 0€/mes."
+      },
+      "action": {
+        "fr": "Pilotage du projet en pair-programming avec Claude Code comme copilote, avec des décisions d'architecture prises et validées à chaque étape : build Tailwind CLI local, découpage du JS en modules ES, traductions sorties en JSON, script de build maison pour partager la navbar/footer entre pages, structuration multi-pages, données projets structurées en JSON.",
+        "en": "Drove the project in pair-programming with Claude Code as a copilot, with architecture decisions made and validated at every step: local Tailwind CLI build, JS split into ES modules, translations moved to JSON, custom build script to share the navbar/footer across pages, multi-page structuring, project data structured as JSON.",
+        "es": "Pilotaje del proyecto en pair-programming con Claude Code como copiloto, con decisiones de arquitectura tomadas y validadas en cada etapa: build local con Tailwind CLI, JS dividido en módulos ES, traducciones extraídas a JSON, script de build propio para compartir la navbar/footer entre páginas, estructuración multipágina, datos de proyectos estructurados en JSON."
+      },
+      "result": {
+        "fr": "Site refondu et documenté (PROJECT_CONTEXT.md/TASKS.md tenus à jour), déployé sur Netlify avec formulaire de contact fonctionnel et headers de sécurité, chaque étape testée avant d'être poussée en production.",
+        "en": "Site rebuilt and documented (PROJECT_CONTEXT.md/TASKS.md kept up to date), deployed on Netlify with a working contact form and security headers, each step tested before being pushed to production.",
+        "es": "Sitio rediseñado y documentado (PROJECT_CONTEXT.md/TASKS.md siempre actualizados), desplegado en Netlify con formulario de contacto funcional y cabeceras de seguridad, cada etapa probada antes de subirla a producción."
+      }
     }
   },
   {
     "slug": "jeux-de-dame",
-    "title": "Jeux de Dame",
-    "description": "Jeu de dames interactif entièrement développé en JavaScript vanilla avec une interface intuitive et des règles complètes.",
+    "title": { "fr": "Jeux de Dame", "en": "Checkers Game", "es": "Juego de Damas" },
+    "description": {
+      "fr": "Jeu de dames interactif entièrement développé en JavaScript vanilla avec une interface intuitive et des règles complètes.",
+      "en": "Interactive checkers game built entirely in vanilla JavaScript, with an intuitive interface and complete rules.",
+      "es": "Juego de damas interactivo desarrollado íntegramente en JavaScript puro, con una interfaz intuitiva y reglas completas."
+    },
     "image": "./assets/jeudedame.png",
     "tech": ["JavaScript", "HTML", "CSS"],
     "github": "https://github.com/Wade199/jeux_de_dame/",
     "demo": "https://wade199.github.io/jeux_de_dame/",
     "hasDocs": false,
-    "technical": [
-      "JavaScript vanilla, aucune dépendance externe",
-      "Moteur de règles : déplacements, prises simples et en chaîne (multi-sauts), promotion en dame, règle de prise obligatoire",
-      "IA basique côté adversaire : sélectionne la meilleure prise disponible parmi les coups valides",
-      "PWA : Service Worker + manifest.json pour un fonctionnement hors ligne et l'installation sur mobile",
-      "3 itérations de développement : version initiale, amélioration interface/gameplay, PWA + optimisation mobile"
-    ],
+    "technical": {
+      "fr": [
+        "JavaScript vanilla, aucune dépendance externe",
+        "Moteur de règles : déplacements, prises simples et en chaîne (multi-sauts), promotion en dame, règle de prise obligatoire",
+        "IA basique côté adversaire : sélectionne la meilleure prise disponible parmi les coups valides",
+        "PWA : Service Worker + manifest.json pour un fonctionnement hors ligne et l'installation sur mobile",
+        "3 itérations de développement : version initiale, amélioration interface/gameplay, PWA + optimisation mobile"
+      ],
+      "en": [
+        "Vanilla JavaScript, no external dependencies",
+        "Rules engine: moves, single and chain captures (multi-jumps), promotion to king, mandatory-capture rule",
+        "Basic opponent AI: picks the best available capture among valid moves",
+        "PWA: Service Worker + manifest.json for offline play and mobile installation",
+        "3 development iterations: initial version, UI/gameplay improvements, PWA + mobile optimization"
+      ],
+      "es": [
+        "JavaScript puro, sin dependencias externas",
+        "Motor de reglas: movimientos, capturas simples y en cadena (múltiples saltos), coronación en dama, regla de captura obligatoria",
+        "IA básica del rival: elige la mejor captura disponible entre los movimientos válidos",
+        "PWA: Service Worker + manifest.json para el funcionamiento sin conexión y la instalación en móvil",
+        "3 iteraciones de desarrollo: versión inicial, mejora de interfaz/jugabilidad, PWA + optimización móvil"
+      ]
+    },
     "caseStudy": {
-      "situation": "Projet d'entraînement pour pratiquer l'écriture d'algorithmes en JavaScript vanilla, sans framework.",
-      "task": "Implémenter un jeu de dames fidèle aux règles (prise obligatoire, prises en chaîne), jouable sur mobile et hors ligne.",
-      "action": "Écriture du moteur de règles (déplacements, prises simples et multiples, promotion en dame) et d'une IA basique qui choisit la meilleure prise disponible, puis ajout d'un Service Worker et d'un manifest pour en faire une PWA installable, en trois itérations (version initiale, amélioration interface/gameplay, PWA + optimisation mobile).",
-      "result": "Jeu complet et jouable en ligne, fonctionnant hors ligne comme une PWA installable, avec un moteur de règles qui gère correctement les prises en chaîne."
+      "situation": {
+        "fr": "Projet d'entraînement pour pratiquer l'écriture d'algorithmes en JavaScript vanilla, sans framework.",
+        "en": "Training project to practice writing algorithms in vanilla JavaScript, without a framework.",
+        "es": "Proyecto de entrenamiento para practicar la escritura de algoritmos en JavaScript puro, sin framework."
+      },
+      "task": {
+        "fr": "Implémenter un jeu de dames fidèle aux règles (prise obligatoire, prises en chaîne), jouable sur mobile et hors ligne.",
+        "en": "Implement a checkers game faithful to the rules (mandatory capture, chain captures), playable on mobile and offline.",
+        "es": "Implementar un juego de damas fiel a las reglas (captura obligatoria, capturas en cadena), jugable en móvil y sin conexión."
+      },
+      "action": {
+        "fr": "Écriture du moteur de règles (déplacements, prises simples et multiples, promotion en dame) et d'une IA basique qui choisit la meilleure prise disponible, puis ajout d'un Service Worker et d'un manifest pour en faire une PWA installable, en trois itérations (version initiale, amélioration interface/gameplay, PWA + optimisation mobile).",
+        "en": "Wrote the rules engine (moves, single and multiple captures, promotion to king) and a basic AI that picks the best available capture, then added a Service Worker and manifest to turn it into an installable PWA, across three iterations (initial version, UI/gameplay improvements, PWA + mobile optimization).",
+        "es": "Escritura del motor de reglas (movimientos, capturas simples y múltiples, coronación en dama) y de una IA básica que elige la mejor captura disponible, seguida de la incorporación de un Service Worker y un manifest para convertirlo en una PWA instalable, en tres iteraciones (versión inicial, mejora de interfaz/jugabilidad, PWA + optimización móvil)."
+      },
+      "result": {
+        "fr": "Jeu complet et jouable en ligne, fonctionnant hors ligne comme une PWA installable, avec un moteur de règles qui gère correctement les prises en chaîne.",
+        "en": "Complete game playable online, working offline as an installable PWA, with a rules engine that correctly handles chain captures.",
+        "es": "Juego completo y jugable en línea, que funciona sin conexión como una PWA instalable, con un motor de reglas que gestiona correctamente las capturas en cadena."
+      }
     }
   }
 ]

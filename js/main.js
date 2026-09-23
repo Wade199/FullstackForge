@@ -7,8 +7,6 @@ import { initI18n } from './i18n.js';
 import { initReveal } from './reveal.js';
 import { initContactForm } from './contact.js';
 import { loadProjects } from './projects.js';
-import { initProjectDetail } from './project-detail.js';
-import { initDocsList } from './docs.js';
 import { initVeille } from './veille.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -18,15 +16,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   initContactForm();
 
   // Charge les données projets avant la langue : changeLanguage() (dans initI18n)
-  // appelle renderProjects(), qui a besoin des données déjà en mémoire.
+  // appelle renderProjects()/initProjectDetail()/initDocsList(), qui ont besoin
+  // des données déjà en mémoire.
   await loadProjects();
 
-  // Applique la langue sauvegardée (initialise aussi les projects et le typing)
+  // Applique la langue sauvegardée — initialise aussi projects/project-detail/docs
+  // (via changeLanguage) et le typing, et refait le même rendu à chaque
+  // changement de langue ultérieur (dropdown FR/EN/ES)
   await initI18n();
 
-  // Remplit la page projet individuelle / la liste docs / la veille techno si on y est (no-op sinon)
-  initProjectDetail();
-  initDocsList();
+  // La veille n'est pas localisée (contenu généré en français par la routine
+  // cloud), pas besoin de la relier au changement de langue
   await initVeille();
 
   // Initialise les animations de révélation au scroll
