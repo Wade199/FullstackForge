@@ -32,3 +32,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Initialise les animations de révélation au scroll
   initReveal();
 });
+
+// Enregistrement du service worker (PWA) — après le chargement pour ne pas
+// retarder l'affichage initial de la page
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {
+      // Pas grave si ça échoue (ex: navigateur sans support) — le site
+      // fonctionne normalement sans le service worker
+    });
+  });
+}

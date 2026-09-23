@@ -46,7 +46,7 @@
 - [x] JSON-LD schema.org/Person + sitemap.xml (généré depuis data/projects.json) + robots.txt — P5
 - [x] Page "Now" créée puis **remplacée par une page "Veille technologique"** (`veille.html`) le jour même, sur demande d'Ibrahima — il ne voulait plus exposer publiquement ses idées de projet (dont le SaaS PME). Affiche `data/veille.json` via `js/veille.js`, pensée pour être alimentée automatiquement par la routine cloud "Veille technique quotidienne" (branchement restant, tâche #28)
 - [x] og:image (générée via Canva, une seule image pour tout le site, `assets/og-image.png`) — P5
-- [ ] manifest.json PWA (#23) — P5
+- [x] manifest.json PWA + service worker basique — P5. **Phase 5 terminée.**
 
 ### Planifiées (optionnel)
 - [ ] Playground IA démo (Gemini free tier, rate limité) — P6
@@ -94,12 +94,14 @@ Aucun backend, aucune base de données, aucun secret exposé côté client (sauf
 
 ## 📁 Structure du repository
 
-**État actuel (Phase 5 en cours)** :
+**État actuel (Phase 5 terminée)** :
 ```
 portfolio-fullstackforge/
 ├── netlify.toml                # command = "npm run build", publish = "." + redirects 404 (fichiers internes)
 ├── _headers                    # CSP (avec hash sha256 pour le JSON-LD), X-Frame-Options, Referrer-Policy, Permissions-Policy
 ├── robots.txt                  # Référence sitemap.xml
+├── manifest.json                # PWA : display standalone, icônes, couleurs du thème
+├── sw.js                        # Service worker : cache-first (CSS/JS statique), network-first (HTML/JSON)
 ├── includes/                   # Navbar/footer partagés (Accueil/Projets/Doc/Veille/Contact), injectés par build.js
 │   ├── navbar.html
 │   └── footer.html
@@ -111,10 +113,10 @@ portfolio-fullstackforge/
 │   └── veille.html              # Veille technologique quotidienne, affiche data/veille.json
 ├── data/
 │   ├── projects.json           # Projets structurés (slug, tech, liens, hasDocs) — title/description/technical/caseStudy trilingues {fr,en,es}, chargé via fetch
-│   └── veille.json              # Entrées de veille { date, items: [{topic, title, summary, url}] } — vide pour l'instant, alimenté par une routine cloud (à brancher, tâche #28)
+│   └── veille.json              # Entrées de veille { date, items: [{topic, title, summary, url}] } — alimenté automatiquement chaque matin par une routine cloud
 ├── i18n/                       # fr.json, en.json, es.json (93 clés chacun)
 ├── js/                         # main.js + modules ES : i18n, nav, particles, reveal, projects, project-detail, docs, veille, contact
-├── assets/                     # Images, CV, icônes
+├── assets/                     # Images, CV, icônes + og-image.png (1200×630) + icon-192/512.png, apple-touch-icon.png, favicon-32.png (généré via Canva)
 ├── build.js                    # Injecte navbar/footer dans pages/*.html → racine + génère sitemap.xml
 ├── tailwind.config.js / tailwind.input.css / tailwind.css
 ├── package.json                # scripts build:css / build:html / build
@@ -126,11 +128,10 @@ portfolio-fullstackforge/
 └── README.md
 ```
 
-**Cible restante (pas encore implémenté)** :
+**Phase 5 terminée** (JSON-LD, sitemap, robots.txt, og:image, veille auto, traduction EN/ES, manifest PWA). Il ne reste que :
 - `docs/` (case studies au format .md par projet) — abandonné, voir §Décisions
-- og:image custom par page (#21), manifest.json PWA (#23), traduction EN/ES de `data/projects.json` (#27)
 - Cloudflare Web Analytics (#17) — nécessite un compte Cloudflare à créer par Ibrahima
-- **Automatisation de la veille (#28)** : modifier la routine cloud "Veille technique quotidienne" pour qu'elle écrive dans `data/veille.json` et push automatiquement — pas encore fait, voir §Décisions
+- Phase 6 (Playground IA), optionnelle
 
 ---
 
@@ -154,6 +155,7 @@ portfolio-fullstackforge/
 | 2026-09-23 | `renderProjects`/`initProjectDetail`/`initDocsList` appelés depuis `changeLanguage()` (`i18n.js`) à chaque changement de langue, pas seulement au chargement initial | Nécessaire pour que le contenu localisé se mette à jour en direct quand on change de langue sur `projects.html`/`project.html`/`docs.html`. Sens de dépendance choisi pour éviter tout import circulaire : `i18n.js` → `project-detail.js`/`docs.js` → `projects.js`, jamais l'inverse (ces deux modules ne réimportent plus `getCurrentLang`/`getTranslations` depuis `i18n.js`, ils reçoivent `lang`/`translations` en paramètre) | — |
 | 2026-09-23 | og:image générée via le connecteur Canva plutôt qu'en CSS/HTML | Un visuel de partage social a besoin d'un rendu graphique fiable (dégradés, ombres, typographie précise) que composer en HTML+capture aurait été plus fragile à obtenir qu'un vrai outil de design. Une seule image pour tout le site (pas une par page) — décision d'effort/valeur assumée, cohérent avec §DESIGN_TASTE.md (identité déjà posée, pas de nouveau style) | — |
 | 2026-09-23 | Poste passé de "Développeur Full Stack" à "Développeur Junior" sur tout le site (titre, meta, JSON-LD, typing FR/EN/ES) | L'image og:image générée par Ibrahima disait "Développeur Junior" — décalage repéré avec le reste du site qui disait "Full Stack" partout. Question posée : harmoniser en gardant "Full Stack" (régénérer l'image) ou en gardant "Junior" (changer le site) — Ibrahima a choisi la 2de option. Cohérent avec `context.md` : il ne veut pas se présenter au-delà de son niveau réel | — |
+| 2026-09-23 | Service worker en **network-first** pour le HTML et les `.json` (pas cache-first partout) | `data/veille.json` change chaque matin via l'automatisation (#28) — un cache-first sur ce fichier aurait montré une veille périmée à un visiteur revenant sur le site après un précédent passage. Cache-first réservé au CSS/JS statique (ne change qu'au déploiement) | — |
 | 2026-09-23 | Le site Netlify n'est **pas créé via l'API/connecteur MCP** (`create-new-project`), la connexion GitHub↔Netlify se fait par Ibrahima dans le navigateur (Netlify UI → Import from GitHub) | Le compte Netlify existe déjà (vérifié via le connecteur : `site_count: 0`, `connect-git-provider` en attente dans l'onboarding), mais l'outil MCP de création de site n'accepte pas de repo Git en paramètre — créer un site "à vide" via l'API risquerait de laisser un site orphelin non lié au repo, séparé de celui qu'Ibrahima créerait ensuite correctement via l'UI. L'autorisation OAuth GitHub↔Netlify est de toute façon une action qui doit venir de lui | — |
 | 2026-09-23 | Formulaire de contact câblé pour Netlify Forms : `data-netlify="true"` + champ caché `form-name` + honeypot `bot-field` (recommandé par le contexte Netlify officiel), `js/contact.js` fait un vrai `fetch POST` vers `/` au lieu de simuler l'envoi avec un `setTimeout` | Le formulaire était visuellement fonctionnel mais n'envoyait rien nulle part depuis la V1 (problème connu listé dans l'audit). Ne marche réellement qu'une fois déployé sur Netlify (le formulaire est détecté au build) — testé en local : échec propre avec message d'erreur, pas de crash, cohérent avec l'absence de backend en local | — |
 | 2026-09-23 | Les 5 `style=""` inline restants (position navbar `140px`, wrapper honeypot) retirés et remplacés par des classes CSS (`.section-offset-top`, `.docs-intro`, `.visually-hidden`) | Permet un `Content-Security-Policy` sans `'unsafe-inline'` sur `style-src` dans `_headers` — CSP plus stricte | — |
@@ -231,7 +233,7 @@ portfolio-fullstackforge/
 10. [x] Netlify Forms activé au niveau du site + formulaire de contact vérifié bout en bout (Ibrahima + test curl)
 11. [x] Phase 5 : JSON-LD + sitemap.xml + robots.txt + og:url corrigé partout ; GitHub Pages désactivé (Netlify seule URL de prod) ; page "Now" remplacée par "Veille technologique" alimentée automatiquement par une routine cloud (tâche #28) ; liens doc GitHub sur `docs.html` ; section "Détails techniques" sur chaque page projet ; contenu des projets traduit en EN/ES (`data/projects.json` restructuré en `{fr,en,es}`, re-rendu en direct au changement de langue)
 12. [x] og:image générée (Canva) et intégrée sur les 5 pages ; poste harmonisé en "Développeur Junior" partout (titre, meta, JSON-LD, typing FR/EN/ES) suite à ce choix fait sur l'image
-13. [ ] Reste en Phase 5 : manifest.json PWA (#23)
+13. [x] manifest.json PWA + service worker basique — icônes générées via Canva, network-first sur le HTML/JSON pour ne pas servir une veille périmée. **Phase 5 entièrement terminée.**
 14. [ ] Brancher Cloudflare Web Analytics (compte Cloudflare à créer par Ibrahima)
 
 ---

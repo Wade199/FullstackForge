@@ -25,9 +25,8 @@ Prochaine étape : Phase 4 (déploiement Netlify), voir ci-dessous.
 | 17 | Brancher Cloudflare Web Analytics — nécessite un compte Cloudflare (à créer par Ibrahima) | Med | #14 | 15 min |
 
 ### Phase 5 — SEO / PWA / Veille (2h)
-| # | Tâche | Priorité | Dépendances | Estimation |
-|---|-------|----------|-------------|------------|
-| 23 | manifest.json PWA + service worker basique | Low | — | 30 min |
+
+✅ **Terminée** — toutes les tâches sont dans la section "Terminé" ci-dessous.
 
 ### Phase 6 — Playground IA (optionnelle, 3-4h)
 | # | Tâche | Priorité | Dépendances | Estimation |
@@ -75,6 +74,7 @@ Prochaine étape : Phase 4 (déploiement Netlify), voir ci-dessous.
 | — | Poste passé de "Développeur Full Stack" à "Développeur Junior" sur tout le site | 2026-09-23 | L'image générée par Ibrahima disait "Développeur Junior", en décalage avec le reste du site — il a choisi d'harmoniser tout le site sur "Junior" plutôt que de changer l'image. Remplacé : `<title>`, meta description/og/twitter des 5 pages, JSON-LD (`jobTitle`), `typing` FR/EN/ES dans `i18n/*.json`. Hash CSP du JSON-LD à recalculer après déploiement (contenu changé) |
 | 22 | Créer `pages/now.html` + lien "Now" dans navbar/footer | 2026-09-23 | Contenu réel (apprentissages, projets en cours hors série YouTube, certifications visées) fourni par Ibrahima à partir de `context.md`/`history.md`, validé avant rédaction. **Remplacée le jour même** (voir tâche suivante) : Ibrahima ne voulait plus exposer ses idées de projet publiquement |
 | — | `now.html` → `veille.html` (page "Now" remplacée par une page de veille technologique) | 2026-09-23 | Sur demande explicite d'Ibrahima : les infos "projets en cours" (dont l'idée SaaS PME) exposaient trop. Nouvelle page qui affiche `data/veille.json` (vide pour l'instant) via `js/veille.js` — pensée pour être alimentée par la routine cloud "Veille technique quotidienne" existante (`trig_01Q7ib5zeriLK321aLeF69S9`, cron 07:00 Paris), qu'il faut encore modifier pour qu'elle écrive et push dans ce repo (tâche #28, automatisation choisie explicitement par Ibrahima malgré l'absence de relecture avant publication) |
+| 23 | manifest.json PWA + service worker basique | 2026-09-23 | Icône carrée générée via Canva (badge "IW" seul, sans texte — illisible en petit), export réussi cette fois via le connecteur (contrairement à l'og:image). 4 tailles dérivées en local avec Pillow : `icon-192.png`, `icon-512.png`, `apple-touch-icon.png` (180), `favicon-32.png`. `manifest.json` (`display: standalone`, couleurs du thème). `sw.js` : cache-first pour le CSS/JS statique, network-first pour le HTML/JSON (important pour `data/veille.json`, qui change chaque matin — un cache-first aurait montré une veille périmée). Balises `<link rel="manifest">`/icônes/`theme-color` ajoutées sur les 5 pages, service worker enregistré depuis `js/main.js` |
 
 ---
 
