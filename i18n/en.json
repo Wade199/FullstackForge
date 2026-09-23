@@ -4,6 +4,7 @@
   "nav-experience": "Experience",
   "nav-skills": "Skills",
   "nav-projects": "Projects",
+  "nav-doc": "Doc",
   "nav-contact": "Contact",
   "greeting": "Hello, I am",
   "hero-seeking": "🎯 Looking for an apprenticeship — 2 weeks company / 1 week school",
@@ -73,5 +74,16 @@
   "form-success": "✅ Message sent successfully!",
   "form-error": "❌ Please fill in all fields.",
   "form-error-email": "❌ Please enter a valid email address.",
-  "typing": ["Full Stack Developer", "DevOps Fullstack Bachelor", "Code enthusiast 💻"]
+  "typing": ["Full Stack Developer", "DevOps Fullstack Bachelor", "Code enthusiast 💻"],
+  "back-to-projects": "← Back to projects",
+  "case-study-label": "Case study",
+  "star-situation": "Situation",
+  "star-task": "Task",
+  "star-action": "Action",
+  "star-result": "Result",
+  "case-study-soon": "Detailed case study coming soon.",
+  "project-not-found": "Project not found.",
+  "docs-sub": "Go further",
+  "docs-title": "Case studies",
+  "docs-intro": "The concrete details (context, role, actions, results) of my projects, one by one."
 }

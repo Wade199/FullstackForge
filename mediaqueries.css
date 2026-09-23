@@ -48,6 +48,9 @@
   .about-img-wrap { max-width: 400px; margin: 0 auto; }
   .about-cards { grid-template-columns: repeat(3, 1fr); }
 
+  .project-detail-header { grid-template-columns: 1fr; }
+  .project-detail-header .project-detail-image { max-width: 480px; margin: 0 auto; }
+
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
   .extras-grid { grid-template-columns: repeat(2, 1fr); }
 

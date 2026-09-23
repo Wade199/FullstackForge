@@ -4,6 +4,7 @@
   "nav-experience": "Expériences",
   "nav-skills": "Compétences",
   "nav-projects": "Projets",
+  "nav-doc": "Doc",
   "nav-contact": "Contact",
   "greeting": "Bonjour, je suis",
   "hero-seeking": "🎯 Recherche une alternance — 2 semaines entreprise / 1 semaine école",
@@ -73,5 +74,16 @@
   "form-success": "✅ Message envoyé avec succès !",
   "form-error": "❌ Veuillez remplir tous les champs.",
   "form-error-email": "❌ Veuillez entrer une adresse email valide.",
-  "typing": ["Développeur Full Stack", "Bachelor DevOps Fullstack", "Passionné de code 💻"]
+  "typing": ["Développeur Full Stack", "Bachelor DevOps Fullstack", "Passionné de code 💻"],
+  "back-to-projects": "← Retour aux projets",
+  "case-study-label": "Étude de cas",
+  "star-situation": "Situation",
+  "star-task": "Tâche",
+  "star-action": "Action",
+  "star-result": "Résultat",
+  "case-study-soon": "Étude de cas détaillée à venir.",
+  "project-not-found": "Projet introuvable.",
+  "docs-sub": "Aller plus loin",
+  "docs-title": "Études de cas",
+  "docs-intro": "Le détail concret (contexte, rôle, actions, résultats) de mes projets, un par un."
 }

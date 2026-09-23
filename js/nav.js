@@ -13,15 +13,13 @@ export function initNavbar() {
 
   let lastScrollY = 0;
 
-  // Sur une page sans ancres de section (ex: projects.html), marquer le lien
-  // de nav correspondant à la page courante comme actif (pas de scroll-spy possible ici).
+  // Marque comme actif le lien de nav dont le href correspond exactement à la page
+  // courante (ex: "projects.html", "docs.html") — indépendant du scroll-spy ci-dessous,
+  // qui ne s'applique qu'aux hrefs avec ancre ("index.html#about").
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  const hasSections = document.querySelectorAll('section[id]').length > 0;
-  if (!hasSections) {
-    const pageLink = [...navLinks.querySelectorAll('a[href]')]
-      .find(a => a.getAttribute('href') === currentPage);
-    if (pageLink) pageLink.classList.add('active');
-  }
+  const pageLink = [...navLinks.querySelectorAll('a[href]')]
+    .find(a => a.getAttribute('href') === currentPage);
+  if (pageLink) pageLink.classList.add('active');
 
   // Scroll behaviour
   window.addEventListener('scroll', () => {

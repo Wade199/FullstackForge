@@ -27,7 +27,7 @@
 ## ✅ Fonctionnalités
 
 ### Implémentées (héritées de la V1, adaptées en V2)
-- [x] `index.html` (Accueil/À propos/Expériences/Compétences/Contact en one-page) + `projects.html` séparée depuis la Phase 2
+- [x] 4 pages : `index.html` (one-page Accueil/À propos/Expériences/Compétences/Contact), `projects.html`, `project.html` (détail par projet), `docs.html` (index des études de cas)
 - [x] Design glassmorphism thème sombre néon
 - [x] Multilingue FR/EN/ES (traductions codées en dur dans script.js)
 - [x] Section projets injectée dynamiquement depuis un tableau JS
@@ -40,8 +40,8 @@
 - [x] Découpage script.js en modules ES + traductions en JSON — P1
 - [x] Petit script de build maison pour partager navbar/footer entre pages (`build.js`) — P2
 - [x] Multi-pages **partiel** : index + projects (Accueil/Projets/Contact dans la nav) — Doc/Now reportés en P3/P5, voir §Décisions
-- [ ] data/projects.json structuré — P3
-- [ ] Case studies STAR par projet — P3
+- [x] data/projects.json structuré (chargé via fetch, comme l'i18n) — P3
+- [x] Case studies STAR par projet (BeerMakers, FullstackForge, Jeux de Dame) + page projet individuelle (`project.html?slug=...`) + `docs.html` — P3
 - [ ] Déploiement Netlify + Forms + headers sécurité — P4
 - [ ] SEO (JSON-LD, sitemap, robots.txt, og:image) + PWA + page "Now" — P5
 
@@ -91,7 +91,7 @@ Aucun backend, aucune base de données, aucun secret exposé côté client (sauf
 
 ## 📁 Structure du repository
 
-**État actuel (Phase 2 terminée)** :
+**État actuel (Phase 3 terminée)** :
 ```
 portfolio-fullstackforge/
 ├── includes/                   # Navbar/footer partagés, injectés par build.js (implémenté)
@@ -99,17 +99,21 @@ portfolio-fullstackforge/
 │   └── footer.html
 ├── pages/                      # Sources HTML avant injection (implémenté)
 │   ├── index.html               # Hero/About/Experience/Skills/Contact (pas de section Projets)
-│   └── projects.html            # Nouvelle page dédiée aux projets
+│   ├── projects.html            # Grille des projets (cartes cliquables → project.html)
+│   ├── project.html             # Template unique de détail projet, lit ?slug= dans l'URL
+│   └── docs.html                # Index des études de cas, liste les 3 projets
+├── data/
+│   └── projects.json           # Projets structurés (slug, tech, liens, case study STAR) — chargé via fetch
 ├── i18n/                       # fr.json, en.json, es.json (implémenté)
-├── js/                         # main.js + modules ES : i18n, nav, particles, reveal, projects, contact (implémenté)
+├── js/                         # main.js + modules ES : i18n, nav, particles, reveal, projects, project-detail, docs, contact
 ├── assets/                     # Images, CV, icônes
 ├── build.js                    # Script maison : injecte navbar/footer dans pages/*.html → racine (implémenté)
 ├── tailwind.config.js          # Config Tailwind (couleurs néon, preflight désactivé, scan pages/+includes/)
 ├── tailwind.input.css          # Source Tailwind (@tailwind base/components/utilities)
 ├── tailwind.css                # CSS Tailwind buildé (généré par `npm run build:css`, committé)
 ├── package.json                # scripts build:css / build:html / build (les deux), devDependency tailwindcss
-├── index.html                  # Généré par `node build.js` à partir de pages/index.html — committé (voir §Décisions)
-├── projects.html                # Généré par `node build.js` à partir de pages/projects.html — committé
+├── index.html / projects.html / project.html / docs.html
+│                                # Générés par `node build.js` à partir de pages/*.html — committés (voir §Décisions)
 ├── style.css
 ├── mediaqueries.css
 ├── PROJECT_CONTEXT.md           ← ce fichier
@@ -117,12 +121,9 @@ portfolio-fullstackforge/
 └── README.md
 ```
 
-**Cible restante (Phase 3+, pas encore implémenté)** :
+**Cible restante (Phase 4+, pas encore implémenté)** :
 ```
-├── data/
-│   └── projects.json          # Données structurées des projets — Phase 3
-├── docs/                      # Case studies STAR (.md) par projet — Phase 3
-├── pages/docs.html             # Index des case studies + lien nav "Doc" — Phase 3
+├── docs/                      # Case studies au format .md par projet — abandonné, voir §Décisions
 ├── pages/now.html               # Page "Now" + lien nav "Now" — Phase 5
 ├── _headers                   # Headers sécurité Netlify (CSP, X-Frame-Options...) — Phase 4
 └── netlify.toml                # Config build Netlify — Phase 4
@@ -143,6 +144,8 @@ portfolio-fullstackforge/
 | 2026-09-23 | CSS Tailwind buildé (`tailwind.css`) committé dans le repo, pas gitignoré | Le déploiement actuel (GitHub Pages, V1) sert les fichiers bruts sans étape de build — committer le CSS généré est nécessaire tant que la migration Netlify (Phase 4, avec build command) n'est pas faite | — |
 | 2026-09-23 | Phase 2 réduite à Accueil + Projets (pas Doc/Now) — choix explicite d'Ibrahima face à une contradiction entre PROJECT_CONTEXT.md ("index/projects/docs/now" en P2) et TASKS.md (Now en P5, Doc avec contenu réel en P3) | Suivre TASKS.md à la lettre plutôt que le résumé plus large de PROJECT_CONTEXT.md ; évite de créer des pages vides ("bientôt disponible") avant d'avoir du contenu réel | — |
 | 2026-09-23 | `index.html`/`projects.html` à la racine sont des **fichiers générés** par `node build.js` à partir de `pages/*.html` — ne jamais les éditer directement, éditer `pages/` ou `includes/` puis relancer `npm run build` | Même logique que `tailwind.css` : GitHub Pages sert les fichiers racine bruts sans étape de build tant que Netlify (Phase 4) n'est pas branché | — |
+| 2026-09-23 | Case studies STAR stockées comme champ `caseStudy` dans `data/projects.json` (un seul template `pages/project.html?slug=...`), plutôt que des fichiers `.md` séparés dans `docs/` comme envisagé initialement dans l'architecture | Plus simple pour 3 projets : une seule page HTML à maintenir au lieu de N fichiers Markdown + un rendu Markdown→HTML à écrire ; cohérent avec le pattern déjà en place (JSON chargé via `fetch`) | — |
+| 2026-09-23 | Avant de rédiger le contenu STAR, inspection réelle des repos GitHub (`gh api`) de BeerMakers et Jeux de Dame plutôt que d'inventer le contexte/actions/résultats | Ce sont des affirmations professionnelles sur un portfolio public — les inventer serait présenter de fausses informations comme vraies. Deux erreurs factuelles trouvées et corrigées au passage : BeerMakers est une appli **Flutter/Dart** (pas "PHP/HTML/CSS/Bootstrap" ni "application web" comme c'était écrit), et son lien "démo" (`beermakerss`) était mort (404, appli mobile non déployée) — supprimé, le bouton Demo est maintenant masqué quand `demo` est vide | — |
 
 ---
 
@@ -205,7 +208,8 @@ portfolio-fullstackforge/
 4. [x] Vérifier 2FA + Dependabot sur le repo GitHub public `Wade199/FullstackForge` — Dependabot activé via API, 2FA non vérifiable par API (à contrôler manuellement)
 5. [x] Phase 1 : Tailwind CLI + découpage script.js en modules ES + i18n en JSON + nettoyage CSS + renommage image — testé (Node --check sur les modules, cohérence des clés JSON, serveur HTTP local)
 6. [x] Phase 2 : `build.js` + `includes/navbar.html`/`footer.html` + `pages/index.html`/`projects.html` — nav réduite à Accueil/Projets/Contact (choix explicite d'Ibrahima) — testé (build sans erreur, marqueurs résolus, aucun href orphelin, clés i18n couvertes, serveur HTTP local) **et vérifié par Ibrahima dans un vrai navigateur le 2026-09-23** (nav multi-pages, langues, typing, particules, contact — tout OK)
-7. [ ] Démarrer Phase 3 : `data/projects.json` structuré + case studies STAR + page projet individuelle + `pages/docs.html`
+7. [x] Phase 3 : `data/projects.json` + case studies STAR (BeerMakers, FullstackForge, Jeux de Dame, validées par Ibrahima) + `pages/project.html` (template) + `pages/docs.html` + lien nav "Doc" — testé (build, JSON valide, cohérence i18n sur 4 pages, serveur HTTP local)
+8. [ ] Démarrer Phase 4 : compte Netlify + Forms sur le formulaire contact + `_headers` sécurité + Cloudflare Analytics
 
 ---
 
@@ -213,4 +217,4 @@ portfolio-fullstackforge/
 
 - Devis complet discuté et confirmé le 2026-09-22 : 6 phases (P0 à P5) + P6 optionnelle (Playground IA), ~10-17h réparties sur 4-5 sessions.
 - Le repo GitHub `Wade199/FullstackForge` existait déjà (public, dernier push 2026-08-15) — le projet local a été **cloné depuis ce repo**, pas recréé de zéro. La copie initiale dans Downloads était une version locale légèrement différente (probablement antérieure) — non utilisée, le repo GitHub fait foi.
-- Contenu du portfolio (identité, parcours, projets) **ne change pas** — seule l'architecture technique et l'organisation sont refondues (confirmé explicitement avec Ibrahima).
+- Contenu du portfolio (identité, parcours, projets) **ne change pas** — seule l'architecture technique et l'organisation sont refondues (confirmé explicitement avec Ibrahima). Exception assumée : la description et le tech stack de BeerMakers ont été corrigés en Phase 3 (c'était factuellement faux, pas un choix de contenu — voir §Décisions du 2026-09-23).

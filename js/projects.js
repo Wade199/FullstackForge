@@ -1,46 +1,25 @@
 /* ============================================================
-   PROJECTS DATA + RENDER
-   ============================================================
-   To add a new project, simply add a new object to this array.
-   Each object supports:
-     - title:       Project name (string)
-     - description: Short description (string)
-     - image:       Path to image (string)
-     - tech:        Array of technology strings
-     - github:      GitHub URL (string)
-     - demo:        Live demo URL (string)
-   NOTE: cette liste sera remplacée par data/projects.json en Phase 3
-   (case studies STAR) — structure volontairement simple pour l'instant.
+   PROJECTS DATA (chargées depuis ./data/projects.json) + RENDER
    ============================================================ */
-export const PROJECTS = [
-  {
-    title: "BeerMakers",
-    description: "Application web de gestion brassicole permettant de gérer les recettes, les stocks et les processus de brassage.",
-    image: "./assets/image11.png",
-    tech: ["PHP", "HTML", "CSS", "Bootstrap"],
-    github: "https://github.com/Wade199/beermakers",
-    demo: "https://github.com/Wade199/beermakerss"
-  },
-  {
-    title: "FullstackForge",
-    description: "Portfolio personnel moderne développé avec HTML, CSS et JavaScript. Design glassmorphism avec thème sombre et effets néon.",
-    image: "./assets/image222.png",
-    tech: ["HTML", "CSS", "JavaScript"],
-    github: "https://github.com/Wade199/FullstackForge",
-    demo: "https://wade199.github.io/FullstackForge/"
-  },
-  {
-    title: "Jeux de Dame",
-    description: "Jeu de dames interactif entièrement développé en JavaScript vanilla avec une interface intuitive et des règles complètes.",
-    image: "./assets/jeudedame.png",
-    tech: ["JavaScript", "HTML", "CSS"],
-    github: "https://github.com/Wade199/jeux_de_dame/",
-    demo: "https://wade199.github.io/jeux_de_dame/"
-  }
-  /* ← ADD NEW PROJECTS HERE */
-];
 
-function safeExternalUrl(value) {
+let PROJECTS = [];
+
+export async function loadProjects() {
+  const res = await fetch('./data/projects.json');
+  if (!res.ok) throw new Error('Impossible de charger data/projects.json');
+  PROJECTS = await res.json();
+  return PROJECTS;
+}
+
+export function getProjectBySlug(slug) {
+  return PROJECTS.find(p => p.slug === slug);
+}
+
+export function getAllProjects() {
+  return PROJECTS;
+}
+
+export function safeExternalUrl(value) {
   try {
     const url = new URL(value, window.location.href);
     return ['http:', 'https:'].includes(url.protocol) ? url.href : '#';
@@ -49,7 +28,7 @@ function safeExternalUrl(value) {
   }
 }
 
-function safeAssetPath(value) {
+export function safeAssetPath(value) {
   const path = String(value || '');
   return path.startsWith('./assets/') && !path.includes('..') ? path : '';
 }
@@ -114,16 +93,29 @@ export function renderProjects(translations) {
     githubLink.className = 'project-link github';
     githubLink.textContent = `🐙 ${t['project-github'] || 'GitHub'}`;
 
-    const demoLink = document.createElement('a');
-    demoLink.href = safeExternalUrl(project.demo);
-    demoLink.target = '_blank';
-    demoLink.rel = 'noopener noreferrer';
-    demoLink.className = 'project-link demo';
-    demoLink.textContent = `🚀 ${t['project-demo'] || 'Live Demo'}`;
+    links.append(githubLink);
 
-    links.append(githubLink, demoLink);
+    // Pas de bouton Demo si le projet n'a pas de démo en ligne (ex: appli mobile non publiée)
+    if (project.demo) {
+      const demoLink = document.createElement('a');
+      demoLink.href = safeExternalUrl(project.demo);
+      demoLink.target = '_blank';
+      demoLink.rel = 'noopener noreferrer';
+      demoLink.className = 'project-link demo';
+      demoLink.textContent = `🚀 ${t['project-demo'] || 'Live Demo'}`;
+      links.append(demoLink);
+    }
     info.append(title, description, techList, links);
     card.append(imgWrap, info);
+
+    // La carte (hors liens externes) mène vers l'étude de cas détaillée du projet
+    if (project.slug) {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return; // ne pas intercepter les clics sur GitHub/Demo
+        window.location.href = `project.html?slug=${encodeURIComponent(project.slug)}`;
+      });
+    }
+
     grid.appendChild(card);
   });
 

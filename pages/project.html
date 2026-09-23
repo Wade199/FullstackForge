@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projet — Ibrahima Wade</title>
+  <meta name="description" content="Détail d'un projet réalisé par Ibrahima Wade, développeur Full Stack en alternance." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <!-- Tailwind CSS (buildé via `npm run build:css`, voir tailwind.config.js) -->
+  <link rel="stylesheet" href="tailwind.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mediaqueries.css" />
+</head>
+<body>
+
+  <!-- ===== PARTICLE BACKGROUND ===== -->
+  <canvas id="particles-canvas"></canvas>
+
+<!--#include:navbar-->
+
+  <!-- ===== PROJECT DETAIL ===== -->
+  <!-- Contenu rempli par js/project-detail.js à partir de ?slug=... et data/projects.json -->
+  <section id="project-detail" class="section reveal" style="padding-top: 140px;">
+    <a href="projects.html" class="btn btn-outline back-link" data-translate="back-to-projects">← Retour aux projets</a>
+
+    <p id="pd-not-found" class="case-study-placeholder" data-translate="project-not-found" hidden>Projet introuvable.</p>
+
+    <div id="pd-header" class="project-detail-header">
+      <img id="pd-image" src="" alt="" class="project-detail-image" />
+      <div>
+        <h1 id="pd-title" class="project-detail-title"></h1>
+        <p id="pd-description" class="project-detail-desc"></p>
+        <div id="pd-tech" class="project-tech"></div>
+        <div class="project-links">
+          <a id="pd-github" href="#" target="_blank" rel="noopener noreferrer" class="project-link github">
+            <span aria-hidden="true">🐙</span> <span data-translate="project-github">GitHub</span>
+          </a>
+          <a id="pd-demo" href="#" target="_blank" rel="noopener noreferrer" class="project-link demo">
+            <span aria-hidden="true">🚀</span> <span data-translate="project-demo">Live Demo</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="pd-case-study">
+      <h2 class="case-study-heading" data-translate="case-study-label">Étude de cas</h2>
+
+      <div class="star-block glass-card" data-star="situation" hidden>
+        <p class="star-label" data-translate="star-situation">Situation</p>
+        <p class="star-text" data-star-text></p>
+      </div>
+      <div class="star-block glass-card" data-star="task" hidden>
+        <p class="star-label" data-translate="star-task">Tâche</p>
+        <p class="star-text" data-star-text></p>
+      </div>
+      <div class="star-block glass-card" data-star="action" hidden>
+        <p class="star-label" data-translate="star-action">Action</p>
+        <p class="star-text" data-star-text></p>
+      </div>
+      <div class="star-block glass-card" data-star="result" hidden>
+        <p class="star-label" data-translate="star-result">Résultat</p>
+        <p class="star-text" data-star-text></p>
+      </div>
+
+      <p id="pd-case-study-placeholder" class="case-study-placeholder" data-translate="case-study-soon" hidden>
+        Étude de cas détaillée à venir.
+      </p>
+    </div>
+  </section>
+
+<!--#include:footer-->
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

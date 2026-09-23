@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "beermakers",
+    "title": "BeerMakers",
+    "description": "Application mobile Flutter de calcul de recettes de brassage artisanal, avec guide de fabrication étape par étape.",
+    "image": "./assets/image11.png",
+    "tech": ["Flutter", "Dart"],
+    "github": "https://github.com/Wade199/beermakers",
+    "demo": "",
+    "caseStudy": {
+      "situation": "Projet d'entraînement pour progresser sur Flutter et le développement mobile, sur le thème du brassage artisanal.",
+      "task": "Concevoir une application qui calcule les quantités de malt à partir du volume, du degré d'alcool et de la couleur visés, guide l'utilisateur à travers les étapes de fabrication, et gère une liste de recettes.",
+      "action": "Développement en Flutter/Dart : écran de calcul avec la formule de brassage (quantité de malt à partir du volume, du degré d'alcool et de la couleur EBC), guide de fabrication illustré et paginé, navigation multi-écrans (menu, étapes, recettes, calcul), modèle de données Recette.",
+      "result": "Application fonctionnelle validant les calculs de brassage et une architecture Flutter multi-écrans. Projet d'étude, non déployé publiquement (pas d'app store ni de démo en ligne)."
+    }
+  },
+  {
+    "slug": "fullstackforge",
+    "title": "FullstackForge",
+    "description": "Portfolio personnel moderne développé avec HTML, CSS et JavaScript. Design glassmorphism avec thème sombre et effets néon.",
+    "image": "./assets/image222.png",
+    "tech": ["HTML", "CSS", "JavaScript"],
+    "github": "https://github.com/Wade199/FullstackForge",
+    "demo": "https://wade199.github.io/FullstackForge/",
+    "caseStudy": {
+      "situation": "Besoin d'un portfolio professionnel pour la recherche d'alternance ; la V1 existante fonctionnait mais avait de la dette technique (CDN Tailwind non optimisé, un seul fichier JS de 758 lignes, traductions codées en dur).",
+      "task": "Refondre l'architecture technique sans changer le contenu ni ajouter de framework, en gardant un site 100% statique (zéro backend, zéro surface d'attaque) et un coût de 0€/mois.",
+      "action": "Pilotage du projet en pair-programming avec Claude Code comme copilote, avec des décisions d'architecture prises et validées à chaque étape : build Tailwind CLI local, découpage du JS en modules ES, traductions sorties en JSON, script de build maison pour partager la navbar/footer entre pages, structuration multi-pages, données projets structurées en JSON.",
+      "result": "Site refondu et documenté (PROJECT_CONTEXT.md/TASKS.md tenus à jour), déployé sur GitHub Pages, chaque étape testée avant d'être poussée en production."
+    }
+  },
+  {
+    "slug": "jeux-de-dame",
+    "title": "Jeux de Dame",
+    "description": "Jeu de dames interactif entièrement développé en JavaScript vanilla avec une interface intuitive et des règles complètes.",
+    "image": "./assets/jeudedame.png",
+    "tech": ["JavaScript", "HTML", "CSS"],
+    "github": "https://github.com/Wade199/jeux_de_dame/",
+    "demo": "https://wade199.github.io/jeux_de_dame/",
+    "caseStudy": {
+      "situation": "Projet d'entraînement pour pratiquer l'écriture d'algorithmes en JavaScript vanilla, sans framework.",
+      "task": "Implémenter un jeu de dames fidèle aux règles (prise obligatoire, prises en chaîne), jouable sur mobile et hors ligne.",
+      "action": "Écriture du moteur de règles (déplacements, prises simples et multiples, promotion en dame) et d'une IA basique qui choisit la meilleure prise disponible, puis ajout d'un Service Worker et d'un manifest pour en faire une PWA installable, en trois itérations (version initiale, amélioration interface/gameplay, PWA + optimisation mobile).",
+      "result": "Jeu complet et jouable en ligne, fonctionnant hors ligne comme une PWA installable, avec un moteur de règles qui gère correctement les prises en chaîne."
+    }
+  }
+]

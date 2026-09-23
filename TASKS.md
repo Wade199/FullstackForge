@@ -5,7 +5,7 @@
 
 ---
 
-## 🔥 En cours (Sprint actuel — Phase 2 terminée)
+## 🔥 En cours (Sprint actuel — Phase 3 terminée)
 
 | # | Tâche | Priorité | Statut | Estimation |
 |---|-------|----------|--------|------------|
@@ -13,21 +13,11 @@
 | 2 | Clarifier choix Eleventy vs HTML/CSS/JS pur | 🔴 Critical | ✅ Done | 5 min |
 | — | Vérifier 2FA + Dependabot sur le repo GitHub public | High | ✅ Done | 5 min |
 
-Prochaine étape : Phase 3 (data + case studies), voir ci-dessous.
+Prochaine étape : Phase 4 (déploiement Netlify), voir ci-dessous.
 
 ---
 
 ## 📋 À faire (Backlog priorisé par phase)
-
-### Phase 3 — Data + case studies (2-3h + 1h/projet)
-| # | Tâche | Priorité | Dépendances | Estimation |
-|---|-------|----------|-------------|------------|
-| 9 | Créer data/projects.json structuré | High | — | 30 min |
-| 10 | Case study STAR — BeerMakers | Med | #9 | 1h |
-| 11 | Case study STAR — FullstackForge | Med | #9 | 1h |
-| 12 | Case study STAR — Jeux de Dame | Med | #9 | 1h |
-| 13 | Page projet individuelle (template) | High | #9 | 1h |
-| 13b | Créer `pages/docs.html` (index des case studies) + ajouter le lien "Doc" dans `includes/navbar.html`/`footer.html` | High | #10-12 | 30 min |
 
 ### Phase 4 — Déploiement (1-1.5h)
 | # | Tâche | Priorité | Dépendances | Estimation |
@@ -71,6 +61,12 @@ Prochaine étape : Phase 3 (data + case studies), voir ci-dessous.
 | 3b | Écrire `build.js` maison (injecte includes/navbar.html + footer.html) | 2026-09-23 | Marqueurs `<!--#include:navbar/footer-->` dans `pages/*.html`, résolus par `node build.js` → écrit à la racine (`npm run build:html`, ou `npm run build` avec le CSS) |
 | 7 | Structurer navigation multi-pages | 2026-09-23 | **Partiel, par choix explicite d'Ibrahima** : seulement Accueil/Projets/Contact (pas Doc/Now, voir Phase 3/5). Nav "Projets" pointe vers `projects.html` ; About/Expériences/Compétences/Contact restent des ancres sur `index.html#...` |
 | 8 | Créer includes/navbar.html + footer.html, brancher sur build.js | 2026-09-23 | `includes/navbar.html`, `includes/footer.html`, `pages/index.html` (sans la section Projets), `pages/projects.html` (nouvelle page) |
+| 9 | Créer data/projects.json structuré | 2026-09-23 | `js/projects.js` recodé pour charger via `fetch` (comme l'i18n) au lieu du tableau codé en dur ; `slug` ajouté par projet |
+| 10 | Case study STAR — BeerMakers | 2026-09-23 | Repo GitHub inspecté avant rédaction (voir §Décisions) — tech stack et description corrigés au passage (Flutter/Dart, pas PHP web), lien démo mort supprimé |
+| 11 | Case study STAR — FullstackForge | 2026-09-23 | Rédigé à partir de l'historique réel de cette refonte (V1→V2) |
+| 12 | Case study STAR — Jeux de Dame | 2026-09-23 | Repo GitHub inspecté avant rédaction (3 commits, moteur de règles avec prises en chaîne + PWA) |
+| 13 | Page projet individuelle (template) | 2026-09-23 | `pages/project.html` : template unique, lit `?slug=` dans l'URL, `js/project-detail.js`. Bouton Demo masqué si absent (cas BeerMakers) |
+| 13b | Créer `pages/docs.html` + lien "Doc" dans navbar/footer | 2026-09-23 | `pages/docs.html` + `js/docs.js` : liste les 3 projets, lien vers leur étude de cas |
 
 ---
 
