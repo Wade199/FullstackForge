@@ -204,7 +204,7 @@ portfolio-fullstackforge/
 3. [ ] Ouvrir le projet dans VS Code (demande explicite d'Ibrahima) — probablement déjà fait (`.vscode/settings.json` présent), à confirmer
 4. [x] Vérifier 2FA + Dependabot sur le repo GitHub public `Wade199/FullstackForge` — Dependabot activé via API, 2FA non vérifiable par API (à contrôler manuellement)
 5. [x] Phase 1 : Tailwind CLI + découpage script.js en modules ES + i18n en JSON + nettoyage CSS + renommage image — testé (Node --check sur les modules, cohérence des clés JSON, serveur HTTP local)
-6. [x] Phase 2 : `build.js` + `includes/navbar.html`/`footer.html` + `pages/index.html`/`projects.html` — nav réduite à Accueil/Projets/Contact (choix explicite d'Ibrahima) — testé (build sans erreur, marqueurs résolus, aucun href orphelin, clés i18n couvertes, serveur HTTP local). **Rendu réel en navigateur non vérifié** (extension Claude in Chrome toujours non connectée)
+6. [x] Phase 2 : `build.js` + `includes/navbar.html`/`footer.html` + `pages/index.html`/`projects.html` — nav réduite à Accueil/Projets/Contact (choix explicite d'Ibrahima) — testé (build sans erreur, marqueurs résolus, aucun href orphelin, clés i18n couvertes, serveur HTTP local) **et vérifié par Ibrahima dans un vrai navigateur le 2026-09-23** (nav multi-pages, langues, typing, particules, contact — tout OK)
 7. [ ] Démarrer Phase 3 : `data/projects.json` structuré + case studies STAR + page projet individuelle + `pages/docs.html`
 
 ---

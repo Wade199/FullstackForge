@@ -40,6 +40,10 @@ les traductions (`i18n/*.json`) et les modules JS (`js/*.js`, `type="module"`) s
 que Chrome bloque par défaut sur le protocole `file://`. Utilise par exemple l'extension VS Code **Live Server**,
 ou `python -m http.server` / `npx serve` à la racine du projet.
 
+⚠️ **Port 5500 déjà pris ?** Si VS Code a Live Server actif sur un autre projet (ex: InvoiceAI), il occupe
+déjà le port 5500 par défaut — ton navigateur risque d'afficher le mauvais projet sans erreur visible.
+Utilise un autre port (`python -m http.server 8090`) ou ferme l'autre Live Server.
+
 ## 🚀 Comment ajouter un nouveau projet
 
 C'est très simple ! Ouvre le fichier `js/projects.js` et trouve le tableau `PROJECTS` en haut du fichier.
