@@ -186,8 +186,8 @@ Cloudflare Web Analytics (Phase 4, tâche #17) nécessite un compte Cloudflare �
 
 - **Environnements** : local (ouvrir index.html ou petit serveur statique) → production (Netlify, déploiement auto sur push `main`)
 - **Méthode** : Netlify build (`npm run build` — voir `netlify.toml`) + deploy auto
-- **URL prod actuelle (V1)** : https://wade199.github.io/FullstackForge/ (GitHub Pages)
-- **URL prod cible (V2)** : `wade199.netlify.app` (à confirmer, migration GitHub Pages → Netlify en Phase 4)
+- **URL de production** : https://wade199.netlify.app — seule URL live depuis le 2026-09-23
+- **GitHub Pages désactivé** le 2026-09-23 (`DELETE /repos/Wade199/FullstackForge/pages`, confirmé 404), sur demande explicite d'Ibrahima : migration V1→V2 terminée. Raison : GitHub Pages ne supporte ni `_headers` ni les redirects de `netlify.toml`, donc aucun header de sécurité et les fichiers internes (`TASKS.md`, `pages/*.html` bruts, etc.) y restaient exposés sans possibilité de les bloquer comme sur Netlify — et le formulaire de contact n'y fonctionne pas (pas de backend Forms). ⚠️ Si l'ancien lien `wade199.github.io/FullstackForge` a été partagé quelque part (CV, LinkedIn, candidatures), le remplacer par `wade199.netlify.app` — pas vérifié explicitement avec Ibrahima avant suppression
 - **Site Netlify** : `wade199.netlify.app` (https://wade199.netlify.app), équipe "Inou", connecté au repo `Wade199/FullstackForge` (branche `main`) le 2026-09-23 par Ibrahima. Déploiement `ready`, build/publish lus depuis `netlify.toml` sans configuration manuelle. Netlify Forms était désactivé par défaut au niveau du site (bascule distincte du HTML) — activé via le connecteur MCP, un nouveau déploiement est nécessaire pour que le formulaire soit détecté (voir TASKS.md #14)
 
 ---
