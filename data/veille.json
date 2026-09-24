@@ -1,5 +1,40 @@
 [
   {
+    "date": "2026-09-24",
+    "items": [
+      {
+        "topic": "Java/Spring",
+        "title": "Le train de release Spring passe à un rythme mensuel",
+        "summary": "Le train de release Spring passe de deux semaines à un seul jour par mois, en réaction à une hausse des rapports de sécurité communautaires liée à l'usage croissant de l'IA pour découvrir des vulnérabilités.",
+        "url": "https://spring.io/blog/2026/09/21/releasing-spring-for-modern-challenges/"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "OWASP Top 10 LLM 2026 : l'agentivité excessive en 3e position",
+        "summary": "La nouvelle édition de l'OWASP Top 10 pour les applications LLM, pondérée en partie sur des données d'incidents réels, fait passer le risque d'agentivité excessive de la 6e à la 3e place.",
+        "url": "https://thenextweb.com/news/owasp-llm-2026-agency-cra"
+      },
+      {
+        "topic": "DevOps/Cloud",
+        "title": "Kubernetes 1.37 durcit la sécurité du stockage",
+        "summary": "Kubernetes v1.37 introduit en alpha un champ de permissions Unix configurable pour les volumes emptyDir et des options de bind mount (noexec, nosuid, nodev) sur les volumeMounts.",
+        "url": "https://kubernetes.io/blog/2026/09/16/kubernetes-v1-37-hardening-container-storage/"
+      },
+      {
+        "topic": "Python/Django",
+        "title": "Django adopte un cycle de release annuel",
+        "summary": "Le Steering Council de Django a accepté la proposition DEP 20 : à partir de janvier 2028, Django publiera une version majeure par an, nommée par année, avec trois ans de support par version.",
+        "url": "https://www.djangoproject.com/weblog/2026/aug/10/annual-release-cycle/"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "Nouvelle commande symfony lsp:check pour la CI",
+        "summary": "Symfony introduit une commande de diagnostic intégrable en CI qui détecte les routes inconnues, les templates manquants et les erreurs de configuration.",
+        "url": "https://symfony.com/blog/a-week-of-symfony-1027-august-31-september-6-2026"
+      }
+    ]
+  },
+  {
     "date": "2026-09-23",
     "items": [
       {
