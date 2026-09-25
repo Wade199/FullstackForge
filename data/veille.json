@@ -1,5 +1,40 @@
 [
   {
+    "date": "2026-09-25",
+    "items": [
+      {
+        "topic": "Java/Spring",
+        "title": "Spring AI 2.0 : ToolCallingAdvisor et recherche d'outils à la demande",
+        "summary": "Spring AI 2.0 introduit un ToolCallingAdvisor et un toolSearchTool qui récupère à la demande les définitions d'outils pertinentes plutôt que de toutes les envoyer d'un coup, réduisant la consommation de tokens de 34 à 64% sur OpenAI, Anthropic et Gemini.",
+        "url": "https://dev.to/jamilxt/mcp-goes-stateless-building-ai-agent-servers-with-spring-ai-20-4hfg"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "Anthropic publie Claude Opus 5.5",
+        "summary": "Anthropic a lancé Claude Opus 5.5 le 22 septembre, avec une réduction de coût de 40% et une vitesse de sortie accrue de plus de 30% par rapport à Opus 5, à un tarif de 4$/20$ par million de tokens.",
+        "url": "https://www.bnnbloomberg.ca/business/artificial-intelligence/2026/09/22/anthropic-unveils-claude-opus-55/"
+      },
+      {
+        "topic": "DevOps/Cloud",
+        "title": "Google Cloud ajoute le support Terraform pour son Observability API",
+        "summary": "Google Cloud permet désormais de gérer via Terraform les buckets d'observabilité, les liens de datasets et les réglages par défaut de son Observability API.",
+        "url": "https://finopsweekly.com/news/gcp-updates-2026-09-24/"
+      },
+      {
+        "topic": "Python/Django",
+        "title": "Django adopte une nouvelle gouvernance technique (DEP 19)",
+        "summary": "Le Steering Council et le DSF Board de Django ont approuvé la DEP 19, qui simplifie la gouvernance technique du projet et élargit les critères d'éligibilité au Steering Council.",
+        "url": "https://www.djangoproject.com/weblog/2026/sep/22/new-technical-governance-approved/"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "API Platform v5.0.0 publié",
+        "summary": "API Platform v5.0.0 est sorti le 16 septembre 2026, nécessitant PHP 8.2 ou supérieur et compatible avec Symfony 7.4 et 8.0.",
+        "url": "https://api-platform.com/docs/extra/releases/"
+      }
+    ]
+  },
+  {
     "date": "2026-09-24",
     "items": [
       {
