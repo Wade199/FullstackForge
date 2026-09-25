@@ -5,15 +5,9 @@
 
 ---
 
-## 🔥 En cours (Sprint actuel — Phase 3 terminée)
+## 🔥 En cours (Phases 1 à 5 terminées — V2 déployée sur wade199.netlify.app)
 
-| # | Tâche | Priorité | Statut | Estimation |
-|---|-------|----------|--------|------------|
-| 1 | Setup workspace (clone repo, PROJECT_CONTEXT.md, TASKS.md, .gitignore) | High | ✅ Done | 45 min |
-| 2 | Clarifier choix Eleventy vs HTML/CSS/JS pur | 🔴 Critical | ✅ Done | 5 min |
-| — | Vérifier 2FA + Dependabot sur le repo GitHub public | High | ✅ Done | 5 min |
-
-Prochaine étape : Phase 4 (déploiement Netlify), voir ci-dessous.
+Backlog restant : Cloudflare Web Analytics (#17, optionnel), Phase 6 Playground IA (optionnelle), relecture native EN/ES (#27), vérif manuelle 2FA GitHub.
 
 ---
 
@@ -76,6 +70,8 @@ Prochaine étape : Phase 4 (déploiement Netlify), voir ci-dessous.
 | 22 | Créer `pages/now.html` + lien "Now" dans navbar/footer | 2026-09-23 | Contenu réel (apprentissages, projets en cours hors série YouTube, certifications visées) fourni par Ibrahima à partir de `context.md`/`history.md`, validé avant rédaction. **Remplacée le jour même** (voir tâche suivante) : Ibrahima ne voulait plus exposer ses idées de projet publiquement |
 | — | `now.html` → `veille.html` (page "Now" remplacée par une page de veille technologique) | 2026-09-23 | Sur demande explicite d'Ibrahima : les infos "projets en cours" (dont l'idée SaaS PME) exposaient trop. Nouvelle page qui affiche `data/veille.json` (vide pour l'instant) via `js/veille.js` — pensée pour être alimentée par la routine cloud "Veille technique quotidienne" existante (`trig_01Q7ib5zeriLK321aLeF69S9`, cron 07:00 Paris), qu'il faut encore modifier pour qu'elle écrive et push dans ce repo (tâche #28, automatisation choisie explicitement par Ibrahima malgré l'absence de relecture avant publication) |
 | 23 | manifest.json PWA + service worker basique | 2026-09-23 | Icône carrée générée via Canva (badge "IW" seul, sans texte — illisible en petit), export réussi cette fois via le connecteur (contrairement à l'og:image). 4 tailles dérivées en local avec Pillow : `icon-192.png`, `icon-512.png`, `apple-touch-icon.png` (180), `favicon-32.png`. `manifest.json` (`display: standalone`, couleurs du thème). `sw.js` : cache-first pour le CSS/JS statique, network-first pour le HTML/JSON (important pour `data/veille.json`, qui change chaque matin — un cache-first aurait montré une veille périmée). Balises `<link rel="manifest">`/icônes/`theme-color` ajoutées sur les 5 pages, service worker enregistré depuis `js/main.js` |
+| — | Thème clair envisagé puis écarté | 2026-09-24 | Ibrahima a demandé un avis tranché ; recommandation : le néon sombre est l'identité visuelle du site (glow/blur/particules), pas une palette — un mode clair serait un second design complet, pas un toggle de couleurs. Coût jugé disproportionné pour ce portfolio, décision suivie |
+| — | Ajouter InvoiceAI (Projet 1) aux projets du portfolio | 2026-09-25 | Repo `Wade199/invoiceai` vérifié via `gh api` avant rédaction (maintenant public, tag `v1.0`, README détaillé) plutôt que de se fier uniquement à la mémoire globale — stack, sécurité et statut confirmés à jour (Docker/CI ajoutés depuis, repo passé public). Capture d'écran réelle récupérée depuis `docs/screenshots/result.png` du repo (branche `master`, pas `main`) → `assets/invoiceai.png`. Placé en tête de la grille projets (le plus abouti techniquement : backend réel, sécurité, IA). `demo` volontairement vide : l'app est conçue pour un usage local mono-utilisateur (127.0.0.1 only, pas de TLS), l'exposer publiquement contredirait son propre design de sécurité. Compteur "Projets" du hero mis à jour 3+ → 4+ |
 
 ---
 

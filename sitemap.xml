@@ -2,37 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://wade199.netlify.app/</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://wade199.netlify.app/projects.html</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://wade199.netlify.app/docs.html</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://wade199.netlify.app/veille.html</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-09-25</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://wade199.netlify.app/project.html?slug=invoiceai</loc>
+    <lastmod>2026-09-25</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://wade199.netlify.app/project.html?slug=beermakers</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://wade199.netlify.app/project.html?slug=fullstackforge</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://wade199.netlify.app/project.html?slug=jeux-de-dame</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <priority>0.5</priority>
   </url>
 </urlset>

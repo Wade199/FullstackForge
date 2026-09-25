@@ -1,5 +1,64 @@
 [
   {
+    "slug": "invoiceai",
+    "title": { "fr": "InvoiceAI", "en": "InvoiceAI", "es": "InvoiceAI" },
+    "description": {
+      "fr": "Assistant IA qui extrait automatiquement les données de factures et devis PDF (fournisseur, montants, lignes) et les exporte en CSV.",
+      "en": "AI assistant that automatically extracts data from PDF invoices and quotes (supplier, amounts, line items) and exports it to CSV.",
+      "es": "Asistente de IA que extrae automáticamente los datos de facturas y presupuestos en PDF (proveedor, importes, líneas) y los exporta a CSV."
+    },
+    "image": "./assets/invoiceai.png",
+    "tech": ["Python", "FastAPI", "LangChain", "Gemini", "Streamlit", "SQLite", "Docker"],
+    "github": "https://github.com/Wade199/invoiceai",
+    "demo": "",
+    "hasDocs": true,
+    "technical": {
+      "fr": [
+        "API FastAPI + Pydantic v2, base SQLite chiffrée (Fernet) au repos, écoute uniquement sur 127.0.0.1 avec jeton Bearer obligatoire sur chaque route",
+        "Extraction via Gemini (gemini-flash-latest, langchain-google-genai) + pdfplumber pour le texte, avec validation de cohérence arithmétique des montants extraits (les LLM peuvent halluciner)",
+        "Interface Streamlit à 4 écrans (Upload, Résultat, Historique, Export), thème clair/sombre natif",
+        "Sécurité : upload limité à 10 Mo + vérification MIME et signature %PDF-, export CSV neutralisé contre l'injection de formules, rétention RGPD configurable (30 jours) + endpoint de suppression",
+        "681 tests (pytest), lint ruff, CI GitHub Actions, Dockerisé (seule l'interface est exposée à l'hôte, l'API reste interne au conteneur)"
+      ],
+      "en": [
+        "FastAPI + Pydantic v2 API, SQLite database encrypted at rest (Fernet), listens on 127.0.0.1 only with a mandatory Bearer token on every route",
+        "Gemini extraction (gemini-flash-latest, langchain-google-genai) + pdfplumber for text, with arithmetic consistency validation on extracted amounts (LLMs can hallucinate)",
+        "4-screen Streamlit interface (Upload, Result, History, Export), native light/dark theme",
+        "Security: 10 MB upload limit + MIME and %PDF- signature check, CSV export neutralised against formula injection, configurable GDPR retention (30 days) + delete endpoint",
+        "681 tests (pytest), ruff linting, GitHub Actions CI, Dockerized (only the interface is exposed to the host, the API stays internal to the container)"
+      ],
+      "es": [
+        "API FastAPI + Pydantic v2, base de datos SQLite cifrada en reposo (Fernet), escucha solo en 127.0.0.1 con token Bearer obligatorio en cada ruta",
+        "Extracción con Gemini (gemini-flash-latest, langchain-google-genai) + pdfplumber para el texto, con validación de coherencia aritmética de los importes extraídos (los LLM pueden alucinar)",
+        "Interfaz Streamlit de 4 pantallas (Upload, Resultado, Historial, Exportación), tema claro/oscuro nativo",
+        "Seguridad: límite de subida de 10 MB + verificación MIME y firma %PDF-, exportación CSV neutralizada contra inyección de fórmulas, retención RGPD configurable (30 días) + endpoint de eliminación",
+        "681 pruebas (pytest), análisis con ruff, CI en GitHub Actions, dockerizado (solo la interfaz se expone al host, la API permanece interna al contenedor)"
+      ]
+    },
+    "caseStudy": {
+      "situation": {
+        "fr": "Recherche d'un projet portfolio en IA générative pour montrer une compétence concrète au-delà de la stack PHP/Symfony habituelle, sur un vrai cas d'usage PME : le traitement de factures.",
+        "en": "Looking for a generative AI portfolio project to show a concrete skill beyond the usual PHP/Symfony stack, on a real SMB use case: invoice processing.",
+        "es": "Búsqueda de un proyecto de portafolio en IA generativa para mostrar una habilidad concreta más allá de la stack habitual PHP/Symfony, sobre un caso de uso real de pyme: el procesamiento de facturas."
+      },
+      "task": {
+        "fr": "Construire un pipeline qui extrait automatiquement les données clés d'une facture PDF (fournisseur, dates, montants, lignes), détecte les incohérences possibles côté LLM, et permet l'export en CSV — avec les contraintes de sécurité et de RGPD d'un outil qui manipule des données de facturation.",
+        "en": "Build a pipeline that automatically extracts key data from a PDF invoice (supplier, dates, amounts, line items), catches possible LLM inconsistencies, and allows CSV export — with the security and GDPR constraints of a tool handling billing data.",
+        "es": "Construir un pipeline que extraiga automáticamente los datos clave de una factura en PDF (proveedor, fechas, importes, líneas), detecte posibles incoherencias del LLM y permita la exportación a CSV, con las restricciones de seguridad y RGPD de una herramienta que manipula datos de facturación."
+      },
+      "action": {
+        "fr": "Développement en méthode « design juste-à-temps » (le contrat de chaque module est documenté juste avant d'être codé) : extraction OCR (pdfplumber), adaptateur LLM Gemini avec sortie structurée et retry, règles de validation métier (cohérence HT/TVA/TTC), cache chiffré, API FastAPI sécurisée (jeton, upload borné, headers), interface Streamlit, puis Dockerisation et CI. Trois revues de sécurité dédiées (upload, base de données, API) ont corrigé les risques trouvés avant chaque mise en production.",
+        "en": "Developed with a 'just-in-time design' method (each module's contract is documented right before coding it): OCR extraction (pdfplumber), Gemini LLM adapter with structured output and retry, business validation rules (HT/VAT/TTC consistency), encrypted cache, secured FastAPI (token, bounded upload, headers), Streamlit interface, then Dockerization and CI. Three dedicated security reviews (upload, database, API) fixed the risks found before each step went live.",
+        "es": "Desarrollado con un método de 'diseño justo a tiempo' (el contrato de cada módulo se documenta justo antes de programarlo): extracción OCR (pdfplumber), adaptador LLM Gemini con salida estructurada y reintentos, reglas de validación de negocio (coherencia HT/IVA/TTC), caché cifrada, API FastAPI segura (token, subida acotada, cabeceras), interfaz Streamlit, y luego dockerización y CI. Tres revisiones de seguridad dedicadas (subida, base de datos, API) corrigieron los riesgos encontrados antes de cada puesta en producción."
+      },
+      "result": {
+        "fr": "V1.0 publiée (tag v1.0) : 681 tests, API et interface complètes, audit de sécurité réalisé avant de rendre le repo public, testé en navigateur réel et en Docker. Usage volontairement local et mono-utilisateur (pas de compte, pas de TLS) — un choix de sécurité assumé et documenté dans le brief du projet, pas une limitation subie.",
+        "en": "V1.0 released (tag v1.0): 681 tests, complete API and interface, security audit done before making the repo public, tested in a real browser and in Docker. Deliberately local, single-user usage (no accounts, no TLS) — a conscious security choice documented in the project brief, not a limitation suffered.",
+        "es": "V1.0 publicada (tag v1.0): 681 pruebas, API e interfaz completas, auditoría de seguridad realizada antes de hacer público el repositorio, probado en un navegador real y en Docker. Uso deliberadamente local y de un solo usuario (sin cuentas, sin TLS) — una elección de seguridad asumida y documentada en el brief del proyecto, no una limitación sufrida."
+      }
+    }
+  },
+  {
     "slug": "beermakers",
     "title": { "fr": "BeerMakers", "en": "BeerMakers", "es": "BeerMakers" },
     "description": {
