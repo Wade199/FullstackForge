@@ -168,6 +168,7 @@ portfolio-fullstackforge/
 | 2026-09-23 | La veille sera **automatisée sans relecture humaine avant publication** : la routine cloud "Veille technique quotidienne" (`trig_01Q7ib5zeriLK321aLeF69S9`, cron 07:00 Paris, voir history.md du workspace) doit être modifiée pour écrire dans `data/veille.json` et pousser directement sur `origin/main` chaque matin | Choix explicite d'Ibrahima après que je lui ai présenté l'alternative (garder la main, valider avant chaque publication) — il a préféré l'automatisation complète malgré le risque qu'un résumé erroné ou mal formulé parte en public sans contrôle | — |
 | 2026-09-23 | **Thème clair non ajouté** — le site reste sombre uniquement | Ibrahima a demandé mon avis ("tu en penses quoi"). Recommandation donnée : le thème néon sombre (glow, glassmorphism, particules) est l'identité visuelle du site, pas juste une palette — un mode clair demanderait de repenser chaque effet (glow illisible sur fond clair, `backdrop-blur`, dégradés de texte, couleur des particules), donc un vrai second design plutôt qu'un toggle de couleurs. Coût (design + double maintenance + double test) jugé disproportionné par rapport au bénéfice pour un portfolio de recherche d'alternance. Ibrahima a suivi la recommandation | — |
 | 2026-09-25 | InvoiceAI (Projet 1) ajouté aux projets du portfolio, en tête de la grille | Repo `Wade199/invoiceai` revérifié via `gh api` avant rédaction plutôt que de se fier à la mémoire globale (déjà riche mais potentiellement datée) — confirmé public depuis le 2026-09-24, tag `v1.0`, Docker/CI bien ajoutés. Capture d'écran réelle récupérée du repo (branche `master`, pas `main` — piège rencontré). `demo` laissé vide intentionnellement : l'app est conçue pour un usage local mono-utilisateur (127.0.0.1, pas de TLS), l'exposer publiquement irait à l'encontre de son propre design de sécurité documenté dans son README | — |
+| 2026-09-25 | Revirement sur le poste affiché : "Développeur Junior" (décision du 2026-09-23) retiré partout, remplacé par "Développeur PHP/Symfony & Flutter" (titre, meta/OG/Twitter, JSON-LD, manifest PWA, typing FR/EN/ES) | Ibrahima ne cible plus une alternance et ne veut plus le qualificatif "Junior" — vérifié cohérent avec sa bio GitHub publique (`gh api users/Wade199`) qui dit déjà "Développeur PHP/Symfony + Flutter" sans "Junior". Même repositionnement appliqué en parallèle sur son CV (Canva). Hash CSP recalculé sur le contenu réellement déployé (JSON-LD modifié) — voir décision du 2026-09-23 sur la méthode | — |
 
 ---
 
@@ -240,6 +241,8 @@ portfolio-fullstackforge/
 12. [x] og:image générée (Canva) et intégrée sur les 5 pages ; poste harmonisé en "Développeur Junior" partout (titre, meta, JSON-LD, typing FR/EN/ES) suite à ce choix fait sur l'image
 13. [x] manifest.json PWA + service worker basique — icônes générées via Canva, network-first sur le HTML/JSON pour ne pas servir une veille périmée. **Phase 5 entièrement terminée.**
 14. [ ] Brancher Cloudflare Web Analytics (compte Cloudflare à créer par Ibrahima)
+15. [x] InvoiceAI ajouté aux projets du portfolio (2026-09-25)
+16. [x] Poste "Développeur Junior" retiré partout, remplacé par "Développeur PHP/Symfony & Flutter" — titre, meta/OG/Twitter, JSON-LD, manifest, typing FR/EN/ES (2026-09-25)
 
 ---
 
