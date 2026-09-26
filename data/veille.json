@@ -1,5 +1,40 @@
 [
   {
+    "date": "2026-09-26",
+    "items": [
+      {
+        "topic": "Java/Spring",
+        "title": "Spring Boot 4.2.0-M2 disponible",
+        "summary": "Cette version milestone, publiée le 25 septembre 2026, ajoute le support SSL bundle pour LDAP (y compris LDAPS pour le serveur embarqué) et les semantic conventions OpenTelemetry pour la configuration OTLP.",
+        "url": "https://spring.io/blog/2026/09/25/spring-boot-4-2-0-M2-available-now/"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "Plugin4Shell : faille RCE zero-click dans des agents de code IA",
+        "summary": "Une vulnérabilité critique nommée Plugin4Shell permet l'exécution de code à distance sans interaction utilisateur sur Claude Code, Codex, GitHub Copilot et Gemini CLI, via un contournement de la vérification des hashes de plugins pinnés ; des correctifs ont été publiés pour Claude Code et Codex.",
+        "url": "https://cybersecuritynews.com/plugin4shell-zero-click-rce/"
+      },
+      {
+        "topic": "DevOps/Cloud",
+        "title": "Docker Compose v5.5.1 publié",
+        "summary": "Cette version corrige des bugs sur docker compose watch dans les répertoires symlinkés et les collisions de noms de cibles bake, et améliore l'affichage des logs des hooks en cas d'échec.",
+        "url": "https://releases.sh/docker/docker-compose-release-notes"
+      },
+      {
+        "topic": "Python/Django",
+        "title": "DjangoCon Europe 2027 annoncée à Innsbruck",
+        "summary": "L'édition 2027 de DjangoCon Europe se tiendra à Innsbruck, en Autriche, du 17 au 21 février 2027, avec billets et appel à propositions désormais ouverts.",
+        "url": "https://www.djangoproject.com/weblog/2026/sep/15/djangocon-europe-2027-is-heading-to-innsbruck/"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "PHP publie cinq versions de sécurité coordonnées, dont 8.5.11",
+        "summary": "Cette vague de releases datée du 22-24 septembre 2026 corrige plusieurs failles de sécurité touchant les branches 8.2 à 8.5, dont un contournement d'ACL FastCGI, des failles de downgrade de hostname OpenSSL et une fuite d'identifiants cross-origin.",
+        "url": "https://php.watch/versions/8.5/releases"
+      }
+    ]
+  },
+  {
     "date": "2026-09-25",
     "items": [
       {
