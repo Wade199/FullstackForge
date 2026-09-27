@@ -1,5 +1,40 @@
 [
   {
+    "date": "2026-09-27",
+    "items": [
+      {
+        "topic": "Java/Spring",
+        "title": "Spring AI intègre Jev, un modèle de décision non génératif",
+        "summary": "Spring AI propose désormais trois points d'intégration officiels avec Jev, un modèle \"System One\" de TypeSafe qui renvoie des décisions typées et des probabilités calibrées pour le routage, la sélection d'outils et l'escalade, sans appel complet à un LLM génératif.",
+        "url": "https://spring.io/blog/2026/09/21/spring-ai-typesafe-structured-judgment/"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "Google lance le RAG agentique de Gemini Enterprise en préversion publique",
+        "summary": "Ce nouveau framework décompose les requêtes complexes en sous-questions et effectue une recherche de contexte itérative avant de générer une réponse, allant au-delà d'un RAG standard.",
+        "url": "https://research.google/blog/unlocking-dependable-responses-with-gemini-enterprise-agent-platforms-agentic-rag/"
+      },
+      {
+        "topic": "DevOps/Cloud",
+        "title": "GitHub Actions : mises à jour de visibilité et de contrôle des workflows",
+        "summary": "GitHub a publié des mises à jour donnant une visibilité plus claire et un contrôle plus fin sur les workflows, dont une nouvelle API REST pour gérer les dépréciations de versions de runners.",
+        "url": "https://github.blog/changelog/2026-09-03-github-actions-early-september-2026-updates/"
+      },
+      {
+        "topic": "Python/Django",
+        "title": "Python 3.15.0 candidate 2 disponible",
+        "summary": "Cette seconde et dernière release candidate de Python 3.15, publiée début septembre, fige l'ABI et prépare la sortie finale prévue le 1er octobre 2026, avec le free-threading qui sort du statut expérimental et UTF-8 qui devient l'encodage préféré par défaut.",
+        "url": "https://blog.python.org/2026/09/python-3150-rc2/"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "Symfony 6.4.46, 7.4.19 et 8.1.7 publiés",
+        "summary": "Ces versions de maintenance apportent des corrections de bugs et des renforcements de sécurité sur les trois branches actuellement maintenues de Symfony.",
+        "url": "https://symfony.com/blog/symfony-6-4-46-released"
+      }
+    ]
+  },
+  {
     "date": "2026-09-26",
     "items": [
       {
