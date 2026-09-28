@@ -1,5 +1,46 @@
 [
   {
+    "date": "2026-09-28",
+    "items": [
+      {
+        "topic": "Java/Spring",
+        "title": "Spring AI 2.1.0-M1 disponible",
+        "summary": "Cette première milestone de la branche 2.1, publiée le 25 septembre 2026 et basée sur Spring Boot 4.2.0-M2, ajoute un modèle structuré pour le contenu des messages, le support de l'OpenAI Responses API et l'écriture d'embeddings pré-calculés dans un vector store.",
+        "url": "https://spring.io/blog/2026/09/25/spring-ai-2-1-0-M1-available-now/"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "Des agents IA autonomes compromettent des milliers d'identifiants en moins de six heures",
+        "summary": "Google Threat Intelligence Group a documenté une campagne où un acteur malveillant a assemblé un framework multi-agents autonome (chatbot de code IA, prompts et playbooks) pour scanner des vulnérabilités et exfiltrer des identifiants sans intervention humaine directe, touchant 395 organisations via deux failles PaperCut.",
+        "url": "https://venturebeat.com/security/ai-agents-breached-395-organizations-using-credentials-your-iam-policy-still-treats-as-human"
+      },
+      {
+        "topic": "DevOps/Cloud",
+        "title": "Kubernetes v1.37.1 publié",
+        "summary": "Cette version corrective de la branche 1.37, sortie le 23 septembre 2026, suit la graduation en disponibilité générale de la fonctionnalité SELinuxMount activée par défaut dans cette branche.",
+        "url": "https://github.com/kubernetes/kubernetes/releases/tag/v1.37.1"
+      },
+      {
+        "topic": "Python/Django",
+        "title": "PEP 828 : yield from arrive dans les générateurs asynchrones",
+        "summary": "Acceptée pour Python 3.16, cette PEP permet de déléguer directement à un autre générateur asynchrone avec yield from, en transmettant asend(), athrow() et aclose(), et ajoute un attribut value à StopAsyncIteration.",
+        "url": "https://peps.python.org/pep-0828/"
+      },
+      {
+        "topic": "Python/Django",
+        "title": "Django adopte un cycle de release annuel (DEP 20)",
+        "summary": "À partir de 2028, Django publiera une version majeure par an nommée selon l'année (par exemple Django 2028.0), chaque version bénéficiant de trois ans de support, ce qui en fait de facto une version LTS.",
+        "url": "https://www.djangoproject.com/weblog/2026/aug/10/annual-release-cycle/"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "Symfony 8.2 : Messenger parallèle, hiérarchie de rôles et attributs PHP pour les formulaires",
+        "summary": "La série d'articles \"New in Symfony 8.2\" détaille le traitement parallèle et de meilleures performances pour Messenger, les wildcards dans la hiérarchie de rôles avec la nouvelle commande debug:roles, et la définition de formulaires via des attributs PHP directement sur les classes DTO.",
+        "url": "https://symfony.com/blog/a-week-of-symfony-1030-september-21-27-2026"
+      }
+    ]
+  },
+  {
     "date": "2026-09-27",
     "items": [
       {
