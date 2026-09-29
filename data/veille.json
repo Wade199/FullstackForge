@@ -1,5 +1,40 @@
 [
   {
+    "date": "2026-09-29",
+    "items": [
+      {
+        "topic": "Java/Spring",
+        "title": "JDK 27 disponible en version générale",
+        "summary": "JDK 27, sorti le 15 septembre 2026, fait de G1 le ramasse-miettes par défaut dans tous les environnements, introduit l'échange de clés post-quantique hybride pour TLS 1.3 et active par défaut les en-têtes d'objets compacts.",
+        "url": "https://blogs.oracle.com/java/the-arrival-of-java-27"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "GPT-6 Sol, Luna et Claude Opus 5.5 arrivent sur Amazon Bedrock",
+        "summary": "L'AWS Weekly Roundup du 28 septembre 2026 annonce la disponibilité de GPT-6 Sol et Luna ainsi que de Claude Opus 5.5 sur Amazon Bedrock, accompagnée d'un nouveau harness d'agents nommé Strands.",
+        "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-gpt-6-sol-and-luna-claude-opus-5-5-on-amazon-bedrock-strands-harness-and-more-september-28-2026/"
+      },
+      {
+        "topic": "DevOps/Cloud",
+        "title": "Amazon CloudWatch Omni passe en disponibilité générale",
+        "summary": "Cette nouvelle expérience d'observabilité basée sur OpenTelemetry corrèle la télémétrie entre comptes, régions AWS et charges de travail Azure dans un espace unique, avec découverte automatique des services et cartographie des dépendances.",
+        "url": "https://aws.amazon.com/blogs/mt/this-month-in-aws-observability-august-september-2026/"
+      },
+      {
+        "topic": "Python/Django",
+        "title": "PyPI resserre ses règles de publication de fichiers",
+        "summary": "PyPI rejette désormais tout nouveau fichier ajouté à une release vieille de plus de quatorze jours et a figé son API HTML Simple Index.",
+        "url": "https://realpython.com/python-news-september-2026/"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "Symfony 8.2 génère un JSON Schema pour la configuration d'application",
+        "summary": "Cette nouveauté de Symfony 8.2, détaillée dans la série \"New in Symfony 8.2\", permet aux éditeurs de code d'autocompléter et de valider les fichiers YAML de configuration à partir d'un schéma généré automatiquement.",
+        "url": "https://symfony.com/blog/archives/2026/9"
+      }
+    ]
+  },
+  {
     "date": "2026-09-28",
     "items": [
       {
