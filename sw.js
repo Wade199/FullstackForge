@@ -8,7 +8,7 @@
      contenu de data/veille.json change chaque matin), le cache ne
      sert que de secours hors ligne.
    ============================================================ */
-const CACHE_NAME = 'portfolio-v1';
+const CACHE_NAME = 'portfolio-v2';
 
 const STATIC_ASSETS = [
   '/style.css',
