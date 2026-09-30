@@ -1,5 +1,46 @@
 [
   {
+    "date": "2026-09-30",
+    "items": [
+      {
+        "topic": "Java/Spring",
+        "title": "Spring Data 2026.1.0-M2 prépare Jakarta Persistence 4.0",
+        "summary": "Cette seconde milestone de Spring Data ajoute une compatibilité initiale avec Hibernate ORM 8.0.0.Beta1 en vue de Jakarta Persistence 4.0 et refactore le support de l'API JSON de Redis via une nouvelle interface JsonOperations.",
+        "url": "https://www.infoq.com/news/2026/09/spring-news-roundup-sep21-2026/"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "Une cascade de breaking releases touche quatre bibliothèques Python liées à l'IA",
+        "summary": "openai-python, vLLM, Transformers et le SDK Python d'Anthropic ont chacun publié une version cassante en dix jours ; la migration vers httpx2 du SDK Anthropic 1.0.0 a cassé Pydantic AI, corrigé environ neuf heures plus tard par la version 2.33.0.",
+        "url": "https://realpython.com/python-news-september-2026/"
+      },
+      {
+        "topic": "DevOps/Cloud",
+        "title": "AWS nommé leader du Gartner Magic Quadrant pour la gestion de conteneurs",
+        "summary": "Pour la quatrième année consécutive, AWS est positionné comme leader de ce quadrant, porté par des fonctionnalités comme Amazon ECS Express Mode, Amazon EKS Auto Mode et un SLA de disponibilité de 99,99% sur le plan de contrôle EKS provisionné.",
+        "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-gpt-6-sol-and-luna-claude-opus-5-5-on-amazon-bedrock-strands-harness-and-more-september-28-2026/"
+      },
+      {
+        "topic": "Python/Django",
+        "title": "Django REST Framework 3.18.1 publié",
+        "summary": "Cette version corrige des doublons de messages de validation sur GenericIPAddressField, la détection du format int64 pour IntegerField et des erreurs de validation dans les list serializers.",
+        "url": "https://www.django-rest-framework.org/community/release-notes/"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "Symfony 8.2 ajoute un authenticator OpenID Connect natif",
+        "summary": "Cette nouveauté permet de configurer une connexion via Keycloak, Auth0, Okta ou Entra ID en quelques lignes de configuration, sans bundle tiers.",
+        "url": "https://symfony.com/blog/archives/2026/9"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "Symfony UX 3.5 publié avec un nouveau package de pagination",
+        "summary": "Cette version ajoute le package ux-pagination pour paginer des tableaux, des requêtes Doctrine ORM/DBAL ou toute source de données sans JavaScript, ainsi que le support de Twig 4.0 sur plusieurs composants.",
+        "url": "https://symfony.com/blog/symfony-ux-3-5-released"
+      }
+    ]
+  },
+  {
     "date": "2026-09-29",
     "items": [
       {
