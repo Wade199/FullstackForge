@@ -25,7 +25,10 @@ export function initReveal() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  // threshold: 0 (pas 0.12) — un seuil en % de la hauteur de la cible ne se
+  // déclenche jamais pour un élément plus haut que viewport/seuil (ex: la
+  // section veille, dont la hauteur grandit chaque jour avec le contenu).
+  }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
@@ -40,7 +43,7 @@ export function initReveal() {
         itemObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
 
   // Observer tous les reveal-item sauf les project-cards (gérés par renderProjects)
   document.querySelectorAll('.reveal-item:not(.project-card)').forEach(el => itemObserver.observe(el));

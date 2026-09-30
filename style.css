@@ -1136,6 +1136,29 @@ a.contact-card-value:hover { text-decoration: underline; }
   font-size: 0.9rem;
   line-height: 1.6;
 }
+.veille-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.veille-page-btn {
+  padding: 0.6rem 1.4rem;
+  font-size: 0.85rem;
+}
+.veille-page-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}
+.veille-page-status {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  min-width: 6rem;
+  text-align: center;
+}
 
 /* ===== UTILITAIRES (évitent le style="" inline, pour un CSP strict) ===== */
 .section-offset-top { padding-top: 140px; }
