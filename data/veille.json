@@ -1,5 +1,40 @@
 [
   {
+    "date": "2026-10-01",
+    "items": [
+      {
+        "topic": "Java/Spring",
+        "title": "Spring Boot 4.2.0-M2 disponible",
+        "summary": "Cette deuxième milestone regroupe 141 améliorations, dont le support SSL bundles pour LDAP (y compris LDAPS sur le serveur LDAP embarqué) et une configuration unifiée des endpoints, headers et compression OTLP suivant les conventions sémantiques OpenTelemetry.",
+        "url": "https://spring.io/blog/2026/09/25/spring-boot-4-2-0-M2-available-now/"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "LangChain 1.3.15 et langchain-core 1.6.4 publiés",
+        "summary": "LangChain a livré une première version typesafe incluant TypeSafeClassifier ainsi que les middlewares expérimentaux AutoMode et ModelRouter, dans un rythme de publication soutenu sur l'ensemble de l'écosystème LangChain/LlamaIndex/DSPy en septembre 2026.",
+        "url": "https://releases.sh/langchain"
+      },
+      {
+        "topic": "DevOps/Cloud",
+        "title": "Docker prépare des spécifications de sandbox ouvertes pour agents IA",
+        "summary": "Docker introduit de nouvelles spécifications de sandbox ouvertes destinées à l'exécution d'agents IA, dans la continuité des Docker Cloud Sandboxes basées sur l'isolation microVM matérielle.",
+        "url": "https://devops.com/"
+      },
+      {
+        "topic": "Python/Django",
+        "title": "Django 6.1 étend le framework de tâches en arrière-plan",
+        "summary": "Le décorateur task() accepte désormais des **kwargs transmis à la classe de tâche du backend, et les instances Task et TaskResult peuvent être sérialisées (pickle), complétant le framework de tâches introduit dans Django 6.0.",
+        "url": "https://docs.djangoproject.com/en/6.1/releases/6.1/"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "API Platform 5.0 publié",
+        "summary": "Cette nouvelle version majeure d'API Platform a été publiée le 16 septembre 2026, peu avant l'API Platform Conference de Lille (17-18 septembre 2026) consacrée notamment aux performances FrankenPHP et aux agents IA/MCP comme nouveaux consommateurs d'API.",
+        "url": "https://api-platform.com/docs/v4.0/symfony/"
+      }
+    ]
+  },
+  {
     "date": "2026-09-30",
     "items": [
       {
