@@ -1,5 +1,40 @@
 [
   {
+    "date": "2026-10-02",
+    "items": [
+      {
+        "topic": "Java/Spring",
+        "title": "Spring Cloud 2026.0.0-M1 \"Paddington\" publié",
+        "summary": "Cette première milestone du train Spring Cloud, basée sur Spring Boot 4.2.0-M2, ajoute une interface PropertyPathNotifier pour notifier les applications d'un changement de configuration via HTTP et met à jour Spring Cloud Circuitbreaker vers Resilience4J 2.4.0.",
+        "url": "https://spring.io/blog/2026/09/24/spring-cloud-2026-0-0-M1-has-been-released/"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "LlamaIndex publie Extract v2.5",
+        "summary": "Cette nouvelle génération des agents d'extraction structurée de documents de LlamaIndex améliore la précision et l'ancrage des réponses sans augmentation de prix, avec un score F1 sur le benchmark ExtractBench passant de 87,1 à 93,9 pour son offre la plus économique.",
+        "url": "https://www.unite.ai/llamaindex-launches-extract-v2-5-with-accuracy-and-grounding-gains/"
+      },
+      {
+        "topic": "DevOps/Cloud",
+        "title": "Docker annonce Sandbox Kit, une spécification ouverte pour les agents IA",
+        "summary": "Présentée le 1er octobre 2026 à WeAreDevelopers, cette spécification ouverte vise à standardiser l'exécution isolée d'agents IA via des microVM, avec l'intention de confier sa gouvernance à la CNCF.",
+        "url": "https://www.docker.com/blog/docker-cloud-sandboxes-wearedevelopers-recap/"
+      },
+      {
+        "topic": "Python/Django",
+        "title": "Python 3.15.0 : sortie finale programmée le 1er octobre 2026",
+        "summary": "Après deux release candidates, la version finale de Python 3.15 apporte les imports paresseux explicites (PEP 810), un type frozendict intégré (PEP 814), un type sentinel (PEP 661) et un JIT amélioré d'environ 8 à 9% sur x86-64 Linux.",
+        "url": "https://blog.python.org/2026/09/python-3150-rc2/"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "Symfony 8.2 assouplit la configuration des groupes de sérialisation",
+        "summary": "Les attributs #[SerializedName] et #[SerializedPath] deviennent répétables avec un argument groups, une nouvelle option IGNORED_GROUPS permet d'exclure des propriétés selon le contexte, et les contrôleurs comme Messenger peuvent chacun utiliser un serializer nommé indépendant.",
+        "url": "https://symfony.com/blog/new-in-symfony-8-2-more-flexible-serialization-groups"
+      }
+    ]
+  },
+  {
     "date": "2026-10-01",
     "items": [
       {
