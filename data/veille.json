@@ -1,5 +1,46 @@
 [
   {
+    "date": "2026-10-03",
+    "items": [
+      {
+        "topic": "Java/Spring",
+        "title": "Quarkus 4.0.0.Beta1 publié",
+        "summary": "Cette première beta de la prochaine version majeure de Quarkus a été publiée le 1er octobre 2026.",
+        "url": "https://quarkus.io/blog/tag/release/"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "Anthropic lance les \"mods\" pour Claude Code",
+        "summary": "Annoncées le 1er octobre 2026, ces fonctions TypeScript s'accrochent au cycle d'événements de l'agent pour réécrire un prompt, bloquer un appel d'outil ou filtrer un résultat ; elles se distribuent via des plugins et ne sont pas exécutées dans un bac à sable.",
+        "url": "https://alphasignal.ai/news/anthropic-s-claude-code-mods-let-developers-rewrite-the-agent-from-inside"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "Google déploie Gemini 4 Argon à des défenseurs cyber vérifiés",
+        "summary": "Lancé le 2 octobre 2026 via le programme Fairwind, ce modèle atteint une limite de sortie d'un million de tokens et a détecté une vulnérabilité critique inédite dans un logiciel de santé utilisé par des hôpitaux.",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"
+      },
+      {
+        "topic": "DevOps/Cloud",
+        "title": "Amazon EKS supporte Kubernetes 1.37",
+        "summary": "Ce support est disponible depuis le 1er octobre 2026 sur l'ensemble des régions AWS commerciales.",
+        "url": "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html"
+      },
+      {
+        "topic": "Python/Django",
+        "title": "Django Ninja 1.7.1 publié",
+        "summary": "Cette version de Django Ninja, framework d'API basé sur Pydantic v2 avec documentation OpenAPI automatique et endpoints async, est sortie le 26 septembre 2026.",
+        "url": "https://github.com/vitalik/django-ninja/releases"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "New in Symfony 8.2 : améliorations de performance",
+        "summary": "Publié le 2 octobre 2026, cet article détaille les optimisations de Symfony 8.2 touchant les pages web, les APIs, les commandes console ainsi que les temps de développement et de build du cache.",
+        "url": "https://symfony.com/blog/new-in-symfony-8-2-performance-improvements"
+      }
+    ]
+  },
+  {
     "date": "2026-10-02",
     "items": [
       {
