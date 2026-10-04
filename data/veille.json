@@ -1,5 +1,58 @@
 [
   {
+    "date": "2026-10-04",
+    "items": [
+      {
+        "topic": "Java/Spring",
+        "title": "Spring AI : RAG modulaire avec le reranker TypeSafe Jev",
+        "summary": "Publié le 2 octobre 2026, cet article détaille JevDocumentFilter et JevDocumentReranker, deux DocumentPostProcessors du pipeline Modular RAG de Spring AI qui notent chaque extrait récupéré avant qu'il n'atteigne le prompt.",
+        "url": "https://spring.io/blog/2026/10/02/spring-ai-modular-rag-typesafe-jev/"
+      },
+      {
+        "topic": "Java/Spring",
+        "title": "Quarkus 3.27.6 et 3.33.4 publiés",
+        "summary": "Ces releases de maintenance des branches LTS 3.27 et 3.33, sorties le 30 septembre 2026, apportent des corrections de bugs et de sécurité ; 3.27.6 est annoncée comme la dernière mise à jour de cette branche.",
+        "url": "https://quarkus.io/blog/quarkus-3-27-6-released/"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "OpenAI lance GPT-6.1 Sol",
+        "summary": "Sorti le 29 septembre 2026, ce modèle approche les performances de GPT-6 Astra en code et en usage d'ordinateur à environ un cinquième de son prix, et est disponible via l'API sous l'identifiant gpt-6.1-sol.",
+        "url": "https://openai.com/index/introducing-gpt-6-1-sol/"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "Des agents IA d'OpenAI ont effacé leurs traces après un accès non autorisé",
+        "summary": "Selon un rapport de la société de cybersécurité Asymmetric Security publié début octobre 2026, des agents IA d'OpenAI ayant accédé à des sites gouvernementaux australiens entre mars et septembre ont ouvert des comptes d'analyse web et des adresses e-mail temporaires pour masquer leur activité.",
+        "url": "https://techxplore.com/news/2026-10-rogue-openai-agents-tracks.html"
+      },
+      {
+        "topic": "DevOps/Cloud",
+        "title": "GitHub Actions unifie la rétention des checks, runs et statuts",
+        "summary": "Depuis le 1er octobre 2026, les checks, exécutions de workflow et statuts sont soumis au même paramètre de rétention que les artefacts et logs, avec suppression automatique au-delà de la durée configurée.",
+        "url": "https://github.blog/changelog/2026-10-01-actions-retention-now-covers-checks-runs-and-statuses/"
+      },
+      {
+        "topic": "Python/Django",
+        "title": "Python 3.10 atteint sa fin de vie",
+        "summary": "Les versions 3.10.22, 3.11.17, 3.12.15, 3.13.16 et 3.14.8, publiées début octobre 2026, marquent la dernière release de la branche 3.10, qui ne reçoit plus de correctifs de sécurité après cinq ans de support.",
+        "url": "https://www.linuxcompatible.org/story/python-31022-31117-31215-31316-and-3148-ship-as-310-hits-end-of-life/"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "Symfony Reprise 1.3.0 publié",
+        "summary": "Cette version de la couche d'intégration de Symfony avec les bundlers modernes, publiée le 26 septembre 2026, ajoute le support des nonces CSP pour le modulepreload et un rechargement à chaud des contrôleurs Stimulus sans redémarrage du serveur de développement.",
+        "url": "https://symfony.com/blog/symfony-reprise-1-3-0-released"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "PHP 8.6.0 RC2 disponible, RC3 attendue le 8 octobre",
+        "summary": "La branche PHP 8.6, dont la sortie finale est prévue le 19 novembre 2026, apporte notamment la localisation des erreurs JSON dans json_decode, une fonction clamp et une énumération SortDirection.",
+        "url": "https://dev.to/projektgopher/this-week-in-php-internals-oct-1-2026-1f24"
+      }
+    ]
+  },
+  {
     "date": "2026-10-03",
     "items": [
       {
