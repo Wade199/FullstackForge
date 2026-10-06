@@ -1,5 +1,40 @@
 [
   {
+    "date": "2026-10-06",
+    "items": [
+      {
+        "topic": "Java/Spring",
+        "title": "Spring Boot 4.1.1 publié",
+        "summary": "Cette version de maintenance de Spring Boot 4.1 apporte 98 corrections de bugs, des améliorations de documentation et des mises à jour de dépendances.",
+        "url": "https://spring.io/blog/2026/08/20/spring-boot-4-1-1-available-now/"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "Nvidia lance l'Open Agent Safety Platform",
+        "summary": "Construite avec une centaine de partenaires industriels, cette plateforme open source combine un runtime de gouvernance (OpenShell) et une télémétrie matérielle (Sentry) capable de mettre un agent IA en quarantaine en quelques millisecondes.",
+        "url": "https://nvidianews.nvidia.com/news/open-agent-safety-platform"
+      },
+      {
+        "topic": "DevOps/Cloud",
+        "title": "Détection d'incidents reconstruite sur OpenTelemetry, Kafka et Flink pour Kubernetes",
+        "summary": "Un retour d'expérience publié début octobre 2026 décrit une refonte de la détection d'incidents sur Kubernetes combinant OpenTelemetry, Apache Kafka et Apache Flink, réduisant le temps de détection de 40 secondes à moins de 10 secondes.",
+        "url": "https://dev.to/vinlawz/devops-roundup-for-2026-10-04-edition-devto-update-test-2b27"
+      },
+      {
+        "topic": "Python/Django",
+        "title": "Django 6.2 : premiers détails des prochaines fonctionnalités",
+        "summary": "La newsletter Django News (numéro 357) détaille les premières pistes de Django 6.2, dont un nouvel utilitaire de gestionnaire de contexte asynchrone et un changement rendant la plupart des middlewares intégrés non-asynchrones par défaut pour réduire le coût des changements de contexte sous ASGI.",
+        "url": "https://daily.dev/posts/issue-357-malcolm-tredinnick-prize-nominations-and-django-6-2-features-a0deu09du"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "New in Symfony 8.2 : en-têtes Cache-Control ciblés et Cache-Status",
+        "summary": "Symfony 8.2 ajoute une méthode cacheControl() permettant de définir des règles de cache différentes par cache nommé (RFC 9213), ainsi qu'un en-tête Cache-Status (RFC 9211) activable en production via l'option cache_status.",
+        "url": "https://symfony.com/blog/new-in-symfony-8-2-targeted-cache-control-and-cache-status-headers"
+      }
+    ]
+  },
+  {
     "date": "2026-10-05",
     "items": [
       {
