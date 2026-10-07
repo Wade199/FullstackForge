@@ -1,5 +1,40 @@
 [
   {
+    "date": "2026-10-07",
+    "items": [
+      {
+        "topic": "Java/Spring",
+        "title": "Micronaut Framework 5.0 et Graal Dev Kit 5 publiés",
+        "summary": "Micronaut 5 adopte une base Java 25 avec GraalVM 25.0.3, les annotations JSpecify et Jackson 3 ; le Graal Dev Kit associé ajoute une intégration poussée avec Oracle AI Database, dont le type VECTOR et la recherche vectorielle.",
+        "url": "https://blogs.oracle.com/graal/announcing-graal-dev-kit-for-micronaut-5"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "Claude Sonnet 5.5 disponible",
+        "summary": "Publié le 28 septembre 2026 sur l'API Anthropic, l'application Claude et OpenRouter, ce modèle répond plus de 30% plus vite et coûte jusqu'à 30% moins cher que Claude Sonnet 5 pour des tâches de codage et de bureautique bien cadrées.",
+        "url": "https://letsdatascience.com/news/anthropic-releases-claude-sonnet-55-with-faster-responses-an-95c4c0b5"
+      },
+      {
+        "topic": "DevOps/Cloud",
+        "title": "Kubernetes 1.34 approche de sa fin de vie",
+        "summary": "La branche Kubernetes 1.34 entre dans sa dernière fenêtre de correctifs avant sa fin de vie prévue le 27 octobre 2026.",
+        "url": "https://kubernetes.io/releases/1.34/"
+      },
+      {
+        "topic": "Python/Django",
+        "title": "Python 3.15.0 publié",
+        "summary": "La version finale de Python 3.15, sortie le 1er octobre 2026, apporte les imports paresseux explicites (PEP 810), un type frozendict intégré (PEP 814), un type sentinel (PEP 661) et un JIT amélioré d'environ 8 à 9% sur x86-64 Linux.",
+        "url": "https://blog.python.org/2026/09/python-3150-rc2/"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "API Platform core v4.1.30 publié",
+        "summary": "Cette version corrige un bug du sérialiseur lié à la validation de la classe IRI cible lors de la dénormalisation des relations.",
+        "url": "https://api-platform.com/docs/v4.1/changelog/"
+      }
+    ]
+  },
+  {
     "date": "2026-10-06",
     "items": [
       {
