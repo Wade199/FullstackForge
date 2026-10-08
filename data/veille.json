@@ -1,5 +1,40 @@
 [
   {
+    "date": "2026-10-08",
+    "items": [
+      {
+        "topic": "Java/Spring",
+        "title": "JEP 544 (AoT Code Compilation) ciblé pour JDK 28",
+        "summary": "Le JEP 544, qui vise la compilation anticipée de code pour réduire le temps de démarrage et de warmup des applications Java, est passé du statut Proposed to Target à Targeted pour JDK 28.",
+        "url": "https://www.infoq.com/news/2026/10/java-news-roundup-sep28-2026/"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "Microsoft présente l’Agent Framework, successeur de Semantic Kernel et AutoGen",
+        "summary": "Microsoft décrit cet Agent Framework comme la nouvelle génération unifiant Semantic Kernel et AutoGen, avec un agent harness et des agents hébergés dans des environnements sandbox.",
+        "url": "https://learn.microsoft.com/en-us/agent-framework/overview/"
+      },
+      {
+        "topic": "DevOps/Cloud",
+        "title": "CNCF organise l’Observability Summit Europe à Prague",
+        "summary": "La CNCF a tenu le 5 octobre 2026 à Prague son premier Observability Summit Europe, avec plus de 25 sessions consacrées à l’Observability as Code, au monitoring synthétique automatisé et à l’usage du protocole MCP en observabilité.",
+        "url": "https://www.cncf.io/"
+      },
+      {
+        "topic": "Python/Django",
+        "title": "Django publie des correctifs de sécurité (6.1.2, 6.0.9, 5.2.18)",
+        "summary": "Le 6 octobre 2026, le projet Django a publié des versions corrigeant quatre failles de sécurité, dont un déni de service via des codes de langue trop longs et un contournement permettant à GDAL d’émettre des requêtes réseau via des lookups spatiaux.",
+        "url": "https://www.djangoproject.com/weblog/2026/oct/06/security-releases/"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "Symfony 8.2 introduit un Compiled Event Dispatcher",
+        "summary": "Cette nouveauté de Symfony 8.2, publiée le 7 octobre 2026, compile les listeners d’événements dans un tableau PHP afin de réduire le coût d’initialisation du dispatcher et la mémoire utilisée.",
+        "url": "https://symfony.com/blog/"
+      }
+    ]
+  },
+  {
     "date": "2026-10-07",
     "items": [
       {
