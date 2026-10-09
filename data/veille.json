@@ -1,5 +1,46 @@
 [
   {
+    "date": "2026-10-09",
+    "items": [
+      {
+        "topic": "IA/LLM",
+        "title": "Anthropic publie Claude Haiku 5.5",
+        "summary": "Claude Haiku 5.5, annoncé le 7 octobre 2026, est présenté comme le modèle économique le plus rapide d'Anthropic à ce jour, avec une fenêtre de contexte de 1 million de tokens, jusqu'à 128 000 tokens de sortie et un paramètre d'effort ajustable pour le raisonnement.",
+        "url": "https://www.anthropic.com/news"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "OpenAI ouvre son Agents API en beta publique",
+        "summary": "L'Agents API d'OpenAI, un service managé offrant sessions longues durables, orchestration, appel d'outils et compaction automatique de contexte, est désormais accessible à tous les développeurs en beta publique.",
+        "url": "https://openai.com/index/introducing-the-agents-api/"
+      },
+      {
+        "topic": "DevOps/Cloud",
+        "title": "Anthropic lance un scanner de vulnérabilités open source gratuit",
+        "summary": "Dans le cadre de sa Cyber Mission annoncée le 8 octobre 2026, Anthropic met à disposition OSS Scanner, un outil gratuit et opt-in d'analyse de vulnérabilités pour les projets open source, inspiré d'OSS-Fuzz.",
+        "url": "https://www.anthropic.com/news/anthropic-cyber-mission"
+      },
+      {
+        "topic": "Python/Django",
+        "title": "Django met fin aux rapports de sécurité via HackerOne",
+        "summary": "Depuis le 8 octobre 2026, l'équipe sécurité de Django n'accepte plus de nouveaux signalements de vulnérabilités via HackerOne et demande de les envoyer directement à security@djangoproject.com, les rapports déjà ouverts restant traités normalement.",
+        "url": "https://www.djangoproject.com/weblog/2026/oct/08/django-security-reporting-update/"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "Symfony 8.2 introduit un mode sudo pour les actions sensibles",
+        "summary": "Symfony 8.2 ajoute les attributs IS_AUTHENTICATED_RECENTLY et IS_AUTHENTICATED_VERY_RECENTLY, utilisables en PHP, Twig et dans les expressions de sécurité, pour exiger une ré-authentification récente avant une action sensible comme un paiement ou une suppression de compte.",
+        "url": "https://symfony.com/blog/new-in-symfony-8-2-sudo-mode"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "Symfony 8.2 ajoute le support des emails PGP/MIME signés et chiffrés",
+        "summary": "Le composant Mime de Symfony 8.2 prend désormais en charge le chiffrement et la signature PGP/MIME (RFC 3156) des emails, en complément du S/MIME existant, via le binaire gpg, sans extension PHP additionnelle.",
+        "url": "https://symfony.com/blog/new-in-symfony-8-2-pgp-mime-signed-and-encrypted-emails"
+      }
+    ]
+  },
+  {
     "date": "2026-10-08",
     "items": [
       {
