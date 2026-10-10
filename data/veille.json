@@ -1,5 +1,34 @@
 [
   {
+    "date": "2026-10-10",
+    "items": [
+      {
+        "topic": "IA/LLM",
+        "title": "Anthropic lance OSS Scanner, un scanner de vulnérabilités gratuit pour l'open source",
+        "summary": "Annoncé le 9 octobre 2026, cet outil opt-in utilise les modèles Claude pour effectuer des analyses de sécurité périodiques sur des projets open source, avec déjà 116 pull requests de correctifs soumises.",
+        "url": "https://thehackernews.com/2026/10/anthropic-launches-free-ai.html"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "Google lance un agent Gemini capable de router vers les modèles Claude",
+        "summary": "Dévoilé le 8 octobre 2026 lors de l'événement Gemini at Work, ce nouvel agent universel de Google Cloud traite questions, documents et code en routant les tâches vers les modèles Gemini ou Claude d'Anthropic, actuellement en préversion privée.",
+        "url": "https://fourweekmba.com/ai-googles-gemini-agent-will-route-work-to-anthropics-claude/"
+      },
+      {
+        "topic": "DevOps/Cloud",
+        "title": "Kubernetes détaille le passage à cgroup v2",
+        "summary": "Un billet officiel du 6 octobre 2026 explique que depuis la version 1.35, le kubelet refuse par défaut de démarrer sur un nœud encore en cgroup v1, et que la mise à l'échelle verticale in-place de pods introduite en 1.36 nécessite cgroup v2 pour un calcul précis des ressources.",
+        "url": "https://kubernetes.io/blog/2026/10/06/kubernetes-cgroups-v2-shift/"
+      },
+      {
+        "topic": "DevOps/Cloud",
+        "title": "Kubernetes explore le swap mémoire pour densifier les nœuds",
+        "summary": "Un billet officiel du 5 octobre 2026 décrit comment le swap mémoire, passé en disponibilité générale depuis la version 1.34 et adossé à du stockage NVMe, permet de faire tourner jusqu'à trois fois plus de pods par nœud en déchargeant la mémoire inactive.",
+        "url": "https://kubernetes.io/blog/2026/10/05/scaling-kubernetes-workloads-with-node-swap/"
+      }
+    ]
+  },
+  {
     "date": "2026-10-09",
     "items": [
       {
