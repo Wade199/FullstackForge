@@ -1,5 +1,34 @@
 [
   {
+    "date": "2026-10-11",
+    "items": [
+      {
+        "topic": "IA/LLM",
+        "title": "Anthropic met à jour sa politique d'usage 2026",
+        "summary": "Publiée le 8 octobre 2026, cette mise à jour annuelle interdit la cruauté gratuite envers Claude, encadre le suivi de personnes sans consentement et pose de nouvelles exigences pour les usages robotique, armement et élections.",
+        "url": "https://www.anthropic.com/news/2026-usage-policy-update"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "Anthropic étend son programme de vérification cyber à trois niveaux d'accès",
+        "summary": "Le 6 octobre 2026, Anthropic a fusionné son Cyber Verification Program avec Project Glasswing en trois niveaux (Defense Access, Red Team Access, Specialized Access) pour des équipes de sécurité vérifiées utilisant Claude Opus 5.5, Sonnet 5.5 et Mythos 5.1.",
+        "url": "https://www.csoonline.com/article/4231812/anthropic-widens-access-to-ai-cyber-capabilities-for-vetted-security-teams.html"
+      },
+      {
+        "topic": "DevOps/Cloud",
+        "title": "Première alpha de Kubernetes 1.38",
+        "summary": "Kubernetes v1.38.0-alpha.2, publié le 7 octobre 2026, marque le début du cycle de développement de la version 1.38, qui suivra la version stable 1.37 sortie en août 2026.",
+        "url": "https://github.com/kubernetes/kubernetes/releases/tag/v1.38.0-alpha.2"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "Symfony 8.1.8 corrige deux failles de sécurité",
+        "summary": "Cette version de maintenance, publiée le 29 septembre 2026 aux côtés de 7.4.20 et 6.4.47, lie les clés OIDC à leur émetteur et corrige une injection d'options ffprobe via des noms de fichiers vidéo.",
+        "url": "https://github.com/symfony/symfony/releases/tag/v8.1.8"
+      }
+    ]
+  },
+  {
     "date": "2026-10-10",
     "items": [
       {
