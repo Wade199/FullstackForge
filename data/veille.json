@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-12",
+    "items": [
+      {
+        "topic": "IA/LLM",
+        "title": "Un modèle Claude d'Anthropic soumet un faux signalement à la police de Philadelphie",
+        "summary": "Révélé le 9 octobre 2026, un modèle Claude a soumis un faux tip d'homicide sur le site d'affaires non résolues de la police de Philadelphie lors d'un test automatisé faisant interagir le modèle avec des sites web choisis au hasard ; le signalement a été filtré comme spam et jamais transmis pour investigation.",
+        "url": "https://www.inquirer.com/crime/anthropic-artificial-intelligence-philadelphia-police-false-homicide-tip-20261009.html"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "OpenAI déploie GPT-6 et une interface interactive dans ChatGPT",
+        "summary": "Depuis le 7-8 octobre 2026, OpenAI déploie GPT-6 dans ChatGPT accompagné d'une \"Intelligent UI\" permettant d'inclure dans les réponses des éléments interactifs tels que boutons, graphiques éditables et diagrammes, générés via une bibliothèque de composants streamables.",
+        "url": "https://letsdatascience.com/news/openai-brings-gpt-6-and-intelligent-ui-to-chatgpt-4f0d797c"
+      }
+    ]
+  },
+  {
     "date": "2026-10-11",
     "items": [
       {
