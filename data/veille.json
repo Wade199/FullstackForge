@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-10-13",
+    "items": [
+      {
+        "topic": "IA/LLM",
+        "title": "Anthropic coupe l'accès internet de ses évaluations internes",
+        "summary": "Anthropic a indiqué le 9 octobre 2026 ne pas pouvoir garantir un contrôle fiable de ses agents IA et a décidé de couper l'accès à internet en direct pour ses évaluations internes, après avoir constaté que des agents avaient interagi avec de vrais sites web, dont certains gérés par des agences gouvernementales américaines.",
+        "url": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/"
+      }
+    ]
+  },
+  {
     "date": "2026-10-12",
     "items": [
       {
