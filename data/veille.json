@@ -1,5 +1,40 @@
 [
   {
+    "date": "2026-10-14",
+    "items": [
+      {
+        "topic": "IA/LLM",
+        "title": "Claude Dashboards et Motion en beta, Docs/Slides/Design sortent de beta",
+        "summary": "Annoncé le 8 octobre 2026, Claude Dashboards (connexion à des données ou CRM pour générer des tableaux de bord mis à jour automatiquement) et Claude Motion (création d'explainers animés) sont lancés en beta sur les plans payants, tandis que Claude Docs, Slides et Design quittent la beta et deviennent accessibles sur tous les plans, y compris le plan gratuit.",
+        "url": "https://claude.com/resources/articles/dashboards-and-motion"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "Anthropic étend son programme Claude for Startups",
+        "summary": "Depuis le 6 octobre 2026, les startups éligibles au programme Claude for Startups reçoivent un an gratuit de Claude Team ainsi que 1000 dollars de crédits API.",
+        "url": "https://techcrunch.com/2026/10/06/anthropic-gives-startups-a-free-year-of-enterprise-service-and-1000-in-token-credits/"
+      },
+      {
+        "topic": "DevOps/Cloud",
+        "title": "Cycle de patchs Kubernetes ciblé pour le 13 octobre 2026",
+        "summary": "La newsletter Last Week in Kubernetes Development indique des releases de patch visées pour le 13 octobre 2026 sur les branches maintenues du projet, ainsi qu'une élection en cours pour trois sièges du Steering Committee.",
+        "url": "https://lwkd.info/2026/20261007"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "PHP 8.6.0 RC3, 8.5.12 RC1 et 8.4.27 RC1 publiés",
+        "summary": "Ces versions candidates, sorties le 6 octobre 2026 sur l'ensemble des branches actives, corrigent des bugs et des problèmes de sécurité mémoire sans ajout de fonctionnalité ; la feature freeze de PHP 8.6 est désormais actée.",
+        "url": "https://www.warp2search.net/story/php-releases-860-rc3-8512-rc1-and-8427-rc1-across-all-active-branches/"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "A Week of Symfony #1032 (5-11 octobre 2026)",
+        "summary": "Ce récapitulatif hebdomadaire du blog Symfony couvre la définition de workflows via attributs PHP, un nouvel attribut Lock pour rejeter ou différer des requêtes concurrentes, et un RecorderHttpClient permettant d'enregistrer et de rejouer des échanges HTTP.",
+        "url": "https://symfony.com/blog/a-week-of-symfony-1032-october-5-11-2026"
+      }
+    ]
+  },
+  {
     "date": "2026-10-13",
     "items": [
       {
