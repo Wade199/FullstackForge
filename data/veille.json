@@ -1,5 +1,28 @@
 [
   {
+    "date": "2026-10-15",
+    "items": [
+      {
+        "topic": "IA/LLM",
+        "title": "Anthropic renforce ses garde-fous électoraux avant les midterms américaines",
+        "summary": "Anthropic a annoncé l'ajout d'informations de vote officielles, fournies par Democracy Works, ainsi que de nouvelles mesures contre les abus électoraux dans Claude avant les élections de mi-mandat américaines du 3 novembre 2026.",
+        "url": "https://www.investing.com/news/stock-market-news/anthropic-to-add-us-voting-information-to-claude-before-midterms-4949935"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "Anthropic réduit de 90 à 99 % les données extraites par distillation",
+        "summary": "Anthropic indique que de nouvelles défenses techniques déployées sur Claude ont réduit de 90 à 99 % les données récupérées par des tentatives de distillation de modèle via son API, au prix d'une partie du trafic légitime bloqué par erreur.",
+        "url": "https://www.technology.org/2026/10/14/anthropic-claude-distillation-attacks-safeguards-90-99-percent/"
+      },
+      {
+        "topic": "Java/Spring",
+        "title": "This Week in Spring couvre l'intégration de JobRunr 9",
+        "summary": "L'édition du 13 octobre 2026 de This Week in Spring met en avant les nouvelles fonctionnalités de JobRunr 9, dont l'identification de l'étape ayant échoué dans un job et l'arrêt d'une exécution en cours sans perdre le travail déjà effectué.",
+        "url": "https://spring.io/blog/2026/10/13/this-week-in-spring-october-13th-2026/"
+      }
+    ]
+  },
+  {
     "date": "2026-10-14",
     "items": [
       {
