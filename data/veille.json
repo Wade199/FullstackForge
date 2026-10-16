@@ -1,5 +1,46 @@
 [
   {
+    "date": "2026-10-16",
+    "items": [
+      {
+        "topic": "IA/LLM",
+        "title": "Google se rapproche du lancement de Gemini 4",
+        "summary": "Google se rapproche de la sortie de Gemini 4, son premier modèle flagship depuis Gemini 3, après avoir renoncé à un Gemini 3.5 Pro initialement annoncé pour se concentrer sur des modèles Flash plus légers.",
+        "url": "https://www.sequenzy.com/email-examples/brands/the-information/emails/editor-s-pick-google-nears-release-of-flagship-gemini-4-ai-model"
+      },
+      {
+        "topic": "IA/LLM",
+        "title": "Le protocole MCP se généralise dans les frameworks d'agents IA",
+        "summary": "LangChain a ajouté un adaptateur MCP (MCPAdapter) permettant de connecter des serveurs MCP à ses agents, dans ses versions récentes LangChain 1.4.3 et LangGraph 1.2.13 publiées fin septembre et début octobre 2026.",
+        "url": "https://agentgid.com/changelogs/"
+      },
+      {
+        "topic": "Python/Django",
+        "title": "Python 3.15.0 disponible en version stable",
+        "summary": "Python 3.15.0 est sorti en version stable le 9 octobre 2026, avec des imports paresseux explicites, deux nouveaux types intégrés (frozendict et sentinel), l'UTF-8 comme encodage par défaut et des améliorations de performance du JIT.",
+        "url": "https://www.warp2search.net/story/python-3150rc3-release-candidate-announced-stable-release-set-for-october-9-2026/"
+      },
+      {
+        "topic": "Python/Django",
+        "title": "Django publie des correctifs de sécurité et adopte un cycle de release annuel",
+        "summary": "Django a publié des correctifs de sécurité pour les versions 6.1.2, 6.0.9 et 5.2.18 le 7 octobre 2026, tandis que son Steering Council a entériné le passage à un cycle de release annuel à partir de Django 2028 (DEP 20).",
+        "url": "https://techbytes.app/posts/django-security-releases-issued-612-609-and-5218/"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "Symfony lance un serveur de langage (LSP) officiel",
+        "summary": "Symfony a annoncé Symfony Language Tools, son serveur de langage officiel pour PHP, Twig et YAML, distribué comme extension native pour VS Code et compatible avec Neovim et Zed.",
+        "url": "https://symfony.com/blog/announcing-symfony-language-tools-the-official-symfony-lsp-server"
+      },
+      {
+        "topic": "PHP/Symfony",
+        "title": "PHP 8.5 devient la version par défaut chez certains hébergeurs",
+        "summary": "Depuis le 1er octobre 2026, PHP 8.5 est devenu la version par défaut sur certaines plateformes d'hébergement comme Clever Cloud, tandis que PHP 8.4 reste en support actif jusqu'au 31 décembre 2026.",
+        "url": "https://www.clever.cloud/developers/changelog/2026/09-01-php-8.5-default/"
+      }
+    ]
+  },
+  {
     "date": "2026-10-15",
     "items": [
       {
